@@ -1,0 +1,168 @@
+// email sidebar width when nav in mini mode
+.app.nav-min .main-container .content-container .page-email .email-sidebar {
+	&:before {
+		left: @site-nav-min-width;
+	}
+}
+
+.page-email {
+	margin: 0; padding: 0;
+	//==== sidebar - nav
+	.email-sidebar {
+		padding: 15px;
+		@media(min-width: @screen-md-min) {
+			padding: 30px;
+			width: @email-sidebar-width;
+			float: left;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			width: inherit;
+			top: 0; bottom: 0;
+			left: @site-nav-width;
+			background: @email-sidebar-bg;
+			display: block;
+			z-index: -2;
+		}
+
+		// ---- email sidebar
+		.email-nav {}
+		.email-nav > li {
+			&.active {
+				background: #fff;
+				border-left: 2px solid @brand-primary;
+				> a {font-weight: bold}
+			}
+			> a {
+				color: @text-color;
+				display: block;
+				padding: @padding-large-vertical @padding-base-horizontal;
+				> i {
+					margin-right: 10px;
+				}
+			}
+			&:not(.active):hover {
+				background: @gray-lightest;
+			}
+		}
+
+
+		.hr-line {
+			border-color: darken(@email-sidebar-bg, 5%);
+		}
+
+		// ---- email labels
+		.email-labels {}
+		.email-labels > li > a{
+			&:extend(.page-email .email-sidebar .email-nav > li > a all);
+			> i {
+				font-size: 10px;
+				.translate(0; -1px);
+			}
+		}
+		.email-labels > li:hover {
+			background: @gray-lightest;
+		}
+	}
+
+
+	// === email-content 
+	.email-content {
+		padding: 30px 15px;
+		@media (min-width: @screen-md-min) {
+			float: left;
+			padding: 30px;
+			width: calc(~'100% - @{email-sidebar-width}');
+		}
+
+		// lists
+		.email-lists {
+			background: #fff;
+			cursor: pointer;
+			> li > a {
+				color: @text-color;
+			}
+			> li {
+				padding: 15px 5px;
+				border-bottom: 1px solid darken(@email-sidebar-bg, 5%);
+				&.unread {
+					font-weight: bold;
+				}
+				&.checked {
+					background: @state-warning-bg;
+				}
+				.ui-checkbox {
+					margin: 0;
+					display: inline-block;
+				}
+				.email-summary {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;	// this insure text will never flow onto next line
+					> p {
+						margin-bottom: 0;
+					}
+				}
+
+			}
+		}
+
+	}
+
+	// === email-view
+	// ======================
+	.email-content .email-view {
+		background: #fff;
+		padding: 15px 20px;
+		> .head {
+			border-bottom: 1px solid @gray-lighter;
+			padding-bottom: 5px;
+			.date {font-size: @font-size-small; color: darken(@state-danger-bg, 30%)}
+		}
+		.sub-head {
+			border-bottom: 1px solid @gray-lighter;
+			padding-bottom: 5px;
+			.media-left img {
+				.square(32px);
+				border-radius: 100%;
+				float: left;
+				margin-right: 10px;
+			}
+			.media-body p {
+				margin-bottom: 0;
+				font-size: @font-size-small - 1;
+			}
+		}
+
+		.email-description {
+			.attachment {
+				overflow: hidden;
+				border: 1px solid @gray-lighter;
+				display: inline-block;
+				.size(200px; 180px);
+				text-align: center;
+				.text {
+					padding: 15px;
+				}
+			}
+			.attachment img {
+				
+				max-width: 100%;
+			}
+		}
+
+		.reply-box {
+			.wrap-box {
+				padding: 20px;
+				border: 1px solid @gray-lighter;
+				background:#fff;
+				height: 150px;
+			}
+		}
+
+	}
+
+
+// #end
+}

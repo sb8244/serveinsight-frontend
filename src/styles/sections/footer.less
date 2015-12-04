@@ -1,0 +1,19 @@
+.site-foot {
+	position: absolute;
+	bottom: -1px;
+	background: @site-foot-bg;
+	border-top: 1px solid @gray-lighter;
+	width: 100%;
+	height: @site-foot-height;
+	.transition(margin .25s ease-in);
+	padding: 15px 20px;
+	> p {
+		margin: 0;
+		font-size: 11px;
+	}
+	@media (min-width: @screen-sm-min) {
+		width: calc(~'100% - @{site-nav-width}');
+		margin-left: @site-nav-width;
+	}
+}
+

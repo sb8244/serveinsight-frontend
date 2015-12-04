@@ -1,0 +1,133 @@
+//
+// Inline turns list items into inline-block
+.list-inline > li:first-child {
+  padding-left: 0;
+}
+
+blockquote {
+	border-left: 3px solid @blockquote-border-color;
+}
+
+.blockquote-reverse,
+blockquote.pull-right {
+	border-right: 3px solid @blockquote-border-color;
+}
+
+
+
+small, .small { // overrided
+	font-size: 85%;
+}
+.x-small {
+	font-size: @font-size-xs;
+}
+.text-normal {
+	font-weight: normal;
+}
+
+.text-light {
+	font-weight: 100;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+
+.bg-primary, 
+.bg-success,
+.bg-info,
+.bg-warning,
+.bg-danger,
+.bg-dark,
+.bg-facebook,
+.bg-twitter,
+.bg-gplus,
+.bg-instagram,
+.bg-vimeo,
+.bg-flickr,
+.bg-github,
+.bg-linkedin,
+.bg-pinterest,
+.bg-dribbble,
+.bg-skype,
+.bg-behance,
+.bg-rss,
+.bg-youtube{
+	 color: #fff!important;
+}
+
+.bg-primary {
+	.bg-variant(@brand-primary)!important;
+}
+.bg-success {
+  .bg-variant(@brand-success)!important;
+}
+.bg-info {
+  .bg-variant(@brand-info)!important;
+}
+.bg-warning {
+  .bg-variant(@brand-warning)!important;
+}
+.bg-danger {
+  .bg-variant(@brand-danger)!important;
+}
+.bg-dark {
+	.bg-variant(@brand-menu)!important;
+}
+
+// social bgs
+.bg-twitter {
+	.bg-variant(@social-twitter)!important;
+}
+.bg-facebook {
+	.bg-variant(@social-facebook)!important;
+}
+.bg-gplus {
+	.bg-variant(@social-gplus)!important;
+}
+.bg-instagram {
+	.bg-variant(@social-instagram)!important;
+}
+.bg-vimeo {
+	.bg-variant(@social-vimeo)!important;
+}
+.bg-flickr {
+	.bg-variant(@social-flickr)!important;
+}
+.bg-github {
+	.bg-variant(@social-github)!important;
+}
+.bg-linkedin {
+	.bg-variant(@social-linkedin)!important;
+}
+.bg-pinterest {
+	.bg-variant(@social-pinterest)!important;
+}
+.bg-dribbble {
+	.bg-variant(@social-dribbble)!important;
+}
+.bg-skype {
+	.bg-variant(@social-skype)!important;
+}
+.bg-behance {
+	.bg-variant(@social-behance)!important;
+}
+.bg-youtube {
+	.bg-variant(@social-youtube)!important;
+}
+
+
+
+.label-white {
+	background-color:#fff;
+	color: @text-color;
+	&[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(#fff, 10%);
+    }
+  }
+}
+
+

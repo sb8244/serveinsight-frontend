@@ -1,0 +1,28 @@
+.app.body-full {
+	background: #fff;
+
+	// hide header, navbar
+	#site-head,
+	#site-nav {
+		display: none;
+	}
+
+	.main-container {
+		height: 99.9%;	
+	}
+
+	#content {
+		margin: 0;
+		@media(min-width: @screen-sm-min) {
+			width: 100%;
+			margin: 0;
+		}
+	}
+
+	#site-foot {
+		margin: 0;
+		@media(min-width: @screen-sm-min) {
+			width: 100%;
+		}
+	}
+}

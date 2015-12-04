@@ -1,0 +1,38 @@
+.page-lock {
+	&:extend(.page-auth);
+	.lock-container {
+		.vertical-center();
+	}
+
+	.lock-info {
+		.user-pic {
+			border-radius: 100%;
+			margin: 0 auto;
+			display: block;
+			@media (min-width: @screen-sm-min) {
+				float: left;
+			}
+		}
+		.user-info {
+			margin-top: 15px;
+			text-align: center;
+			@media (min-width: @screen-sm-min) {
+				margin-left: 30px;
+				float: left;
+				text-align: left;
+			}
+			.username {
+				margin-bottom: 0;
+				font-weight: 800;
+			}
+			.desig {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	.lock-box {
+		&:extend(.page-auth .auth-container .form-container);
+	}
+
+}

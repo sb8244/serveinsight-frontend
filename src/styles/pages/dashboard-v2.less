@@ -1,0 +1,153 @@
+.page-dashboard-v2 {
+
+	/** mini boxes */
+	.mini-boxes {
+		.panel-body {
+			padding-bottom: 5px;
+		}
+		.right-side {
+			> i {
+				font-size: @font-size-h1;
+				margin-top: -5px;
+				display: inline-block;
+			}
+		}
+		&.one {
+			border-top: 2px solid @brand-success;
+			.icon {color: @brand-success;}
+		}
+
+		&.two {
+			border-top: 2px solid @brand-info;
+			.icon {color: @brand-info}
+		}
+
+		&.three {
+			border-top: 2px solid @brand-primary;
+			.icon {color: @brand-primary}
+		}
+
+		&.four {
+			border-top: 2px solid @brand-warning;
+			.icon {color: @brand-warning}
+		}
+	}
+
+	/** social-box */
+	.social-box {
+		.facebook-widget, .twitter-widget {
+			padding: 0;
+			text-align: center;
+			.icon {
+				padding: 16px;
+				font-size: @font-size-h1;
+				
+				color: #fff;
+				display: block;
+			}
+			ul > li {
+				display: inline-block;
+				width: 50%;
+				border-right: 1px solid @gray-lightest;
+				float: left;
+				padding: 15px;
+				text-align: center;
+				> strong {display: block;}
+			}
+
+		}
+		.facebook-widget {
+			.icon {background: @social-facebook}			
+		}
+		.twitter-widget {
+			.icon {background: lighten(@social-twitter, 5%);}	
+		}
+
+	}
+
+
+	/** user-feed */
+	.user-feed {
+		border-top: 2px solid @brand-primary;
+		.top-info {
+			border-bottom: 1px solid @gray-lighter;
+			padding-bottom: 15px;
+		}
+		.left-side, .right-side {
+			float: left;
+			display: inline-block;
+		}
+
+		.left-side {
+			width: 75%;
+			padding-right: 15px;
+		}
+		.right-side {
+			width: 25%;
+			text-align: center;
+			> img {
+				.square(52px);
+				border-radius: 100%;
+			}
+			> .rating {
+				text-align: center;
+				margin-top: 15px;
+			}
+		}
+		.user-badges {
+			> li {
+				float: left;
+				text-align: center;
+				border-right: 1px solid @state-success-bg;
+				> i {
+					font-size: @font-size-base + 2;
+				}
+				> strong {
+					display: block;
+					font-size: @font-size-h4;
+				}
+				&:last-child {
+					border-color: transparent;
+				}
+			}
+		}
+
+	}
+
+	// ==== browser share
+	.browser-share {
+		text-align: center;
+		.panel-body {
+			padding: 20px;
+			padding-top: 0px;
+		}
+	}
+
+	// ----- messages widget
+	// ======================
+	.messages-widget {
+		border-top: 2px solid @brand-primary;
+		.top-lead {
+			padding: 10px 20px;
+			border-bottom: 1px solid @gray-lighter;
+			i.icon {float: left; font-size:@font-size-h1; margin-right: 10px;}
+		}
+		.message-summary {
+			border-bottom: 1px dashed @gray-lighter;
+			margin-bottom: 15px;
+		}
+	}
+
+
+	// ==== project-table
+	// ==================
+
+	.project-table {
+		border-top: 2px solid @brand-primary;
+		table tbody tr td {
+			padding: 15px 20px;
+		}
+	}
+
+	
+}

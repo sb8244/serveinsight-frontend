@@ -1,0 +1,17 @@
+.page-err {
+	&:extend(.page-auth);
+
+	.err-container {
+		.vertical-center();
+
+		.err-no {
+			font-size: @font-size-h1*2;
+			font-weight: 800;
+			text-shadow: hsl(0,0%,24%) 1px 1px, hsl(0,0%,24%) 2px 2px, hsl(0,0%,24%) 3px 3px;
+		}
+	}
+
+	.err-container .form-container {
+		&:extend(.page-auth .auth-container .form-container);
+	}
+}

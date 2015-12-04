@@ -1,0 +1,66 @@
+.site-head .head-wrap {
+	positon: relative;
+
+	.site-nav-horizontal {
+		width: 100%;
+		padding-left: 15px;
+		background: #fff;
+		border-bottom: 1px solid @gray-lighter;
+		.back-to-main {
+			color: @text-color;
+			padding: 12px @padding-base-horizontal;
+			display: inline-block;
+		}
+
+		ul.menus {
+			// border: 1px solid;
+			width: 100%;
+			li, li > a{
+				display: block;
+			}
+			li > a {
+				color: @text-color;
+				padding: @padding-large-vertical @padding-base-horizontal;
+			}
+		}
+		.log-out {
+			color: @text-color;
+			padding: 0px 15px;
+			display: inline-block;
+			padding-bottom: 20px;
+		}
+
+		// for desktop
+		@media(min-width: @screen-sm-min) {
+			border-bottom: none;
+			.clearfix();
+			.back-to-main {
+				color: #fff;
+				background: @brand-success;	
+				padding: 20.5px;
+				float: left;			
+			}
+			ul.menus {
+				// border: 1px solid;
+				.vertical-center();
+				width: auto;
+				float: left;
+				margin-top: 10px;
+				margin-left: 15px;
+				// padding-right: 15px;
+				> li {display: inline-block;}
+				
+			}
+			.log-out {
+				float: right;
+				padding: 12px 15px;
+				margin-top: 10px;
+			}
+
+		}
+
+
+	}
+	
+	
+}

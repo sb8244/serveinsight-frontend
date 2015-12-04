@@ -1,0 +1,164 @@
+.page-widgets {
+	// widget one (profile widget)
+	// ============================
+	.widget-one {
+		text-align: center;
+		img {
+			border-radius: 100%;
+			border: 4px solid @gray-lighter;
+			margin-bottom: 15px;
+			.square(120px);
+		}
+
+		.panel-footer {
+			background: @brand-primary;
+			color: #fff;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			
+		}
+		.panel-footer ul > li  {
+			h4 {color: #fff; margin-bottom: 5px}
+		}
+	}
+
+	// widget two (minibox widget)
+	// ============================
+
+	.widget-two {
+		.top-left, .top-right,
+		.bottom-left, .bottom-right {
+			width: 50%;
+			background: #fff;
+			text-align: center;
+			border: 1px solid @gray-lighter;
+			float: left;
+			padding-bottom: 25px;
+			padding-top: 20px;
+			.icon {
+				font-size: @font-size-h1*1.32;
+			}
+			h4 {
+				margin-bottom: 0;
+				margin-top: 0;
+				font-weight: 800;
+			}
+		}
+	}
+
+
+
+	// widget three (list widget)
+	// ============================
+	.widget-three {
+		background: #fff;
+		ul {
+			border: 1px solid @gray-lighter;
+			> li {
+				padding: 15px @padding-large-horizontal;
+				border-bottom: 1px solid @gray-lighter;
+				cursor:pointer;
+				&:hover {
+					background: @gray-lightest;
+				}
+			}
+			> li > i {display: inline-block; width: 20px;}
+		}
+	}
+
+	// widget four (chat box widget)
+	// ==============================
+	.widget-four {
+		.reply-msg, .send-msg {
+			.user {
+				border-radius: 100%;
+				.square(48px);
+				border: 2px solid @gray-lighter;
+			}
+			.msg-box {
+				padding: 12px 20px;
+				margin-top: 10px;
+				p {margin-bottom: 4px;}
+				p:last-child {margin-bottom: 0}
+				position: relative;
+			}
+			.time {margin-top: 4px; }
+
+			// create tip
+			.msg-box:before, .msg-box:after {
+				position: absolute;
+				content: "";
+				border-style: solid;
+			}
+		}
+		// first (reply-box)
+		.reply-msg {
+			.msg-box {
+				border: 1px solid @gray-lighter;
+				margin-left: 30px;
+			}
+			.msg-box:before {
+				border-color: @gray-lighter transparent;
+				border-width: 15px 0 0 15px;
+				left: -15px;
+				top: -1px;
+			}
+			.msg-box:after {
+				border-color: #fff transparent;
+				border-width: 13px 0 0 13px;
+				left: -13px;
+				top: 0;
+			}
+		}
+		// second (send-box)
+		.send-msg {
+			.msg-box {
+				margin-right: 30px;
+				border: 1px solid @brand-primary;
+				background: @brand-primary;
+				color: #fff;
+			}
+			.msg-box:before {
+				border-color: @brand-primary transparent;
+				border-width: 15px 15px 0 0;
+				right: -15px;
+				top: -1px;
+			}
+			.msg-box:after {
+				border-color: transparent;
+			}
+		}
+	}
+
+
+
+	// widget five (share-post widget)
+	// ==============================
+	.widget-five {
+		.post-area {
+			padding: 20px;
+			&:focus {
+				border: 1px solid @gray-lighter;
+				box-shadow: none;
+			}
+		}
+		.post-tools {
+			padding: 10px 20px;
+			background: @gray-lighter;
+			> li {
+				display: inline-block;
+				a {
+					color: @text-color;
+					font-size: @font-size-large;
+					padding:4px 10px;
+					display: inline-block;
+				}
+
+			}
+		}
+	}
+
+
+
+
+}

@@ -1,0 +1,130 @@
+.app.nav-min .theme-settings {
+	display: none;
+}
+
+
+.theme-settings {
+	> .panel-heading {
+		&:extend(.main-container .nav-wrap .site-nav .nav-title all);
+	}
+	ul {
+		padding-left: @layout-padding;
+		padding-right: 10px;
+		opacity: .4;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	ul > li {
+		display: inline-block;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		position: relative;
+		&.active {
+			&:before {
+				.size(100%; 90%);
+				content: "";
+				position: absolute;
+				top: 0; left: 0;
+				background: @gray;
+				z-index: 999;
+			}
+			&:after {
+				position: absolute;
+				content: "\f00c";
+				font-family: 'FontAwesome';
+				top: 5px; left: 8px;
+				color: #fff;
+				z-index: 9999;
+			}
+		}
+	}
+	ul > li > a {
+		display: inline-block;
+		.size(30px; 30px);
+		position: relative;
+		overflow: hidden;
+		background: darken(@gray-lighter, 2%);
+		&:hover:before {
+			content: "";
+			position: absolute;
+			.size(100%; 100%);
+			background: @gray;
+			z-index: 9999;
+			opacity: .95;
+		}
+		> span {display: inline-block; position: absolute;}
+		.header {
+			.size(65%; 10px);
+			left: 35%;
+		}
+		.side-top {
+			.size(35%; 10px);
+		}
+		.side-rest {
+			.size(35%; 20px);
+			top: 10.5px;
+		}
+	}
+	// colors
+	ul > li:nth-child(1) > a {
+		.header { background: #fff}
+		.side-top {background: #232429}
+		.side-rest { background: lighten(#232429, 2%)}
+	}
+
+	ul > li:nth-child(2) > a {
+		.header { background: #fff}
+		.side-top {background: #5974D9}
+		.side-rest { background: #3F4457}
+	}
+
+	ul > li:nth-child(3) > a {
+		.header { background: #fff}
+		.side-top {background: #232429}
+		.side-rest { background: #fff}
+	}
+
+	ul > li:nth-child(4) > a {
+		.header { background: #fff}
+		.side-top {background: #fff}
+		.side-rest { background: lighten(#3B3435, 5%)}
+	}
+
+	ul > li:nth-child(5) > a {
+		.header { background: #232429}
+		.side-top {background: #232429}
+		.side-rest { background: #fff}
+	}
+
+	ul > li:nth-child(6) > a {
+		.header { background:#fff}
+		.side-top {background: #263238}
+		.side-rest { background: desaturate(#263238, 5%)}
+	}
+
+	ul > li:nth-child(7) > a {
+		.header { background: #fff}
+		.side-top {background: #1A237E}
+		.side-rest { background: #fff}
+	}
+
+
+	ul > li:nth-child(8) > a {
+		.header { background: #fff}
+		.side-top {background: #fff}
+		.side-rest { background: #311B92}
+	}
+
+	ul > li:nth-child(9) > a {
+		.header { background: #3949AB}
+		.side-top {background: #3949AB}
+		.side-rest { background: #fff}
+	}
+	ul > li:nth-child(10) > a {
+		.header { background: #fff}
+		.side-top {background: #fff}
+		.side-rest { background: darken(#263238, 5%);}
+	}
+}
+

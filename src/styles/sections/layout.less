@@ -1,0 +1,128 @@
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+// ==== site-head (fixed)
+.site-head {
+	position: fixed;
+	left: 0; right: 0;
+	width: 100%;
+	height: @site-head-height + 1;
+}
+
+.main-container {
+	width: 100%;
+	overflow: hidden;
+	min-height: 99.92%;
+	position: relative;	
+}
+
+// ==== nav-wrap (fixed)
+.main-container .nav-wrap {
+	width: @site-nav-width;
+	position: fixed; 
+	overflow-y: auto;
+	top: @site-head-height*2 - 1; bottom: 0;
+	.translate(-@site-nav-width; 0);
+	@media (min-width: @screen-sm-min) {
+		overflow: hidden;	// it's must for custom scrollbar
+		top: @site-head-height;
+		.translate(0; 0);
+	}
+}
+
+
+
+// default overflow when nav in min
+.app.nav-min .main-container .nav-wrap {
+	@media (min-width: @screen-sm-min) {
+		overflow: visible;
+	}
+	
+}
+
+
+
+
+.main-container .content-container {
+	// border: 1px solid;
+	.square(100%);
+	margin-top: @site-head-height*2;
+	@media (min-width: @screen-sm-min) {
+		width: calc(~'100% - @{site-nav-width}');
+		margin-top: @site-head-height;
+		margin-left: @site-nav-width;
+	}
+}
+
+
+// alignments of elements when nav is mini mode
+.app.nav-min .main-container .content-container,
+.app.nav-min .main-container .site-foot{
+	margin-left: @site-nav-min-width;
+	@media (min-width: @screen-sm-min) {
+		width: calc(~'100% - @{site-nav-min-width}');
+	}
+}
+
+
+
+
+/// ============= layout horizontal 
+/// ===============================
+.app.layout-horizontal {
+	&.nav-min {
+		.main-container .content-container {
+			width: @container-lg;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	&.nav-min .site-head .nav-head {
+		.site-logo {
+			display: block;
+			padding-left: @layout-padding;
+		}
+	}
+	.site-head .nav-head {
+		height: @site-head-height;
+		@media(min-width: @screen-sm-min) {
+			width: 140px;
+		}
+	}
+	.site-head .head-wrap {
+		@media(max-width: @screen-sm-max) {height: 0}
+		.site-nav-horizontal-wrapper {
+			@media(min-width: @screen-sm-min) {display: block!important}
+		}
+		.site-nav-horizontal {
+			display: block;
+		}
+		.navbar-right {
+			li {display: none;}
+		}
+	}
+	.site-head .nav-head .nav-trigger {
+		@media(min-width: @screen-sm-min) {display: none}
+	}
+	.main-container .nav-wrap {
+		display: none;
+	}
+	.main-container .content-container {
+		margin-left: auto;
+		margin-top: @site-head-height;
+	}
+	.main-container .site-foot {
+		margin-left: auto;
+		@media (min-width: @screen-sm-min) {
+			width: 100%;
+		}
+	}
+}
+
+
+
+
+
+

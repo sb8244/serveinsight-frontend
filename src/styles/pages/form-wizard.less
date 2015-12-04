@@ -1,0 +1,31 @@
+.page-form-wizard {
+
+	// wizard tabs
+	.wizard-tabs {
+		li {
+			display: inline-block;
+			
+			> i {
+				display: inline-block;
+				margin-left: 15px;
+				margin-right: 15px;
+			}
+			> .text {
+				border: 1px solid @gray-lighter;
+				background: @gray-lightest;
+				padding: @padding-large-vertical @padding-large-horizontal;
+				display: inline-block;
+			}
+			&.active {
+				> .text {
+					border-color: @brand-primary;
+					background: @brand-primary;
+					color: #fff;
+				}
+				
+			}
+		}
+	}
+
+	
+}

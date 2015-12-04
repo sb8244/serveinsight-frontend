@@ -1,0 +1,53 @@
+.page-project-detail {
+
+	.project-detail {
+		border-top: 4px solid @gray-lighter;
+		padding: 10px 20px;
+	}
+	.project-detail {
+		.description {
+			dl {}
+			dl dt, dl dd { display: inline-block }
+			dl dt {
+				margin-right: 20px;
+				float: left;
+			}
+			dl dd { float: right }
+		}
+		.members-list, .project-progress {
+			> .title {
+				border-bottom: 1px solid @gray-lighter;
+				padding-bottom: 10px;
+			}
+		}
+		.members-list > img {
+			.square(32px);
+			border-radius: 32px;
+			margin-right: 5px;
+		}
+
+
+		// ---- user-comments
+		.user-comments {
+			.comment {
+				border-bottom: 1px dashed @gray-lighter;
+			}
+			.comment > .media-object {
+				img {.square(42px); margin-right: 10px; }
+			}
+			.comment .comment-body {
+				.desc {margin-left: 50px}
+				.desc {margin-bottom: 15px;}
+				.desc > p {margin-bottom: 0}
+				.desc img {
+					border-radius: 100%; .square(28px);
+					margin-right: 5px;
+				}
+			}
+
+		
+		}
+
+
+	}
+}

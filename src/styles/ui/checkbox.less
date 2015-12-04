@@ -1,0 +1,159 @@
+.ui-checkbox {
+	position: relative;
+	display: block;
+	margin-bottom: 15px;
+	@size: 16px; @centered: 1px;
+	@check-x: 4px; @check-y: 2px;
+
+	label.ui-checkbox-inline {
+		margin-right: 8px;
+	}
+	// border: 1px solid;
+	label {
+		font-weight: normal;
+		cursor: pointer;
+		margin-bottom: 0;
+		.user-select(none);
+		position: static; // important
+		> input {
+			cursor: pointer;
+			display: none;
+			margin-left: -15px;
+		}
+		> input[disabled], > input[readonly] {
+			+ span, + i {
+				opacity: .6;
+				cursor: not-allowed;
+			}
+		}
+		> span, > i {
+			position: relative;
+			padding-left: 24px;
+
+			&:before, &:after {
+				position: absolute;
+				.transition(.25s);
+			}
+			&:before {
+				content: "";
+				.square(@size);
+				top: @centered; left: 0;
+				border-radius: 2px;
+				border: 1px solid @ui-checkbox-border;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, .03);
+				background-color: @ui-checkbox-bg;
+			}
+		}
+
+		> input:checked {
+			+ span:after, + i:after {
+				content: "✔";
+				left: @check-x; top:@check-y;
+				font-size: 10px;
+				color: @ui-checkbox-color;
+			}
+		}
+	}
+
+	// ====== circled checkbox
+	&.ui-checkbox-circled {
+		label {
+			> span:before, > i:before {
+				border-radius: 100%;
+				top: @centered + 1!important;
+			}
+			> span:after, > i:after {
+				font-size: 9px!important;
+				top: @check-y + 1.5!important;
+				left: @check-x + .3!important;
+			}
+		}
+	}
+	// #end
+
+}
+
+
+.ui-checkbox + .ui-checkbox,
+.ui-radio + .ui-radio {
+	margin-top: -5px;
+}
+
+// ===== Radio Buttons
+.ui-radio {
+	@size: 16px; @centered: 1px;
+	@dot-size: 6px;
+	&:extend(.ui-checkbox all);
+	label.ui-radio-inline {
+		margin-right: 8px;
+	}
+
+	label {
+		> span:before, > i:before {
+			border-radius: 100%;
+			top: @centered;
+		}
+		> input:checked {
+			+ span:after, + i:after {
+				content: "";
+				.square(@dot-size);
+				border-radius: 100%;
+				top: @dot-size; left: @dot-size/2 + 2;
+				background: @ui-checkbox-color;
+			}
+		}
+	}
+	// #end
+}
+
+
+
+
+.ui-checkbox-variant(@color; @border; @background-color) {
+	label {
+		> input:checked {
+			+ span:after, + i:after {
+				color: @color;
+			}
+			+ span:before, + i:before {
+				background-color: @background-color;
+				border: 1px solid @border;
+			}
+		}
+	}
+}
+
+.ui-checkbox-default, .ui-radio-default{
+	.ui-checkbox-variant(@ui-checkbox-default-color; @ui-checkbox-default-border; @ui-checkbox-default-bg);
+}
+
+.ui-checkbox-primary, .ui-radio-primary {
+	.ui-checkbox-variant(@ui-checkbox-primary-color; @ui-checkbox-primary-border; @ui-checkbox-primary-bg);
+}
+
+.ui-checkbox-success, .ui-radio-success {
+	.ui-checkbox-variant(@ui-checkbox-success-color; @ui-checkbox-success-border; @ui-checkbox-success-bg);
+}
+
+.ui-checkbox-warning, .ui-radio-warning {
+	.ui-checkbox-variant(@ui-checkbox-warning-color; @ui-checkbox-warning-border; @ui-checkbox-warning-bg);
+}
+
+.ui-checkbox-danger, .ui-radio-danger {
+	.ui-checkbox-variant(@ui-checkbox-danger-color; @ui-checkbox-danger-border; @ui-checkbox-danger-bg);
+}
+
+.ui-checkbox-info, .ui-radio-info {
+	.ui-checkbox-variant(@ui-checkbox-info-color; @ui-checkbox-info-border; @ui-checkbox-info-bg);
+}
+
+// ==== override background-color;
+.ui-radio-default, .ui-radio-primary, .ui-radio.success, .ui-radio-warning, .ui-radio-danger, .ui-radio-info {
+	label > input:checked {
+		+ span:after, + i:after {
+			background-color: #fff;
+		}
+	}
+}
+
+

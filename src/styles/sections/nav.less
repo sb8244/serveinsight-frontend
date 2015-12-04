@@ -1,0 +1,119 @@
+.main-container .nav-wrap {
+	background: @site-nav-bg;
+	-webkit-transition: -webkit-transform .25s ease-in;
+	transition: transform .25s ease-in;
+	box-shadow: inset -2px 0 2px darken(@site-nav-bg, 1%);
+	z-index: @zindex-navbar;
+
+	// ===== Search box 
+	.form-search {
+		position: relative;
+
+		input {
+			border-right: none;
+			border: 1px solid @gray-lighter;
+			padding-right: 32px;
+			border-radius: 0;
+			font-style: italic;
+			height: @site-search-height;
+			color: lighten(@text-color, 5%);
+			&:focus {
+				box-shadow: inset 0 0 10px rgba(0, 0, 0, .1);
+				content: "";	// remove cross mark in ie10
+			}
+		}
+		button {
+			border:none;
+			position: absolute;
+			top: 15px; right: 8px;
+			background: transparent;
+		}
+	}
+
+
+	// === new horizontal layout btn
+	// ==================
+	.new-horizontal-layout {
+		width: 100%;
+		padding: 12px 20px;
+		background: @brand-success;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	// ====== site-nav
+	.site-nav {
+		// == nav-title
+		.nav-title {
+			background: transparent;
+			border: none;
+			margin: 10px 0;
+			color: @site-nav-color;
+			> i {
+				font-weight: normal;
+				&:before, &:after {background: @site-nav-color}
+				&:before { top: 4px}
+				&:after {top: 8px}
+			}
+		}
+
+		// === nav-list
+		> .nav-list > li {
+			position: relative;
+			&:hover, &.open {	// open class for nested nav
+				> a {color: @site-nav-hover-color}
+			}
+			&.open > a .arrow {
+				.rotate(90deg);
+			}
+		}
+		// active class for route changes
+		> .nav-list li.active > a {
+			background: @site-nav-open-bg;
+		}
+		> .nav-list > li > a {
+			color: @site-nav-color;
+			display: block;
+			padding: @padding-large-vertical*1.5 @padding-base-horizontal;
+			padding-left: @layout-padding;
+			.transition(.25s ease);
+			.icon {
+				margin-right: 8px;
+			}
+			.text {
+				display: inline-block;
+			}
+			.arrow {
+				.translate(0; 1px);
+				padding: 0 4px;
+			}
+
+		}
+
+		.nav-list > li.open .inner-drop {
+			display: block;
+		}
+
+		// === sub-drop
+		.nav-list > li .inner-drop {
+			display: none;
+			background: @site-nav-inner-drop-bg;
+			border-bottom: 1px solid @site-nav-open-bg;
+			a {
+				padding: @padding-large-vertical @padding-large-horizontal*2.6;
+				display: block;
+				color: @site-nav-color;
+				&:hover {
+					color: @site-nav-hover-color;
+				}
+			}
+		}
+
+	}
+
+	// #end .nav-wrap
+}
+
+
+
+

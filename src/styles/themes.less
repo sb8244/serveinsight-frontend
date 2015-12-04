@@ -1,0 +1,441 @@
+
+// =====================
+//  THEME ONE
+//  ====================
+
+.app.theme-one {
+	@site-nav-bg: #343848;
+	@nav-head-bg: #5974d9;
+	// header 
+	.site-head {
+		.nav-head { 
+			background: @nav-head-bg;
+			box-shadow: inset -1px 0 1px darken(@nav-head-bg, 3%); 
+		}
+		.site-logo { color: #fff }
+		.nav-trigger { 
+			background: @nav-head-bg;
+			color: #fff;
+		}
+	}
+	// #end site-head
+
+	// vertical nav
+	.main-container .nav-wrap {
+		background: lighten(@site-nav-bg, 5%);
+		box-shadow:none ;
+		.site-nav {
+			> .nav-list li.active > a { background: darken(@site-nav-bg, 2.5%) }
+			> .nav-list > li .inner-drop {
+				background: darken(@site-nav-bg,4%);
+				border-bottom-color: darken(@site-nav-bg,5%);
+			}
+		}
+		// #end site-nav
+	}
+
+	// #end nav-wrap 
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: @nav-head-bg;
+	}
+
+}
+// ##end theme-one
+
+
+
+
+// =====================
+//  THEME TWO
+//  ====================
+
+.app.theme-two {
+	// vertical nav
+	.main-container .nav-wrap {
+		background: #fff;
+		box-shadow: inset -1px 0 @gray-lighter;
+		.form-search input {
+			border-color: @gray-lightest;
+			&:focus {box-shadow: inset 0 0 10px rgba(0, 0, 0, .05)}
+		}
+		.site-nav {
+			.nav-title {
+				color: lighten(@text-color, 10%);
+				> i:before, > i:after {background: lighten(@text-color, 10%);}
+			}
+			> .nav-list > li:hover > a, > .nav-list > li.open > a { color: @brand-info }
+			> .nav-list li.active > a { background: @gray-lighter }
+			> .nav-list > li > a { color: @text-color }
+			> .nav-list > li .inner-drop {
+				background: #fff;
+				border-bottom-color: @gray-lighter;
+				a { color: lighten(@text-color, 10%) }
+				a:hover { color: darken(@text-color, 15%)}
+			}
+		}
+		// #end site-nav
+	}
+	// #end nav-wrap 
+	// 
+	
+}
+// ##end theme-two
+
+
+// =====================
+//  THEME THREE
+//  ====================
+
+.app.theme-three {
+	// header 
+	.site-head {
+		.nav-head { 
+			background: #fff;
+			box-shadow: inset -1px 0 1px rgba(100, 100, 100, .1);
+		}
+		.site-logo { color: @text-color }
+		.nav-trigger { 
+			background: #fff;
+			color: @text-color;
+			@media(min-width: @screen-sm-min) {
+				&:before { border-color: @gray-lighter }
+			}
+		}
+		.head-wrap {
+			background: #fff;
+			border-bottom: 1px solid @gray-lighter;
+			box-shadow: none;
+			> ul > li > a { color: @text-color }
+		}
+	}
+	// #end site-head
+	
+	// vertical nav
+	.main-container .nav-wrap {
+		@site-nav-bg: #3b3435;
+		background: @site-nav-bg;
+		box-shadow:none ;
+		.site-nav {
+			> .nav-list li.active > a { background: darken(@site-nav-bg, 2.5%) }
+			> .nav-list > li .inner-drop {
+				background: darken(@site-nav-bg,4%);
+				border-bottom-color: darken(@site-nav-bg,5%);
+			}
+		}
+		// #end site-nav
+	}
+	
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: #fff;
+	}
+}
+// ##end theme-three
+
+
+
+
+// =====================
+//  THEME FOUR
+//  ====================
+
+.app.theme-four {
+	@site-nav-bg: #464a51;
+	.site-head {
+
+		.nav-trigger {background: @site-nav-bg}
+
+		.nav-head {
+			background: @site-nav-bg;
+			box-shadow: inset -1px 0 1px darken(@site-nav-bg, 3%); 
+		}
+		
+		.head-wrap {
+			background: @site-nav-bg;
+			border-bottom: 1px solid @gray-lighter;
+			> ul > li.open , > ul > li:hover { box-shadow: inset 0 2px @gray-lighter}
+			> ul > li > a { color:#fff }
+		}
+	}
+	// #end site-head
+
+	// vertical nav
+	.main-container .nav-wrap {
+		background: #fff;
+		box-shadow: inset -1px 0 @gray-lighter;
+		.form-search input {
+			border-color: @gray-lightest;
+			&:focus {box-shadow: inset 0 0 10px rgba(0, 0, 0, .05)}
+		}
+		.site-nav {
+			.nav-title {
+				color: lighten(@text-color, 10%);
+				> i:before, > i:after {background: lighten(@text-color, 10%);}
+			}
+			> .nav-list > li:hover > a, > .nav-list > li.open > a { color: @brand-info }
+			> .nav-list li.active > a { background: @gray-lighter }
+			> .nav-list > li > a { color: @text-color }
+			> .nav-list > li .inner-drop {
+				background: #fff;
+				border-bottom-color: @gray-lighter;
+				a { color: lighten(@text-color, 10%) }
+				a:hover { color: darken(@text-color, 15%)}
+			}
+		}
+		// #end site-nav
+	}
+	// #end nav-wrap 
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: @site-nav-bg;
+	}
+}
+// ##end theme-four
+
+
+
+// =====================
+//  THEME FIVE
+//  ====================
+.app.theme-five {
+	@site-nav-bg: #263238;
+	@nav-head-bg:  desaturate(#263238, 5%);
+	// header 
+	.site-head {
+		.nav-head { 
+			background: @nav-head-bg;
+			box-shadow: inset -1px 0 1px darken(@nav-head-bg, 3%); 
+		}
+		.site-logo { color: #fff }
+		.nav-trigger { 
+			background: @nav-head-bg;
+			color: #fff;
+		}
+	}
+	// #end site-head
+
+	// vertical nav
+	.main-container .nav-wrap {
+		background: lighten(@site-nav-bg, 5%);
+		box-shadow:none ;
+		.site-nav {
+			> .nav-list li.active > a { background: darken(@site-nav-bg, 2.5%) }
+			> .nav-list > li .inner-drop {
+				background: darken(@site-nav-bg,4%);
+				border-bottom-color: darken(@site-nav-bg,5%);
+			}
+		}
+		// #end site-nav
+	}
+
+	// #end nav-wrap 
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: @nav-head-bg;
+	}
+}
+// #end theme-five
+
+
+
+// =====================
+//  THEME SIX
+//  ====================
+.app.theme-six {
+	@nav-head-bg: #1A237E;
+	// header 
+	.site-head {
+		.nav-head { 
+			background: @nav-head-bg;
+			box-shadow: inset -1px 0 1px darken(@nav-head-bg, 3%); 
+		}
+		.site-logo { color: #fff }
+		.nav-trigger { 
+			background: @nav-head-bg;
+			color: #fff;
+		}
+	}
+	// #end site-head
+	.main-container .nav-wrap {
+		background: #fff;
+		box-shadow: inset -1px 0 @gray-lighter;
+		.form-search input {
+			border-color: @gray-lightest;
+			&:focus {box-shadow: inset 0 0 10px rgba(0, 0, 0, .05)}
+		}
+		.site-nav {
+			.nav-title {
+				color: lighten(@text-color, 10%);
+				> i:before, > i:after {background: lighten(@text-color, 10%);}
+			}
+			> .nav-list > li:hover > a, > .nav-list > li.open > a { color: @brand-info }
+			> .nav-list li.active > a { background: @gray-lighter }
+			> .nav-list > li > a { color: @text-color }
+			> .nav-list > li .inner-drop {
+				background: #fff;
+				border-bottom-color: @gray-lighter;
+				a { color: lighten(@text-color, 10%) }
+				a:hover { color: darken(@text-color, 15%)}
+			}
+		}
+		// #end site-nav
+	}
+	// #end nav-wrap 
+}
+// #end theme-six
+
+
+
+// =====================
+//  THEME SEVEN
+//  ====================
+.app.theme-seven {
+	// header 
+	.site-head {
+		.nav-head { 
+			background: #fff;
+			box-shadow: inset -1px 0 1px rgba(100, 100, 100, .1);
+		}
+		.site-logo { color: @text-color }
+		.nav-trigger { 
+			background: #fff;
+			color: @text-color;
+			@media(min-width: @screen-sm-min) {
+				&:before { border-color: @gray-lighter }
+			}
+		}
+		.head-wrap {
+			background: #fff;
+			border-bottom: 1px solid @gray-lighter;
+			box-shadow: none;
+			> ul > li > a { color: @text-color }
+		}
+	}
+	// #end site-head
+	
+	// vertical nav
+	.main-container .nav-wrap {
+		@site-nav-bg: darken(#311B92, 5%);
+		background: @site-nav-bg;
+		box-shadow:none ;
+		.site-nav {
+			> .nav-list li.active > a { background: darken(@site-nav-bg, 2.5%) }
+			> .nav-list > li .inner-drop {
+				background: darken(@site-nav-bg,4%);
+				border-bottom-color: darken(@site-nav-bg,5%);
+			}
+		}
+		// #end site-nav
+	}
+	
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: #fff;
+	}
+}
+// #end theme-seven
+
+
+
+
+// =====================
+//  THEME EIGHT
+//  ====================
+.app.theme-eight {
+	@site-nav-bg: #3949AB;
+	.site-head {
+
+		.nav-trigger {background: @site-nav-bg}
+
+		.nav-head {
+			background: @site-nav-bg;
+			box-shadow: inset -1px 0 1px darken(@site-nav-bg, 3%); 
+		}
+		
+		.head-wrap {
+			background: @site-nav-bg;
+			border-bottom: 1px solid @gray-lighter;
+			> ul > li.open , > ul > li:hover { box-shadow: inset 0 2px @gray-lighter}
+			> ul > li > a { color:#fff }
+		}
+	}
+	// #end site-head
+
+	// vertical nav
+	.main-container .nav-wrap {
+		background: #fff;
+		box-shadow: inset -1px 0 @gray-lighter;
+		.form-search input {
+			border-color: @gray-lightest;
+			&:focus {box-shadow: inset 0 0 10px rgba(0, 0, 0, .05)}
+		}
+		.site-nav {
+			.nav-title {
+				color: lighten(@text-color, 10%);
+				> i:before, > i:after {background: lighten(@text-color, 10%);}
+			}
+			> .nav-list > li:hover > a, > .nav-list > li.open > a { color: @brand-info }
+			> .nav-list li.active > a { background: @gray-lighter }
+			> .nav-list > li > a { color: @text-color }
+			> .nav-list > li .inner-drop {
+				background: #fff;
+				border-bottom-color: @gray-lighter;
+				a { color: lighten(@text-color, 10%) }
+				a:hover { color: darken(@text-color, 15%)}
+			}
+		}
+		// #end site-nav
+	}
+	// #end nav-wrap 
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: @site-nav-bg;
+	}
+}
+
+
+
+
+// =====================
+//  THEME NINE
+//  ====================
+.app.theme-nine {
+	// header 
+	.site-head {
+		.nav-head { 
+			background: #fff;
+			box-shadow: inset -1px 0 1px rgba(100, 100, 100, .1);
+		}
+		.site-logo { color: @text-color }
+		.nav-trigger { 
+			background: #fff;
+			color: @text-color;
+			@media(min-width: @screen-sm-min) {
+				&:before { border-color: @gray-lighter }
+			}
+		}
+		.head-wrap {
+			background: #fff;
+			border-bottom: 1px solid @gray-lighter;
+			box-shadow: none;
+			> ul > li > a { color: @text-color }
+		}
+	}
+	// #end site-head
+	
+	// vertical nav
+	.main-container .nav-wrap {
+		@site-nav-bg: darken(#263238, 5%);
+		background: @site-nav-bg;
+		box-shadow:none ;
+		.site-nav {
+			> .nav-list li.active > a { background: darken(@site-nav-bg, 2.5%) }
+			> .nav-list > li .inner-drop {
+				background: darken(@site-nav-bg,4%);
+				border-bottom-color: darken(@site-nav-bg,5%);
+			}
+		}
+		// #end site-nav
+	}
+	
+	&.nav-min .site-head .nav-head .nav-trigger {
+		background: #fff;
+	}
+}
+// #end theme-nine
+

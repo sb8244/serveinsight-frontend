@@ -1,10 +1,14 @@
 /* global moment:false */
 
+import {} from './dashboard/module';
+import {} from './surveys/module';
+
 import { config } from './index.config';
-import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { HeaderDirective } from '../app/components/header/header.directive';
-import { CustomScrollbarDirective } from '../app/components/custom_scrollbar/directive';
+import { HeaderDirective } from './components/header/header.directive';
+import { NavDirective } from './components/nav/nav.directive';
+import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
+import { SurveyDirective } from './components/survey/survey.directive';
 
 angular.module('frontend',
   [
@@ -13,16 +17,18 @@ angular.module('frontend',
     'ngTouch',
     'ngSanitize',
     'ngMessages',
-    'ngAria',
+    'angularMoment',
     'restangular',
     'ui.router',
-    'toastr',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'dashboard',
+    'surveys'
   ])
   .constant('moment', moment)
   .config(config)
-  .config(routerConfig)
   .run(runBlock)
   .directive('appHeader', HeaderDirective)
+  .directive('appNav', NavDirective)
   .directive('customScrollbar', CustomScrollbarDirective)
+  .directive('survey', SurveyDirective)
 ;

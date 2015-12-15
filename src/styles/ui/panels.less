@@ -2,6 +2,30 @@
 	box-shadow: none;
 	margin-bottom: 0;
 
+	&.success {
+		border-top: 2px solid @brand-success;
+		.icon {color: @brand-success;}
+	}
+
+	&.info {
+		border-top: 2px solid @brand-info;
+		.icon {color: @brand-info}
+	}
+
+	&.primary {
+		border-top: 2px solid @brand-primary;
+		.icon {color: @brand-primary}
+	}
+
+	&.warning {
+		border-top: 2px solid @brand-warning;
+		.icon {color: @brand-warning}
+	}
+
+  &.danger {
+    border-top: 2px solid @brand-danger;
+    .icon {color: @brand-danger}
+  }
 }
 .panel-lined {
 	border: 1px solid @panel-default-border;
@@ -16,7 +40,6 @@
 		> i:before, > i:after { background: #fff }
 	}
 }
-
 
 
 

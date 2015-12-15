@@ -1,0 +1,23 @@
+<div class="page clearfix">
+    <ol class="breadcrumb breadcrumb-small">
+        <li>Serve Insight</li>
+        <li class="active">
+            <a ui-sref="surveys.mine">My Surveys</a>
+        </li>
+    </ol>
+
+    <div class="page-wrap mt15">
+      <div class="row">
+        <tabset class="tabs-side">
+          <tab ng-repeat="survey in ctrl.surveyList.surveys">
+            <tab-heading>
+              {{ survey.title }}
+              <span ng-hide="survey.completed" class="badge badge-success">new</span>
+            </tab-heading>
+
+            <survey survey="survey"></survey>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+</div>

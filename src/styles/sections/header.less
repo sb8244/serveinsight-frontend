@@ -42,7 +42,7 @@
 
 	// ===== Header-bar
 	.head-wrap {
-		height: inherit;	
+		height: inherit;
 		background: @site-head-bg;
 		border-bottom: 1px solid @gray-lighter;
 		box-shadow: 0 1px rgba(100, 100, 100, .02);
@@ -51,7 +51,7 @@
 		}
 		> ul {
 			height: inherit;
-		}	
+		}
 
 		> ul > li {
 			float: left;
@@ -131,8 +131,8 @@
 			.stats > ul > li .info {
 				margin-left: 40px;
 				strong {
-					font-weight: normal; 
-					display: block; 
+					font-weight: normal;
+					display: block;
 					font-size: @font-size-small;
 
 				}
@@ -140,11 +140,14 @@
 
 			}
 		}
-		
+
 		> ul > li.open .floating-sidebar  {
 			.translate(0; 0);
 		}
 
+		.alerts {
+			line-height: @site-head-height;
+		}
 
 		// ==== dropdowns --- profile and notification
 		> ul > li > a + .dropdown-menu {
@@ -196,7 +199,7 @@
 
 		}
 
-		//=====  Profile-dropdown 
+		//=====  Profile-dropdown
 		> ul > li > a.user-profile + .dropdown-menu {
 			min-width: 290px;
 			.photo {
@@ -226,7 +229,7 @@
 				}
 			}
 		}
-		// #end head-wrap 
+		// #end head-wrap
 	}
 
 	// #end site-head

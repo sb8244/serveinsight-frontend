@@ -4,8 +4,7 @@ export function HeaderDirective() {
   return {
     restrict: 'E',
     templateUrl: 'app/components/header/header.html',
-    scope: {
-    },
+    scope: {},
     controller: HeaderController,
     controllerAs: 'vm',
     bindToController: true

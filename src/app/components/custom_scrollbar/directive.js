@@ -3,7 +3,7 @@ export function CustomScrollbarDirective($interval) {
 
   return {
     restrict: 'A',
-    link: function(scope, el, attrs) {
+    link: function(scope, el) {
       el.perfectScrollbar({
         suppressScrollX: true
       });

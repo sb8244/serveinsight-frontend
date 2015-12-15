@@ -8,7 +8,6 @@
     "angular-sanitize": "~1.4.2",
     "angular-messages": "~1.4.2",
     "angular-aria": "~1.4.2",
-    "bootstrap": "~3.3.1",
     "jquery": "~2.1.4",
     "restangular": "~1.5.1",
     "angular-ui-router": "~0.2.15",
@@ -19,7 +18,8 @@
     "angular": "~1.4.2",
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.5.0",
-    "perfect-scrollbar": "~0.6.7"
+    "perfect-scrollbar": "~0.6.7",
+    "angular-moment": "~0.10.3"
   },
   "overrides": {
     "font-awesome": {

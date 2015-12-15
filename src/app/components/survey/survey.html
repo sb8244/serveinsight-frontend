@@ -1,0 +1,19 @@
+<form class="survey-wrapper" ng-submit="ctrl.submitSurvey()">
+  <div class="question-wrapper" ng-repeat="question in ctrl.survey.questions">
+    <div class="question">{{ question.question }}</div>
+
+    <div class="answers">
+      <div class="answer" ng-repeat="answer in question.answers">
+        <input class="form-control"
+               ng-model="answer.value"
+               placeholder="+ Answer"
+               ng-change="ctrl.addBlankAnswer(question, answer)"
+               ng-blur="ctrl.cleanupAnswer(question, answer)" />
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-lg btn-success btn-rounded">Submit Survey</button>
+  </div>
+</form>

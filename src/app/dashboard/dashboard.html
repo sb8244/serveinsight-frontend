@@ -1,0 +1,140 @@
+<div class="page page-dashboard-v2 clearfix">
+  <ol class="breadcrumb breadcrumb-small">
+    <li>Serve Insight</li>
+    <li class="active">
+      <a ui-sref="dashboard">Dashboard</a>
+    </li>
+  </ol>
+
+  <div class="page-wrap mt15">
+    <!--<div class="row stats">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="panel panel-default mb30 mini-boxes danger">
+          <div class="panel-body">
+            <div class="clearfix">
+              <div class="left-side left">
+                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.due_surveys }}</h2>
+                <p class="small text-muted">Due Surveys</p>
+              </div>
+              <div class="right-side right">
+                <i class="fa fa-exclamation-circle icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="panel panel-default mb30 mini-boxes info">
+          <div class="panel-body">
+            <div class="clearfix">
+              <div class="left-side left">
+                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.pending_pass_ups }}</h2>
+                <p class="small text-muted">Pending Pass-ups</p>
+              </div>
+              <div class="right-side right">
+                <i class="fa fa-level-up icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="panel panel-default mb30 mini-boxes success">
+          <div class="panel-body">
+            <div class="clearfix">
+              <div class="left-side left">
+                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.shout_outs }}</h2>
+                <p class="small text-muted">Shout-outs</p>
+              </div>
+              <div class="right-side right">
+                <i class="fa fa-bullhorn icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="row actions">
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-lined mb30 quick-action success">
+          <div class="panel-heading clearfix">
+            <div class="pull-left">
+              quick <strong>shout-out</strong> <i class="fa fa-bullhorn" />
+            </div>
+
+            <div class="pull-right">
+              <i>highlight a coworker</i>
+            </div>
+          </div>
+          <div class="panel-body">
+            <textarea rows="3"
+                      class="form-control resize-v post-area"
+                      placeholder="I really like when ______ did..."></textarea>
+            <ul class="post-tools list-unstyled clearfix">
+              <li class="right">
+                <button class="btn btn-primary">Shout Out!</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <div class="panel panel-lined mb30 quick-action info">
+          <div class="panel-heading clearfix">
+            <div class="pull-left">
+              quick <strong>note</strong>
+            </div>
+
+            <div class="pull-right">
+              <i>reminder for your next report</i>
+            </div>
+          </div>
+          <div class="panel-body">
+            <textarea rows="3"
+                      class="form-control resize-v post-area"
+                      placeholder="Jot down your thoughts for your next report; this only will be visible to you..."></textarea>
+            <ul class="post-tools list-unstyled clearfix">
+              <li class="right">
+                <button class="btn btn-primary">Remind Me</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shoutouts">
+      <div class="col-xs-12">
+        <div class="panel primary">
+          <div class="panel-heading clearfix">
+            <div class="pull-left">
+              your <strong>recent shout-outs ({{ ctrl.recent_shoutouts.length }})</strong> <i class="fa fa-bullhorn" />
+            </div>
+          </div>
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th width="20%">Teammate</th>
+                  <th>When?</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="shoutout in ctrl.recent_shoutouts">
+                  <td>{{ shoutout.teammate_name }}</td>
+                  <td am-time-ago="shoutout.created_at"></td>
+                  <td>{{ shoutout.comment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

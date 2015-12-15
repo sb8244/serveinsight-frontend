@@ -1,5 +1,21 @@
 .page-dashboard-v2 {
 
+  .quick-action {
+    .panel-body {
+      padding: 0;
+    }
+
+    textarea {
+      border: none;
+    }
+
+    .post-tools {
+      padding: 10px 20px;
+      background: #eee;
+      margin: 0;
+    }
+  }
+
 	/** mini boxes */
 	.mini-boxes {
 		.panel-body {
@@ -12,25 +28,30 @@
 				display: inline-block;
 			}
 		}
-		&.one {
+		&.success {
 			border-top: 2px solid @brand-success;
 			.icon {color: @brand-success;}
 		}
 
-		&.two {
+		&.info {
 			border-top: 2px solid @brand-info;
 			.icon {color: @brand-info}
 		}
 
-		&.three {
+		&.primary {
 			border-top: 2px solid @brand-primary;
 			.icon {color: @brand-primary}
 		}
 
-		&.four {
+		&.warning {
 			border-top: 2px solid @brand-warning;
 			.icon {color: @brand-warning}
 		}
+
+    &.danger {
+      border-top: 2px solid @brand-danger;
+      .icon {color: @brand-danger}
+    }
 	}
 
 	/** social-box */
@@ -41,7 +62,7 @@
 			.icon {
 				padding: 16px;
 				font-size: @font-size-h1;
-				
+
 				color: #fff;
 				display: block;
 			}
@@ -57,10 +78,10 @@
 
 		}
 		.facebook-widget {
-			.icon {background: @social-facebook}			
+			.icon {background: @social-facebook}
 		}
 		.twitter-widget {
-			.icon {background: lighten(@social-twitter, 5%);}	
+			.icon {background: lighten(@social-twitter, 5%);}
 		}
 
 	}
@@ -149,5 +170,5 @@
 		}
 	}
 
-	
+
 }

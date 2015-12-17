@@ -1,5 +1,5 @@
 export class DashboardController {
-  constructor() {
+  constructor(Person) {
     'ngInject';
 
     this.stats = {
@@ -7,6 +7,10 @@ export class DashboardController {
       pending_pass_ups: 3,
       shout_outs: 4
     };
+
+    Person.getList().then(personList => {
+      this.people = personList.people;
+    });
 
     this.recent_shoutouts = [
       {

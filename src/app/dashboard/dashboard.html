@@ -72,7 +72,11 @@
           <div class="panel-body">
             <textarea rows="3"
                       class="form-control resize-v post-area"
-                      placeholder="I really like when ______ did..."></textarea>
+                      placeholder="I really like when @steve did..."
+                      ng-model="tempShoutout"
+                      mentio
+                      mentio-template-url="app/components/mentio/person.html"
+                      mentio-items="ctrl.people"></textarea>
             <ul class="post-tools list-unstyled clearfix">
               <li class="right">
                 <button class="btn btn-primary">Shout Out!</button>

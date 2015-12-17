@@ -14,14 +14,14 @@ export function SurveyDirective() {
 }
 
 class SurveyController {
-  constructor($log) {
+  constructor($log, Person) {
     'ngInject';
 
     this.$log = $log.log;
-    this.people = [
-      { label: "Steve", department: "Engineering" },
-      { label: "Rob", department: "Engineering" }
-    ];
+
+    Person.getList().then(personList => {
+      this.people = personList.people;
+    });
 
     _.each(this.survey.questions, function(question) {
       this.addBlankAnswer(question);

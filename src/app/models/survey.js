@@ -5,11 +5,16 @@ class SurveyList {
 }
 
 class Question {
-  constructor(data) {
+  constructor(data, locked) {
     _.extend(this, data);
+    this.surveyLocked = locked;
   }
 
   questionNeedsBlankAnswer() {
+    if (this.surveyLocked) {
+      return false;
+    }
+
     return this.answers.length === 0 || _.all(this.answers, function(answer) {
       return answer.value;
     });
@@ -39,7 +44,7 @@ class Question {
 class Survey {
   constructor(data) {
     _.extend(this, data);
-    this.questions = _.map(this.questions, question => new Question(question));
+    this.questions = _.map(this.questions, question => new Question(question, this.locked));
   }
 }
 
@@ -47,6 +52,7 @@ const data = _.map([{
   id: 1,
   title: "Weekly Survey 12/15",
   completed: false,
+  locked: false,
   questions: [{
     id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
@@ -88,10 +94,27 @@ const data = _.map([{
   id: 2,
   title: "Weekly Survey 12/5",
   completed: true,
+  locked: true,
   questions: [{
     id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
-    answers: []
+    answers: [{
+      value: "Kyle killed it",
+      comments: [
+        {
+          id: 1,
+          content: "@kyle is definitely going for it this week!",
+          author_id: 1,
+          author_name: "Steve Bussey"
+        },
+        {
+          id: 2,
+          content: "Thanks guys",
+          author_id: 1,
+          author_name: "Kyle Johnson"
+        }
+      ]
+    }]
   }, {
     id: 2,
     question: "What's going well? Any wins ( big or little) this week?",

@@ -17,7 +17,9 @@ class SurveyController {
   constructor() {
     'ngInject';
 
-    _.each(this.survey.questions, question => question.addBlankAnswer());
+    if (!this.survey.locked) {
+      _.each(this.survey.questions, question => question.addBlankAnswer());
+    }
   }
 
   submitSurvey() {

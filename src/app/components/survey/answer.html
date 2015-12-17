@@ -8,7 +8,8 @@
          ng-blur="ctrl.question.cleanupAnswer(ctrl.answer)"
          mentio
          mentio-template-url="app/components/mentio/person.html"
-         mentio-items="ctrl.people" />
+         mentio-items="ctrl.people"
+         ng-readonly="ctrl.locked" />
     <div class="input-group-btn action-buttons">
       <button type="button" class="btn btn-primary fa fa-level-up"></button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>

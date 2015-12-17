@@ -6,7 +6,8 @@ export function SurveyAnswerDirective() {
     templateUrl: 'app/components/survey/answer.html',
     scope: {
       answer: '=',
-      question: '='
+      question: '=',
+      locked: '='
     },
     controller: SurveyAnswerController,
     controllerAs: 'ctrl',

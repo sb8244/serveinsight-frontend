@@ -15,14 +15,7 @@
         </a>
       </li>
 
-      <li>
-        <a href="#">
-          <i class="fa fa-tasks icon"></i>
-          <span class="text">Team Surveys</span>
-        </a>
-      </li>
-
-      <li>
+      <li ng-if="$root.current_user.hasFeature('pass-ups')">
         <a href="#">
           <i class="fa fa-level-up icon"></i>
           <span class="text">Pass-ups</span>

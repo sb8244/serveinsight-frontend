@@ -6,8 +6,13 @@
   <div class="head-wrap clearfix">
     <ul class="list-unstyled alerts pull-left">
       <li>
-        <a ui-sref="surveys.mine">
+        <a ui-sref="surveys.my_recent">
           1 Survey Due!
+        </a>
+      </li>
+      <li>
+        <a>
+          4 Unread Pass-ups
         </a>
       </li>
     </ul>
@@ -50,9 +55,9 @@
         <!-- Profile drop -->
         <div class="panel panel-default dropdown-menu">
           <div class="panel-body">
-            <div class="profile-info">
-              <p class="user-name">User U.</p>
-              <p>user.u@gmail.com</p>
+            <div class="profile-info" ng-show="$root.current_user">
+              <p class="user-name">{{ $root.current_user.name }}</p>
+              <p>{{ $root.current_user.email }}</p>
             </div>
           </div>
           <div class="panel-footer clearfix">

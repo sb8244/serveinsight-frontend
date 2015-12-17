@@ -5,10 +5,14 @@
     <div class="answers">
       <div class="answer" ng-repeat="answer in question.answers">
         <input class="form-control"
-               ng-model="answer.value"
+               type="text"
                placeholder="+ Answer"
+               ng-model="answer.value"
                ng-change="ctrl.addBlankAnswer(question, answer)"
-               ng-blur="ctrl.cleanupAnswer(question, answer)" />
+               ng-blur="ctrl.cleanupAnswer(question, answer)"
+               mentio
+               mentio-template-url="app/components/mentio/person.html"
+               mentio-items="ctrl.people" />
       </div>
     </div>
   </div>

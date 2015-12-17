@@ -18,6 +18,10 @@ class SurveyController {
     'ngInject';
 
     this.$log = $log.log;
+    this.people = [
+      { label: "Steve", department: "Engineering" },
+      { label: "Rob", department: "Engineering" }
+    ];
 
     _.each(this.survey.questions, function(question) {
       this.addBlankAnswer(question);

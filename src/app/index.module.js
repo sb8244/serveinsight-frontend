@@ -21,6 +21,7 @@ angular.module('frontend',
     'restangular',
     'ui.router',
     'ui.bootstrap',
+    'mentio',
     'dashboard',
     'surveys'
   ])

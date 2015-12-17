@@ -19,7 +19,8 @@
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.5.0",
     "perfect-scrollbar": "~0.6.7",
-    "angular-moment": "~0.10.3"
+    "angular-moment": "~0.10.3",
+    "ment.io": "~0.9.24"
   },
   "overrides": {
     "font-awesome": {

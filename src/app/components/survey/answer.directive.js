@@ -19,6 +19,5 @@ class SurveyAnswerController {
     'ngInject';
 
     Person.getList().then(personList => this.people = personList.people);
-    this.question.addBlankAnswer();
   }
 }

@@ -14,7 +14,7 @@ export class MySurveyController {
     });
   }
 
-  surveySelected(surveyID) {
-    this.$state.go("surveys.my_show", { id: surveyID });
+  surveySelected(survey) {
+    this.$state.go("surveys.my_show", { id: survey.id });
   }
 }

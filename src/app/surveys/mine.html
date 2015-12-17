@@ -10,13 +10,18 @@
       <div class="row">
         <div class="col-sm-12">
           <h3 class="survey-title">
-            <span>{{ ctrl.survey.title }}</span>
-            <select class="form-control"
-                    ng-model="ctrl.currentSurveyID"
-                    ng-options="survey.id as survey.title for survey in ctrl.surveyList.surveys"
-                    ng-change="ctrl.surveySelected(ctrl.currentSurveyID)">
-                    <option value="">View Different Survey</option>
-            </select>
+            <span class="title">{{ ctrl.survey.title }}</span>
+            <div class="select-wrapper">
+              <ui-select ng-model="ctrl.selectedSurvey"
+                         search-enabled="true"
+                         theme="bootstrap"
+                         ng-change="ctrl.surveySelected(ctrl.selectedSurvey)">
+                <ui-select-match placeholder="View Different Survey">{{$select.selected.title}}</ui-select-match>
+                <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
+                  <div ng-bind-html="survey.title"></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
           </h3>
         </div>
       </div>

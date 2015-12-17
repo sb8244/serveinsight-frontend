@@ -14,10 +14,8 @@ export function SurveyDirective() {
 }
 
 class SurveyController {
-  constructor($log, Person) {
+  constructor(Person) {
     'ngInject';
-
-    this.$log = $log.log;
 
     Person.getList().then(personList => {
       this.people = personList.people;
@@ -29,7 +27,6 @@ class SurveyController {
   }
 
   submitSurvey() {
-    this.$log(this.survey);
   }
 
   cleanupAnswer(question, answer) {

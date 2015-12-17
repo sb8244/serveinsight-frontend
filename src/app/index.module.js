@@ -22,6 +22,7 @@ angular.module('frontend',
     'ui.router',
     'ui.bootstrap',
     'mentio',
+    'ui.select',
     'dashboard',
     'surveys'
   ])

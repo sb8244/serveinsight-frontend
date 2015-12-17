@@ -19,13 +19,19 @@
 
 .survey-page {
   .survey-title {
-    span, select {
-      display: inline-block;
-      width: auto;
+    .title {
+      float: left;
+      margin-top: 4px;
     }
 
-    select {
-      margin-left: 14px;
+    .select-wrapper {
+      display: inline-block;
+      width: 200px;
+      margin-left:21px;
     }
   }
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active>a {
+  color: #888;
 }

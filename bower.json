@@ -20,7 +20,8 @@
     "font-awesome": "~4.5.0",
     "perfect-scrollbar": "~0.6.7",
     "angular-moment": "~0.10.3",
-    "ment.io": "~0.9.24"
+    "ment.io": "~0.9.24",
+    "ui-select": "angular-ui-select#~0.13.2"
   },
   "overrides": {
     "font-awesome": {

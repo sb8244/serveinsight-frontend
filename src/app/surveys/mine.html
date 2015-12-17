@@ -1,23 +1,46 @@
-<div class="page clearfix">
+<div class="survey-page page clearfix">
     <ol class="breadcrumb breadcrumb-small">
         <li>Serve Insight</li>
         <li class="active">
-            <a ui-sref="surveys.mine">My Surveys</a>
+          <a ui-sref="surveys.my_recent">My Surveys</a>
         </li>
     </ol>
 
     <div class="page-wrap mt15">
       <div class="row">
-        <tabset class="tabs-side">
-          <tab ng-repeat="survey in ctrl.surveyList.surveys">
-            <tab-heading>
-              {{ survey.title }}
-              <span ng-hide="survey.completed" class="badge badge-success">new</span>
-            </tab-heading>
+        <div class="col-sm-12">
+          <h3 class="survey-title">
+            <span>{{ ctrl.survey.title }}</span>
+            <select class="form-control"
+                    ng-model="ctrl.currentSurveyID"
+                    ng-options="survey.id as survey.title for survey in ctrl.surveyList.surveys"
+                    ng-change="ctrl.surveySelected(ctrl.currentSurveyID)">
+                    <option value="">View Different Survey</option>
+            </select>
+          </h3>
+        </div>
+      </div>
 
-            <survey survey="survey"></survey>
-          </tab>
-        </tabset>
+      <div class="row mt15 mb15">
+        <div class="col-sm-9">
+          <survey survey="ctrl.survey"></survey>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <i>
+                Quick Notes
+              </i>
+            </div>
+
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="note in ctrl.quickNoteList.notes">
+                {{ note.content }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 </div>

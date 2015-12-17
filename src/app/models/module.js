@@ -1,4 +1,8 @@
-import { SurveyListFactory } from './survey_list';
+import { SurveyFactory } from './survey';
+import { QuickNoteFactory } from './quick_note';
 
 angular.module("models", [])
-  .factory("SurveyListFactory", SurveyListFactory);
+  .factory("Survey", SurveyFactory)
+  .factory("QuickNote", QuickNoteFactory)
+
+;

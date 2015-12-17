@@ -1,4 +1,9 @@
 .question-wrapper {
+  &:extend(.well);
+  background: white;
+  box-shadow: none;
+  border-radius: 0;
+
   margin-bottom: 21px;
 
   .question {
@@ -9,5 +14,18 @@
 
   .answer {
     margin-bottom: 7px;
+  }
+}
+
+.survey-page {
+  .survey-title {
+    span, select {
+      display: inline-block;
+      width: auto;
+    }
+
+    select {
+      margin-left: 14px;
+    }
   }
 }

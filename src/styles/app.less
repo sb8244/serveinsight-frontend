@@ -15,6 +15,18 @@
   .answer {
     margin-bottom: 7px;
   }
+
+  .action-buttons {
+    button {
+      &:not(:first-child) {
+        border-left: none;
+      }
+
+      &:not(:last-child) {
+        border-right: none;
+      }
+    }
+  }
 }
 
 .survey-page {

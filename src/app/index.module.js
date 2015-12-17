@@ -9,6 +9,7 @@ import { HeaderDirective } from './components/header/header.directive';
 import { NavDirective } from './components/nav/nav.directive';
 import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
 import { SurveyDirective } from './components/survey/survey.directive';
+import { SurveyAnswerDirective } from './components/survey/answer.directive';
 
 angular.module('frontend',
   [
@@ -33,4 +34,5 @@ angular.module('frontend',
   .directive('appNav', NavDirective)
   .directive('customScrollbar', CustomScrollbarDirective)
   .directive('survey', SurveyDirective)
+  .directive('surveyAnswer', SurveyAnswerDirective)
 ;

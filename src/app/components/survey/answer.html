@@ -1,0 +1,17 @@
+<div class="answer">
+  <div class="input-group">
+    <input class="form-control"
+         type="text"
+         placeholder="+ Answer"
+         ng-model="ctrl.answer.value"
+         ng-change="ctrl.question.cleanupAnswer(ctrl.answer)"
+         ng-blur="ctrl.question.cleanupAnswer(ctrl.answer)"
+         mentio
+         mentio-template-url="app/components/mentio/person.html"
+         mentio-items="ctrl.people" />
+    <div class="input-group-btn action-buttons">
+      <button type="button" class="btn btn-primary fa fa-level-up"></button>
+      <button type="button" class="btn btn-success fa fa-comment"></button>
+    </div>
+  </div>
+</div>

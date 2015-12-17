@@ -3,17 +3,7 @@
     <div class="question">{{ question.question }}</div>
 
     <div class="answers">
-      <div class="answer" ng-repeat="answer in question.answers">
-        <input class="form-control"
-               type="text"
-               placeholder="+ Answer"
-               ng-model="answer.value"
-               ng-change="ctrl.addBlankAnswer(question, answer)"
-               ng-blur="ctrl.cleanupAnswer(question, answer)"
-               mentio
-               mentio-template-url="app/components/mentio/person.html"
-               mentio-items="ctrl.people" />
-      </div>
+      <survey-answer answer="answer" question="question" ng-repeat="answer in question.answers"></survey-answer>
     </div>
   </div>
 

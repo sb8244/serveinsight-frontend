@@ -14,40 +14,12 @@ export function SurveyDirective() {
 }
 
 class SurveyController {
-  constructor(Person) {
+  constructor() {
     'ngInject';
 
-    Person.getList().then(personList => {
-      this.people = personList.people;
-    });
-
-    _.each(this.survey.questions, function(question) {
-      this.addBlankAnswer(question);
-    }, this);
+    _.each(this.survey.questions, question => question.addBlankAnswer());
   }
 
   submitSurvey() {
-  }
-
-  cleanupAnswer(question, answer) {
-    if (!answer.value) {
-      _.remove(question.answers, answer);
-    }
-
-    this.addBlankAnswer(question);
-  }
-
-  addBlankAnswer(question) {
-    if (this.questionNeedsBlankAnswer(question)) {
-        question.answers.push({
-        value: ""
-      });
-    }
-  }
-
-  questionNeedsBlankAnswer(question) {
-    return _.all(question.answers, function(answer) {
-      return answer.value;
-    });
   }
 }

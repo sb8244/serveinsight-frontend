@@ -4,9 +4,42 @@ class SurveyList {
   }
 }
 
+class Question {
+  constructor(data) {
+    _.extend(this, data);
+  }
+
+  questionNeedsBlankAnswer() {
+    return this.answers.length === 0 || _.all(this.answers, function(answer) {
+      return answer.value;
+    });
+  }
+
+  cleanupAnswer(answer) {
+    if (!answer.value) {
+      var lastAnswer = _.last(this.answers);
+
+      if (!lastAnswer.value) {
+        _.remove(this.answers, lastAnswer);
+      }
+    }
+
+    this.addBlankAnswer();
+  }
+
+  addBlankAnswer() {
+    if (this.questionNeedsBlankAnswer()) {
+      this.answers.push({
+        value: ""
+      });
+    }
+  }
+}
+
 class Survey {
   constructor(data) {
     _.extend(this, data);
+    this.questions = _.map(this.questions, question => new Question(question));
   }
 }
 

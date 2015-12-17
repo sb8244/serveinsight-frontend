@@ -51,7 +51,21 @@ const data = _.map([{
     id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
     answers: [{
-      value: "Kyle killed it"
+      value: "Kyle killed it",
+      comments: [
+        {
+          id: 1,
+          content: "@kyle is definitely going for it this week!",
+          author_id: 1,
+          author_name: "Steve Bussey"
+        },
+        {
+          id: 2,
+          content: "Thanks guys",
+          author_id: 1,
+          author_name: "Kyle Johnson"
+        }
+      ]
     }]
   }, {
     id: 2,

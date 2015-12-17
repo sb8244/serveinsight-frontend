@@ -20,10 +20,16 @@ const data = {
 export function UserFactory($q, FeatureDefinitions) {
   'ngInject';
 
+  var savedUser = undefined;
+
   return {
     get: function() {
       return $q((resolve) => {
-        resolve(new User(data, FeatureDefinitions));
+        if (angular.isUndefined(savedUser)) {
+          savedUser = new User(data, FeatureDefinitions);
+        }
+
+        resolve(savedUser);
       });
     }
   };

@@ -1,0 +1,32 @@
+<div class="comments-wrapper">
+  <ul class="list-group comments">
+    <li class="list-group-item" ng-repeat="comment in ctrl.commentable.comments">
+      <strong>{{ comment.author_name }}</strong>
+      <span>{{ comment.content }}</span>
+    </li>
+    <li class="list-group-item" ng-if="ctrl.showNew">
+      <form ng-submit="ctrl.addComment()">
+        <div class="row">
+          <div class="col-xs-12">
+            <input required
+                   type="text"
+                   class="form-control"
+                   ng-model="ctrl.newContent"
+                   placeholder="Write your comment..."
+                   mentio
+                   mentio-template-url="app/components/mentio/person.html"
+                   mentio-items="ctrl.people"
+                   autofocus />
+          </div>
+        </div>
+        <div class="row mt15">
+          <div class="col-xs-12">
+            <div class="pull-right">
+              <button type="submit" class="btn btn-success">Submit Comment</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </li>
+  </ul>
+</div>

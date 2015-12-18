@@ -10,6 +10,7 @@ import { NavDirective } from './components/nav/nav.directive';
 import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
 import { SurveyDirective } from './components/survey/survey.directive';
 import { SurveyAnswerDirective } from './components/survey/answer.directive';
+import { SurveyGoalDirective } from './components/survey/goal.directive';
 import { CommentsDirective } from './components/comments/comments.directive';
 import { AutofocusDirective } from './components/autofocus/directive';
 
@@ -37,6 +38,7 @@ angular.module('frontend',
   .directive('customScrollbar', CustomScrollbarDirective)
   .directive('survey', SurveyDirective)
   .directive('surveyAnswer', SurveyAnswerDirective)
+  .directive('surveyGoal', SurveyGoalDirective)
   .directive('comments', CommentsDirective)
   .directive('autofocus', AutofocusDirective)
 ;

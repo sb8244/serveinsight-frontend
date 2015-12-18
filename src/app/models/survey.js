@@ -53,6 +53,15 @@ const data = _.map([{
   title: "Weekly Survey 12/15",
   completed: false,
   locked: false,
+  previousGoals: [{
+    id: 1,
+    content: "Migrate database to MongoDB",
+    complete: true
+  }, {
+    id: 2,
+    content: "Code everything in ASP",
+    complete: false
+  }],
   questions: [{
     id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
@@ -89,6 +98,11 @@ const data = _.map([{
     id: 5,
     question: "One suggestion to improve your role, team or organization?",
     answers: []
+  }, {
+    id: 6,
+    question: "What do you intend to achieve between now and your next survey?",
+    answers: [],
+    goals_section: true
   }]
 }, {
   id: 2,

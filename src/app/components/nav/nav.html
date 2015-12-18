@@ -8,7 +8,7 @@
         </a>
       </li>
 
-      <li ui-sref-active="active">
+      <li ng-class="{ active: $root.$state.includes('surveys') }">
         <a ui-sref="surveys.my_recent">
           <i class="fa fa-question-circle icon"></i>
           <span class="text">Your Surveys</span>

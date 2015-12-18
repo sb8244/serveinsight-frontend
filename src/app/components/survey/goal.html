@@ -1,0 +1,25 @@
+<div class="goal">
+  <div class="input-group">
+    <div>
+      <span ng-if="ctrl.goal.complete">
+      <button ng-click="ctrl.goal.complete = !ctrl.goal.complete"
+              type="button"
+              class="btn btn-success fa fa-check btn-icon-circle icon"></button>
+      </span>
+
+      <span ng-if="!ctrl.goal.complete">
+      <button ng-click="ctrl.goal.complete = !ctrl.goal.complete"
+              type="button"
+              class="btn btn-default fa fa-times btn-icon-circle icon"></button>
+      </span>
+      {{ ctrl.goal.content }}
+    </div>
+
+    <div class="input-group-btn action-buttons">
+      <button type="button" class="btn btn-primary fa fa-level-up"></button>
+      <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
+    </div>
+  </div>
+
+  <comments commentable="ctrl.goal" show-new="ctrl.showNewComment" />
+</div>

@@ -65,7 +65,10 @@ const data = _.map([{
   questions: [{
     id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
-    answers: []
+    answers: [{
+      value: "Kyle killed it",
+      comments: []
+    }]
   }, {
     id: 2,
     question: "What's going well? Any wins ( big or little) this week?",

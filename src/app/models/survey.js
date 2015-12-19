@@ -55,15 +55,18 @@ const data = _.map([{
   locked: false,
   previousGoals: [{
     id: 1,
+    user_id: 1,
     content: "Migrate database to MongoDB",
     complete: true
   }, {
     id: 2,
+    user_id: 1,
     content: "Code everything in ASP",
     complete: false
   }],
   questions: [{
     id: 1,
+    user_id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
     answers: [{
       value: "Kyle killed it",
@@ -71,22 +74,27 @@ const data = _.map([{
     }]
   }, {
     id: 2,
+    user_id: 1,
     question: "What's going well? Any wins ( big or little) this week?",
     answers: []
   }, {
     id: 3,
+    user_id: 1,
     question: "What challenges are you facing? Where are you stuck?",
     answers: []
   }, {
     id: 4,
+    user_id: 1,
     question: "How are you feeling? What's the morale you see around you?",
     answers: []
   }, {
     id: 5,
+    user_id: 1,
     question: "One suggestion to improve your role, team or organization?",
     answers: []
   }, {
     id: 6,
+    user_id: 1,
     question: "What do you intend to achieve between now and your next survey?",
     answers: [],
     goals_section: true
@@ -98,6 +106,7 @@ const data = _.map([{
   locked: true,
   questions: [{
     id: 1,
+    user_id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
     answers: [{
       value: "Kyle killed it",
@@ -118,6 +127,7 @@ const data = _.map([{
     }]
   }, {
     id: 2,
+    user_id: 1,
     question: "What's going well? Any wins ( big or little) this week?",
     answers: []
   }]

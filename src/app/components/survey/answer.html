@@ -1,5 +1,5 @@
 <div class="answer">
-  <div class="input-group">
+  <div ng-class="{ 'input-group': ctrl.actionable }">
     <input class="form-control"
          type="text"
          placeholder="+ Answer"
@@ -10,11 +10,11 @@
          mentio-template-url="app/components/mentio/person.html"
          mentio-items="ctrl.people"
          ng-readonly="ctrl.locked" />
-    <div class="input-group-btn action-buttons">
-      <button type="button" class="btn btn-primary fa fa-level-up"></button>
+    <div class="input-group-btn action-buttons" ng-show="ctrl.actionable">
+      <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(ctrl.goal)"></button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
     </div>
   </div>
 
-  <comments commentable="ctrl.answer" show-new="ctrl.showNewComment" />
+  <comments ng-show="ctrl.actionable" commentable="ctrl.answer" show-new="ctrl.showNewComment" />
 </div>

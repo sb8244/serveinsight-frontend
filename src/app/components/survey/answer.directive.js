@@ -7,7 +7,8 @@ export function SurveyAnswerDirective() {
     scope: {
       answer: '=',
       question: '=',
-      locked: '='
+      locked: '=',
+      actionable: '='
     },
     controller: SurveyAnswerController,
     controllerAs: 'ctrl',

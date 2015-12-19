@@ -23,6 +23,9 @@ export function UserFactory($q, FeatureDefinitions) {
   var savedUser = undefined;
 
   return {
+    getCachedUser: function() {
+      return savedUser;
+    },
     get: function() {
       return $q((resolve) => {
         if (angular.isUndefined(savedUser)) {

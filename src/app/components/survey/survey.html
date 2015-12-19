@@ -15,7 +15,7 @@
     <div class="question">{{ question.question }}</div>
 
     <div class="answers">
-      <survey-answer locked="ctrl.survey.locked" answer="answer" question="question" ng-repeat="answer in question.answers"></survey-answer>
+      <survey-answer actionable="ctrl.survey.completed" locked="ctrl.survey.locked" answer="answer" question="question" ng-repeat="answer in question.answers"></survey-answer>
     </div>
   </div>
 

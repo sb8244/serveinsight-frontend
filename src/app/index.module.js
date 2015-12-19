@@ -12,6 +12,7 @@ import { SurveyDirective } from './components/survey/survey.directive';
 import { SurveyAnswerDirective } from './components/survey/answer.directive';
 import { SurveyGoalDirective } from './components/survey/goal.directive';
 import { CommentsDirective } from './components/comments/comments.directive';
+import { Permissions } from './services/permissions';
 import { AutofocusDirective } from './components/autofocus/directive';
 
 angular.module('frontend',
@@ -33,6 +34,7 @@ angular.module('frontend',
   .constant('moment', moment)
   .config(config)
   .run(runBlock)
+  .run(globalAvailability)
   .directive('appHeader', HeaderDirective)
   .directive('appNav', NavDirective)
   .directive('customScrollbar', CustomScrollbarDirective)
@@ -41,4 +43,10 @@ angular.module('frontend',
   .directive('surveyGoal', SurveyGoalDirective)
   .directive('comments', CommentsDirective)
   .directive('autofocus', AutofocusDirective)
+  .service('Permissions', Permissions)
 ;
+
+function globalAvailability ($rootScope, Permissions) {
+  'ngInject';
+  $rootScope.Permissions = Permissions;
+}

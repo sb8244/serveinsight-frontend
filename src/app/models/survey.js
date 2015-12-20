@@ -2,6 +2,10 @@ class SurveyList {
   constructor(surveys) {
     this.surveys = surveys;
   }
+
+  dueCount() {
+    return _(this.surveys).select({ completed: false }).size();
+  }
 }
 
 class Question {

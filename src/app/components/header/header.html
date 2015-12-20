@@ -5,9 +5,9 @@
 
   <div class="head-wrap clearfix">
     <ul class="list-unstyled alerts pull-left">
-      <li>
+      <li ng-show="ctrl.dueSurveyCount">
         <a ui-sref="surveys.my_recent">
-          1 Survey Due!
+          {{ ctrl.dueSurveyCount }} Survey Due!
         </a>
       </li>
       <li ng-show="ctrl.unreadPassupCount">

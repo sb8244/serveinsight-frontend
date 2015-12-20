@@ -12,9 +12,10 @@ export function HeaderDirective() {
 }
 
 class HeaderController {
-  constructor (Passup) {
+  constructor (Passup, Survey) {
     'ngInject';
 
-    Passup.getList().then(passupList => this.unreadPassupCount = passupList.unreadCount());
+    Passup.getList().then(list => this.unreadPassupCount = list.unreadCount());
+    Survey.getList().then(list => this.dueSurveyCount = list.dueCount());
   }
 }

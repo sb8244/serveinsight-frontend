@@ -30,29 +30,5 @@
           </div>
         </div>
       </div>
-
-      <div class="row mt30">
-        <div class="col-sm-9">
-          <div class="panel panel-lined passup-list-panel">
-            <div class="panel-heading">
-              <h3 class="panel-title">Read passups</h3>
-            </div>
-            <div class="panel-body">
-              <div class="passup-wrapper" ng-repeat="passup in ctrl.readPassups">
-                <h5 class="title text-bold mt0">
-                  {{ passup.user_name }}
-                  <span class="small text-muted">
-                    at {{ passup.content_created_at | date:'short' }}
-                  </span>
-                  <span class="small right text-primary mt2">
-                    Passed up by <strong>{{ passup.passed_by_name }}</strong> at {{ passup.passed_at | date:'short' }}
-                  </span>
-                </h5>
-                <p class="summary mb5">{{ passup.content }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 </div>

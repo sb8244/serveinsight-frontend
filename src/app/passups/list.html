@@ -7,7 +7,7 @@
     </ol>
 
     <div class="page-wrap mt15">
-      <div class="row">
+      <div class="row" ng-show="ctrl.unreadPassups.length">
         <div class="col-sm-9">
           <div class="panel panel-lined passup-list-panel">
             <div class="panel-heading">
@@ -24,10 +24,26 @@
                     Passed up by <strong>{{ passup.passed_by_name }}</strong> at {{ passup.passed_at | date:'short' }}
                   </span>
                 </h5>
-                <p class="summary mb5">{{ passup.content }}</p>
+                <div class="input-group mb-20">
+                  {{ passup.item.content }}
+
+                  <div class="input-group-btn action-buttons">
+                    <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(passup)"></button>
+                    <button type="button" class="btn btn-primary fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
+                    <button type="button" class="btn btn-success" ng-click="ctrl.markRead(passup)">READ</button>
+                  </div>
+                </div>
+                <comments commentable="passup.item" show-new="ctrl.showNewComment" />
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="row" ng-hide="ctrl.unreadPassups.length">
+        <div class="col-xs-12 text-center">
+          <h2>No unread passups</h2>
+          <i class="fa fa-thumbs-o-up fa-4x" />
         </div>
       </div>
     </div>

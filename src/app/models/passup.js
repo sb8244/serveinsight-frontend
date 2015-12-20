@@ -31,7 +31,10 @@ const data = _.map([{
     passed_by_name: "Emma Stolman",
     passed_at: new Date(),
     read: true,
-    content: "What are we going to do about the TPS reports?"
+    item: {
+      content: "What are we going to do about the TPS reports?",
+      comments: []
+    }
   }, {
     id: 2,
     user_id: 3,
@@ -41,7 +44,10 @@ const data = _.map([{
     passed_by_name: "John Robertson",
     passed_at: new Date(),
     read: false,
-    content: "Great job on the project engineering!"
+    item: {
+      content: "Great job on the project engineering!",
+      comments: []
+    }
   }
 ], (data) => {
   return new Passup(data);

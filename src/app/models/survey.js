@@ -20,15 +20,15 @@ class Question {
     }
 
     return this.answers.length === 0 || _.all(this.answers, function(answer) {
-      return answer.value;
+      return answer.content;
     });
   }
 
   cleanupAnswer(answer) {
-    if (!answer.value) {
+    if (!answer.content) {
       var lastAnswer = _.last(this.answers);
 
-      if (!lastAnswer.value) {
+      if (!lastAnswer.content) {
         _.remove(this.answers, lastAnswer);
       }
     }
@@ -39,7 +39,7 @@ class Question {
   addBlankAnswer() {
     if (this.questionNeedsBlankAnswer()) {
       this.answers.push({
-        value: ""
+        content: ""
       });
     }
   }
@@ -73,7 +73,7 @@ const data = _.map([{
     user_id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
     answers: [{
-      value: "Kyle killed it",
+      content: "Kyle killed it",
       comments: []
     }]
   }, {
@@ -113,7 +113,7 @@ const data = _.map([{
     user_id: 1,
     question: "Is there anyone this week you'd like to highlight for embodying our core values?",
     answers: [{
-      value: "Kyle killed it",
+      content: "Kyle killed it",
       comments: [
         {
           id: 1,

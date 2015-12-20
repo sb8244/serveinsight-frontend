@@ -31,8 +31,8 @@
       <div ui-view class="content-container" id="content">
       </div>
 
-      <footer id="site-foot" class="site-foot clearfix">
-        <p class="left">&copy; Copyright 2015 <strong>Serve Insight</strong>, All rights reserved.</p>
+      <footer id="site-foot" class="site-foot clearfix" ng-controller="FooterController as ctrl">
+        <p class="left">&copy; Copyright {{ ctrl.date | date:'yyyy' }} <strong>Serve Insight</strong>, All rights reserved.</p>
       </footer>
     </div>
 

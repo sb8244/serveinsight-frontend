@@ -6,13 +6,15 @@ export function HeaderDirective() {
     templateUrl: 'app/components/header/header.html',
     scope: {},
     controller: HeaderController,
-    controllerAs: 'vm',
+    controllerAs: 'ctrl',
     bindToController: true
   };
 }
 
 class HeaderController {
-  constructor () {
+  constructor (Passup) {
     'ngInject';
+
+    Passup.getList().then(passupList => this.unreadPassupCount = passupList.unreadCount());
   }
 }

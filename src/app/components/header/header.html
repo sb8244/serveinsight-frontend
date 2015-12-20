@@ -10,9 +10,9 @@
           1 Survey Due!
         </a>
       </li>
-      <li>
+      <li ng-show="ctrl.unreadPassupCount">
         <a>
-          4 Unread Pass-ups
+          {{ ctrl.unreadPassupCount }} Unread Pass-ups
         </a>
       </li>
     </ul>

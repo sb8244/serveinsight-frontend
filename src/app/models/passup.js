@@ -4,7 +4,15 @@ class PassupList {
   }
 
   unreadCount() {
-    return _(this.passups).select({ read: false }).size();
+    return this.unreadPassups().length;
+  }
+
+  unreadPassups() {
+    return _.select(this.passups, { read: false });
+  }
+
+  readPassups() {
+    return _.select(this.passups, { read: true });
   }
 }
 
@@ -18,12 +26,20 @@ const data = _.map([{
     id: 1,
     user_id: 2,
     user_name: "John Robertson",
+    content_created_at: new Date(),
+    passed_by_id: 3,
+    passed_by_name: "Emma Stolman",
+    passed_at: new Date(),
     read: true,
     content: "What are we going to do about the TPS reports?"
   }, {
     id: 2,
     user_id: 3,
     user_name: "Emma Stolman",
+    content_created_at: new Date(),
+    passed_by_id: 2,
+    passed_by_name: "John Robertson",
+    passed_at: new Date(),
     read: false,
     content: "Great job on the project engineering!"
   }

@@ -15,8 +15,8 @@
         </a>
       </li>
 
-      <li ng-if="$root.current_user.hasFeature('pass-ups')">
-        <a href="#">
+      <li ng-class="{ active: $root.$state.includes('passups') }" ng-if="$root.current_user.hasFeature('pass-ups')">
+        <a ui-sref="passups.list">
           <i class="fa fa-level-up icon"></i>
           <span class="text">Pass-ups</span>
         </a>

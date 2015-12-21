@@ -21,7 +21,8 @@
     "perfect-scrollbar": "~0.6.7",
     "angular-moment": "~0.10.3",
     "ment.io": "~0.9.24",
-    "ui-select": "angular-ui-select#~0.13.2"
+    "ui-select": "angular-ui-select#~0.13.2",
+    "satellizer": "~0.13.2"
   },
   "overrides": {
     "font-awesome": {

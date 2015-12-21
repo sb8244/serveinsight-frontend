@@ -23,18 +23,8 @@
     <!-- endbuild -->
   </head>
   <body id="app" class="app theme-one">
-    <app-header></app-header>
-
-    <div class="main-container clearfix">
-      <app-nav></app-nav>
-
-      <div ui-view class="content-container" id="content">
-      </div>
-
-      <footer id="site-foot" class="site-foot clearfix" ng-controller="FooterController as ctrl">
-        <p class="left">&copy; Copyright {{ ctrl.date | date:'yyyy' }} <strong>Serve Insight</strong>, All rights reserved.</p>
-      </footer>
-    </div>
+    <div ng-if="appState === 'main'" ng-include="'app/components/application/main.html'"></div>
+    <div ng-if="appState === 'login'" ng-include="'app/components/application/login.html'"></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

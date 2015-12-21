@@ -2,6 +2,7 @@ class User {
   constructor(data, featureDefinitions) {
     _.extend(this, data);
     this.featureDefinitions = featureDefinitions;
+    this.name = this.first_name + " " + this.last_name;
   }
 
   hasFeature(feature) {
@@ -9,15 +10,7 @@ class User {
   }
 }
 
-const data = {
-  id: 1,
-  name: "Steve Bussey",
-  email: "steve@salesloft.com",
-  role: "manager",
-  admin: true
-};
-
-export function UserFactory($q, FeatureDefinitions) {
+export function UserFactory($q, FeatureDefinitions, Restangular) {
   'ngInject';
 
   var savedUser = undefined;
@@ -27,12 +20,13 @@ export function UserFactory($q, FeatureDefinitions) {
       return savedUser;
     },
     get: function() {
-      return $q((resolve) => {
-        if (angular.isUndefined(savedUser)) {
-          savedUser = new User(data, FeatureDefinitions);
-        }
+      if (savedUser) {
+        return $q(resolve => resolve(savedUser));
+      }
 
-        resolve(savedUser);
+      return Restangular.one("user").get().then(function(data) {
+        savedUser = new User(data, FeatureDefinitions);
+        return savedUser;
       });
     }
   };

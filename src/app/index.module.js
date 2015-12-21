@@ -4,6 +4,7 @@ import {} from './dashboard/module';
 import {} from './surveys/module';
 import {} from './models/module';
 import {} from './passups/module';
+import {} from './login/module';
 
 import { config } from './index.config';
 import { runBlock } from './index.run';
@@ -31,10 +32,12 @@ angular.module('frontend',
     'ui.bootstrap',
     'mentio',
     'ui.select',
+    'satellizer',
     'models',
     'dashboard',
     'surveys',
-    'passups'
+    'passups',
+    'login'
   ])
   .constant('moment', moment)
   .config(config)

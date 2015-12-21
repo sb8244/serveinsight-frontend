@@ -23,8 +23,8 @@
     <!-- endbuild -->
   </head>
   <body id="app" class="app theme-one">
-    <div ng-if="appState === 'main'" ng-include="'app/components/application/main.html'"></div>
-    <div ng-if="appState === 'login'" ng-include="'app/components/application/login.html'"></div>
+    <div class="wrapper" ng-if="appState === 'main'" ng-include="'app/components/application/main.html'"></div>
+    <div class="wrapper" ng-if="appState === 'login'" ng-include="'app/components/application/login.html'"></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

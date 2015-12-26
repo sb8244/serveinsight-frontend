@@ -5,6 +5,7 @@ import {} from './surveys/module';
 import {} from './models/module';
 import {} from './passups/module';
 import {} from './login/module';
+import {} from './setup/module';
 
 import { config } from './index.config';
 import { runBlock } from './index.run';
@@ -37,7 +38,8 @@ angular.module('frontend',
     'dashboard',
     'surveys',
     'passups',
-    'login'
+    'login',
+    'setup'
   ])
   .constant('moment', moment)
   .config(config)

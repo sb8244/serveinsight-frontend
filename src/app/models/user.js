@@ -10,7 +10,7 @@ class User {
   }
 }
 
-export function UserFactory($q, FeatureDefinitions, Restangular, $rootScope, $state) {
+export function UserFactory($q, FeatureDefinitions, Restangular, $rootScope, $state, Organization) {
   'ngInject';
 
   var savedUser = undefined;
@@ -25,6 +25,7 @@ export function UserFactory($q, FeatureDefinitions, Restangular, $rootScope, $st
       }
 
       return Restangular.one("user").get().then(function(data) {
+        data.organization = Organization.load(data.organization);
         savedUser = new User(data, FeatureDefinitions);
         return savedUser;
       });
@@ -33,7 +34,13 @@ export function UserFactory($q, FeatureDefinitions, Restangular, $rootScope, $st
       this.get().then(user => {
         $rootScope.current_user = user;
         $rootScope.appState = 'main';
-        $state.go('dashboard');
+
+        if (user.organization && ($state.current.name === 'login' || $state.current.name === 'setup')) {
+          $state.go('dashboard');
+        } else if (!user.organization) {
+          $rootScope.appState = 'setup';
+          $state.go('setup_wizard');
+        }
       }).catch(function() {
         $rootScope.current_user = null;
         savedUser = null;

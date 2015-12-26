@@ -1,0 +1,82 @@
+<div class="row page">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1 class="text-center site-logo"><span>Serve</span> Insight</h1>
+    <h3 class="text-center thin">Gather insights from your team so you can best serve them.</h3>
+
+    <div class="panel panel-lined mt30 form-wizard">
+      <div class="panel-body">
+        <ul class="list-unstyled wizard-tabs mb30">
+          <li ng-class="{active: ctrl.step === 'create'}">
+            <span class="text">Create Organization</span>
+            <i class="fa fa-long-arrow-right"></i>
+          </li>
+          <li ng-class="{active: ctrl.step === 'users'}">
+            <span class="text">Invite Users</span>
+            <i class="fa fa-long-arrow-right"></i>
+          </li>
+          <li ng-class="{active: ctrl.step === 'finish'}">
+            <span class="text">Finish</span>
+          </li>
+        </ul>
+
+        <hr class="dashed">
+
+        <form class="form-horizontal" ng-submit="ctrl.createOrganization()" ng-show="ctrl.step === 'create'">
+          <div class="form-group">
+            <label class="col-lg-4 control-label">Organization Name</label>
+            <div class="col-lg-8">
+              <input required type="text" class="form-control" ng-model="ctrl.organizationParams.name">
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <button type="submit" class="btn btn-success right">Next</button>
+          </div>
+        </form>
+
+        <div ng-show="ctrl.step === 'users'">
+          <form class="form-horizontal" ng-submit="ctrl.inviteUser()">
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Email to Invite</label>
+              <div class="col-lg-8">
+                <input required type="email" class="form-control" ng-model="ctrl.inviteParams.email" placeholder="user@mycompany.com">
+              </div>
+            </div>
+            <div class="col-lg-10 col-lg-offset-2">
+              <div class="left">
+                <h4 class="small text-uppercase">Admin?</h4>
+                <p>This user can manage your Serve Insight instance.</p>
+              </div>
+              <div class="right mt15">
+                <div class="ui-toggle ui-toggle-sm ui-toggle-success">
+                  <label>
+                    <input type="checkbox" ng-model="ctrl.inviteParams.admin">
+                    <span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <button type="submit" class="btn btn-success right">Invite User</button>
+            </div>
+          </form>
+
+          <div class="clearfix mt15">
+            <button type="submit" ng-click="ctrl.goToFinish()" class="btn btn-default right">Continue (Can Invite Later)</button>
+          </div>
+        </div>
+
+        <div class="text-center" ng-show="ctrl.step === 'finish'">
+          <h3 class="text-light">Welcome to Serve Insight.</h3>
+          <p class="lead">
+            Up next, you'll set up your first survey and define your organization structure.
+          </p>
+          <div class="clearfix">
+            <button ng-click="ctrl.finished()" class="btn btn-success right">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

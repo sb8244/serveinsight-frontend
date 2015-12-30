@@ -6,7 +6,7 @@ export function NavDirective() {
     templateUrl: 'app/components/nav/nav.html',
     scope: {},
     controller: NavController,
-    controllerAs: 'vm',
+    controllerAs: 'ctrl',
     bindToController: true
   }
 }

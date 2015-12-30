@@ -1,13 +1,12 @@
+import ngInject from '../decorators/ng_inject';
+
+@ngInject("Organization", "$state", "User")
 export class SetupController {
   constructor(Organization, $state, User) {
-    'ngInject';
-
     if (User.getCachedUser().organization) {
       $state.go("dashboard");
     }
 
-    this.Organization = Organization;
-    this.User = User;
     this.step = "create";
     this.organizationParams = {};
     this.inviteParams = {};

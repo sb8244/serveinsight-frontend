@@ -1,8 +1,8 @@
+import ngInject from '../decorators/ng_inject';
+
+@ngInject("passupList")
 export class ListController {
   constructor(passupList) {
-    'ngInject';
-
-    this.passupList = passupList;
     this.readPassups = passupList.readPassups();
     this.unreadPassups = passupList.unreadPassups();
   }

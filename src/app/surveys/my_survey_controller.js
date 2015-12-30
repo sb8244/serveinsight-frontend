@@ -1,10 +1,8 @@
+import ngInject from '../decorators/ng_inject';
+
+@ngInject("survey", "Survey", "$state", "QuickNote")
 export class MySurveyController {
   constructor(survey, Survey, $state, QuickNote) {
-    'ngInject';
-
-    this.$state = $state;
-    this.survey = survey;
-
     Survey.getList().then((surveyList) => {
       this.surveyList = surveyList;
     });

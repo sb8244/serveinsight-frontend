@@ -1,3 +1,5 @@
+import ngInject from '../../decorators/ng_inject';
+
 export function HeaderDirective() {
   'ngInject';
 
@@ -11,14 +13,13 @@ export function HeaderDirective() {
   };
 }
 
+@ngInject("Passup", "Survey", "$auth", "$window")
 class HeaderController {
-  constructor (Passup, Survey, $auth, $window) {
+  constructor (Passup, Survey) {
     'ngInject';
 
     Passup.getList().then(list => this.unreadPassupCount = list.unreadCount());
     Survey.getList().then(list => this.dueSurveyCount = list.dueCount());
-    this.$auth = $auth;
-    this.$window = $window;
   }
 
   logOut() {

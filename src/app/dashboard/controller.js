@@ -1,7 +1,8 @@
+import ngInject from '../decorators/ng_inject';
+
+@ngInject("Person")
 export class DashboardController {
   constructor(Person) {
-    'ngInject';
-
     this.stats = {
       due_surveys: 1,
       pending_pass_ups: 3,

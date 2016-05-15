@@ -2,12 +2,12 @@
   "name": "frontend",
   "version": "0.0.0",
   "dependencies": {
-    "angular-animate": "~1.4.2",
-    "angular-cookies": "~1.4.2",
-    "angular-touch": "~1.4.2",
-    "angular-sanitize": "~1.4.2",
-    "angular-messages": "~1.4.2",
-    "angular-aria": "~1.4.2",
+    "angular-animate": "~1.5.5",
+    "angular-cookies": "~1.5.5",
+    "angular-touch": "~1.5.5",
+    "angular-sanitize": "~1.5.5",
+    "angular-messages": "~1.5.5",
+    "angular-aria": "~1.5.5",
     "jquery": "~2.1.4",
     "restangular": "~1.5.1",
     "angular-ui-router": "~0.2.15",
@@ -15,13 +15,13 @@
     "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
-    "angular": "~1.4.2",
+    "angular": "~1.5.5",
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.5.0",
     "perfect-scrollbar": "~0.6.7",
     "angular-moment": "~0.10.3",
     "ment.io": "~0.9.24",
-    "ui-select": "angular-ui-select#~0.13.2",
+    "ui-select": "angular-ui-select#~0.17.0",
     "satellizer": "~0.13.4"
   },
   "overrides": {
@@ -32,10 +32,10 @@
     }
   },
   "devDependencies": {
-    "angular-mocks": "~1.4.2"
+    "angular-mocks": "~1.5.5"
   },
   "resolutions": {
     "jquery": "~2.1.4",
-    "angular": "~1.4.2"
+    "angular": "~1.5.5"
   }
 }

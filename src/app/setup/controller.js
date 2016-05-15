@@ -20,12 +20,6 @@ export class SetupController {
     });
   }
 
-  inviteUser() {
-    this.createdOrganization.inviteUser(this.inviteParams).then(() => {
-      this.inviteParams = {};
-    });
-  }
-
   goToFinish() {
     this.step = "finish";
   }

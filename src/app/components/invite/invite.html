@@ -1,0 +1,26 @@
+<form class="form-horizontal" ng-submit="ctrl.inviteUser()">
+  <div class="form-group">
+    <label class="col-lg-4 control-label">Email to Invite</label>
+    <div class="col-lg-8">
+      <input required type="email" class="form-control" ng-model="ctrl.inviteParams.email" placeholder="user@mycompany.com">
+    </div>
+  </div>
+  <div class="col-lg-10 col-lg-offset-2">
+    <div class="left">
+      <h4 class="small text-uppercase">Admin?</h4>
+      <p>This user can manage your Serve Insight instance.</p>
+    </div>
+    <div class="right mt15">
+      <div class="ui-toggle ui-toggle-sm ui-toggle-success">
+        <label>
+          <input type="checkbox" ng-model="ctrl.inviteParams.admin">
+          <span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <button type="submit" class="btn btn-success right">Invite User</button>
+  </div>
+</form>

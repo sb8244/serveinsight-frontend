@@ -19,6 +19,7 @@ import { CommentsDirective } from './components/comments/comments.directive';
 import { Permissions } from './services/permissions';
 import { AutofocusDirective } from './components/autofocus/directive';
 import { FooterController } from './components/footer/controller';
+import { InviteComponent } from './components/invite/invite.directive';
 
 angular.module('frontend',
   [
@@ -53,6 +54,7 @@ angular.module('frontend',
   .directive('surveyGoal', SurveyGoalDirective)
   .directive('comments', CommentsDirective)
   .directive('autofocus', AutofocusDirective)
+  .component('inviteForm', InviteComponent)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)
 ;

@@ -3,7 +3,10 @@
     <a href="#/dashboard-v1" class="site-logo"><span>Serve</span>&nbsp;Insight</a>
   </div>
 
-  <div class="head-wrap clearfix">
+  <div class="head-wrap" ng-if="$root.appState === 'setup'">
+  </div>
+
+  <div class="head-wrap clearfix" ng-if="$root.appState === 'main'">
     <ul class="list-unstyled alerts pull-left">
       <li ng-show="ctrl.dueSurveyCount">
         <a ui-sref="surveys.my_recent">

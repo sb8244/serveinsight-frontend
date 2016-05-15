@@ -1,3 +1,6 @@
+@import "app/comments";
+@import "app/survey";
+
 body > .wrapper {
   height: 100%;
 }
@@ -15,52 +18,6 @@ body > .wrapper {
 
 .thin {
   font-weight: 100;
-}
-
-.question-wrapper {
-  &:extend(.well);
-  background: white;
-  box-shadow: none;
-  border-radius: 0;
-
-  margin-bottom: 21px;
-
-  .question {
-    margin-bottom: 7px;
-    font-weight: 600;
-    font-size: 1.6rem;
-  }
-
-  .answer {
-    margin-bottom: 7px;
-  }
-
-  .action-buttons {
-    button {
-      &:not(:first-child) {
-        border-left: none;
-      }
-
-      &:not(:last-child) {
-        border-right: none;
-      }
-    }
-  }
-}
-
-.survey-page {
-  .survey-title {
-    .title {
-      float: left;
-      margin-top: 4px;
-    }
-
-    .select-wrapper {
-      display: inline-block;
-      width: 200px;
-      margin-left:21px;
-    }
-  }
 }
 
 .ui-select-bootstrap .ui-select-choices-row.active>a {

@@ -32,7 +32,7 @@ export function UserFactory($q, FeatureDefinitions, Restangular, $rootScope, $st
     },
     getAndRedirect: function() {
       this.get().then(user => {
-        $rootScope.current_user = user;
+        $rootScope.current_user = user.plain();
         $rootScope.appState = 'main';
 
         if (user.organization && ($state.current.name === 'login' || $state.current.name === 'setup')) {

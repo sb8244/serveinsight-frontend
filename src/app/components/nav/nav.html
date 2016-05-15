@@ -23,12 +23,12 @@
       </li>
     </ul>
 
-    <ul class="list-unstyled nav-list admin-nav-list">
+    <ul class="list-unstyled nav-list admin-nav-list" ng-if="$root.current_user.admin">
       <li>
         <h4>Admin</h4>
       </li>
-      <li>
-        <a>
+      <li ng-class="{ active: $root.$state.includes('team_admin') }">
+        <a ui-sref="team_admin.settings">
           <i class="fa fa-cogs icon" />
           <span class="text">Team Setup</span>
         </a>

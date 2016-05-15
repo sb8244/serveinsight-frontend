@@ -21,9 +21,11 @@ import { Permissions } from './services/permissions';
 import { AutofocusDirective } from './components/autofocus/directive';
 import { FooterController } from './components/footer/controller';
 import { InviteComponent } from './components/invite/invite.directive';
+import { OrgChartComponent } from './components/org_chart/org_chart.component';
 
 angular.module('frontend',
   [
+    'googlechart',
     'ngAnimate',
     'ngCookies',
     'ngTouch',
@@ -57,11 +59,22 @@ angular.module('frontend',
   .directive('comments', CommentsDirective)
   .directive('autofocus', AutofocusDirective)
   .component('inviteForm', InviteComponent)
+  .component('orgChart', OrgChartComponent)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)
+  .value('googleChartApiConfig', googleChartSettings())
 ;
 
 function globalAvailability ($rootScope, Permissions) {
   'ngInject';
   $rootScope.Permissions = Permissions;
+}
+
+function googleChartSettings() {
+  return {
+    version: '1',
+    optionalSettings: {
+      packages: ['orgchart'],
+    }
+  };
 }

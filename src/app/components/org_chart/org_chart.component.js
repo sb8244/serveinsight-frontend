@@ -33,6 +33,7 @@ class OrgChartController {
 
   updateHierarchy() {
     this.hierarchy = chartDataToHierarchy(this.chartData);
+    this.onChange(this.hierarchy);
   }
 
   selected(item, chart) {
@@ -45,7 +46,13 @@ class OrgChartController {
       }
     } else {
       this.cancel();
+      this.selectedElementIndex = undefined;
     }
+  }
+
+  selectedInfo() {
+    let data = this.chartData.rows[this.selectedElementIndex] || {};
+    return data.user_info;
   }
 
   startReviewerChange() {
@@ -54,30 +61,47 @@ class OrgChartController {
 
   cancel() {
     this.reviewerChangeStarted = false;
-    this.selectedElementIndex = undefined;
+  }
+
+  removeReviewer() {
+    let element = this.chartData.rows[this.selectedElementIndex];
+    element.c[1].v = null;
+    element.user_info.reviewer_id = null;
   }
 
   changeReviewer(childIndex, parentIndex) {
     let parentNode = this.chartData.rows[parentIndex];
     let childNode = this.chartData.rows[childIndex];
-    let previousParentKey = childNode.c[1].v;
+    let movingAChildNode = this.isChildNode(childNode, parentNode);
 
-    childNode.c[1].v = parentNode.c[0].v;
-    childNode.user_info.reviewer_id = parentNode.c[0].v;
-
-    if (parentNode.c[1].v === childNode.c[0].v) { // the previous parent is the new child node
-      parentNode.c[1].v = previousParentKey; // set the new parent node's parent to the previous child node's parent
-      parentNode.user_info.reviewer_id = previousParentKey;
-    }
-
-    if (previousParentKey === null) { // the parent was root
-      parentNode.c[1].v = null;
-      parentNode.user_info.reviewer_id = null;
+    if (!movingAChildNode) {
+      childNode.c[1].v = parentNode.c[0].v;
+      childNode.user_info.reviewer_id = parentNode.c[0].v;
     }
 
     this.reviewerChangeStarted = false;
     this.selectedElementIndex = undefined;
     this.updateHierarchy();
+  }
+
+  isChildNode(parentNode, childNode) {
+    let frontier = [parentNode.c[0].v];
+
+    while(frontier.length > 0) {
+      let id = frontier.shift();
+
+      if (id == childNode.c[0].v) {
+        return true;
+      }
+
+      this.chartData.rows.forEach(function(row) {
+        if (row.c[1].v == id) {
+          frontier.push(row.c[0].v);
+        }
+      });
+    }
+
+    return false;
   }
 }
 
@@ -86,6 +110,7 @@ export const OrgChartComponent = {
   controller: OrgChartController,
   controllerAs: 'ctrl',
   bindings: {
-    hierarchy: '='
+    hierarchy: '=',
+    onChange: '=?'
   }
 };

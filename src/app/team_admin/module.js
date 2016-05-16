@@ -19,6 +19,7 @@ function routerConfig($stateProvider) {
       controller: function(hierarchy) {
         'ngInject';
         this.hierarchy = hierarchy;
+        this.hierarchyUpdated = () => this.canSave = true;
       },
       resolve: {
         hierarchy: function() {

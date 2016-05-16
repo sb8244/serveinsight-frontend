@@ -1,3 +1,5 @@
+import ngInject from '../../decorators/ng_inject';
+
 function hierarchyToChartData(hierarchy) {
   return {
     cols: [
@@ -22,6 +24,7 @@ function chartDataToHierarchy(chartData) {
   });
 }
 
+@ngInject('notify')
 class OrgChartController {
   constructor() {
     this.chartData = hierarchyToChartData(this.hierarchy);
@@ -77,6 +80,8 @@ class OrgChartController {
     if (!movingAChildNode) {
       childNode.c[1].v = parentNode.c[0].v;
       childNode.user_info.reviewer_id = parentNode.c[0].v;
+    } else {
+      this.notify('Cannot change this reviewer without causing review loop. First, remove the reviewer to separate the org chart.');
     }
 
     this.reviewerChangeStarted = false;

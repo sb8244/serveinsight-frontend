@@ -9,7 +9,7 @@ import {} from './setup/module';
 import {} from './team_admin/module';
 
 import { config } from './index.config';
-import { runBlock } from './index.run';
+import { runBlock, notifyConfig } from './index.run';
 import { HeaderDirective } from './components/header/header.directive';
 import { NavDirective } from './components/nav/nav.directive';
 import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
@@ -25,6 +25,7 @@ import { OrgChartComponent } from './components/org_chart/org_chart.component';
 
 angular.module('frontend',
   [
+    'cgNotify',
     'googlechart',
     'ngAnimate',
     'ngCookies',
@@ -48,6 +49,7 @@ angular.module('frontend',
   ])
   .constant('moment', moment)
   .config(config)
+  .run(notifyConfig)
   .run(runBlock)
   .run(globalAvailability)
   .directive('appHeader', HeaderDirective)

@@ -6,3 +6,15 @@ export function runBlock ($log, $rootScope, $stateParams, $state, User) {
 
   User.getAndRedirect();
 }
+
+export function notifyConfig (notify) {
+  'ngInject';
+
+  notify.config({
+    duration: 5000,
+    startTop: 70,
+    verticalSpacing: 14,
+    position: 'right',
+    maximumOpen: 3
+  });
+}

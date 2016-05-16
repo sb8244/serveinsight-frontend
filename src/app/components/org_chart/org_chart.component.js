@@ -87,7 +87,7 @@ class OrgChartController {
       childNode.c[1].v = parentNode.c[0].v;
       childNode.user_info.reviewer_id = parentNode.c[0].v;
     } else {
-      this.notify('Cannot change this reviewer without causing review loop. First, remove the reviewer to separate the org chart.');
+      this.notify('Cannot change this reviewer without causing review loop. First, remove a lower reviewer to separate the org chart.');
     }
 
     this.reviewerChangeStarted = false;

@@ -39,6 +39,12 @@ class OrgChartController {
     this.onChange(this.hierarchy);
   }
 
+  updatedInformation() {
+    let data = this.chartData.rows[this.selectedElementIndex] || {};
+    data.c[0].f = this.selectedInfo().name;
+    this.onChange(this.hierarchy);
+  }
+
   selected(item, chart) {
     if (item) {
       if (this.reviewerChangeStarted) {

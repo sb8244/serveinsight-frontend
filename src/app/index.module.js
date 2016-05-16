@@ -74,7 +74,7 @@ function googleChartSettings() {
   return {
     version: '1',
     optionalSettings: {
-      packages: ['orgchart'],
+      packages: ['orgchart']
     }
   };
 }

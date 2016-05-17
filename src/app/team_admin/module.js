@@ -22,45 +22,20 @@ function routerConfig($stateProvider) {
         this.hierarchyUpdated = () => this.canSave = true;
       },
       resolve: {
-        hierarchy: function() {
+        hierarchy: function(Restangular) {
           'ngInject';
-          return getOrganizationData();
+
+          return Restangular.all("users").getList().then((users) => {
+            return users.map((user) => {
+              return {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                reviewer_id: user.reviewer_id
+              };
+            });
+          });
         }
       }
     });
-}
-
-function getOrganizationData() {
-  return [
-    {
-      id: 1,
-      email: "mike.o@test.com",
-      name: "Mike Oliver",
-      reviewer_id: null
-    },
-    {
-      id: 2,
-      email: "jim.x@test.com",
-      name: "Jim Xavier",
-      reviewer_id: 1
-    },
-    {
-      id: 3,
-      email: "alice.k@test.com",
-      name: "Alice Kim",
-      reviewer_id: 1
-    },
-    {
-      id: 4,
-      email: "bob.b@test.com",
-      name: "Bob Bobsen",
-      reviewer_id: 2
-    },
-    {
-      id: 5,
-      email: "carol.w@test.com",
-      name: "Carol Well",
-      reviewer_id: 4
-    }
-  ];
 }

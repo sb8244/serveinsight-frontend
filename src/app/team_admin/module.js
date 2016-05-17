@@ -27,6 +27,7 @@ function routerConfig($stateProvider) {
 
           return Restangular.all("users").getList().then((users) => {
             return users.map((user) => {
+              // Strip out unnecessary data to avoid bugs
               return {
                 id: user.id,
                 name: user.name,

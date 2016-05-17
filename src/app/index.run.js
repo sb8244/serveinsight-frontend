@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function runBlock ($log, $rootScope, $stateParams, $state, User) {
   'ngInject';
   $log.debug('runBlock end');

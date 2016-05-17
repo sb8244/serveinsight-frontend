@@ -4,7 +4,8 @@ class InviteController {
   }
 
   inviteUser() {
-    this.organization.inviteUser(this.inviteParams).then(() => {
+    this.organization.inviteUser(this.inviteParams).then((invite) => {
+      (this.afterInvite || angular.noop)(invite);
       this.setBlankParams();
     });
   }
@@ -12,6 +13,7 @@ class InviteController {
   setBlankParams() {
     this.inviteParams = {
       email: undefined,
+      name: undefined,
       admin: false
     };
   }
@@ -22,6 +24,7 @@ export const InviteComponent = {
   controller: InviteController,
   controllerAs: 'ctrl',
   bindings: {
-    organization: '='
+    organization: '=',
+    afterInvite: '=?'
   }
 };

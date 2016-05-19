@@ -1,9 +1,9 @@
 import ngInject from '../decorators/ng_inject';
 
-@ngInject("Organization", "$state", "User")
+@ngInject("Organization", "$state", "OrganizationMember")
 export class SetupController {
-  constructor(Organization, $state, User) {
-    if (User.getCachedUser().organization) {
+  constructor(Organization, $state, OrganizationMember) {
+    if (OrganizationMember.getCached().organization) {
       $state.go("dashboard");
     }
 
@@ -15,7 +15,7 @@ export class SetupController {
   createOrganization() {
     this.Organization.create(this.organizationParams).then(org => {
       this.createdOrganization = org;
-      this.User.getCachedUser().organization = org;
+      this.OrganizationMember.getCached().organization = org;
       this.step = "users";
     });
   }
@@ -25,6 +25,6 @@ export class SetupController {
   }
 
   finished() {
-    this.User.getAndRedirect();
+    this.OrganizationMember.getAndRedirect();
   }
 }

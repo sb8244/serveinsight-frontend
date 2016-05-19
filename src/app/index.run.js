@@ -1,11 +1,11 @@
 /* eslint-disable */
-export function runBlock ($log, $rootScope, $stateParams, $state, User) {
+export function runBlock ($log, $rootScope, $stateParams, $state, OrganizationMember) {
   'ngInject';
   $log.debug('runBlock end');
   $rootScope.$stateParams = $stateParams;
   $rootScope.$state = $state;
 
-  User.getAndRedirect();
+  OrganizationMember.getAndRedirect();
 }
 
 export function notifyConfig (notify) {

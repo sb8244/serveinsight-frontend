@@ -21,7 +21,7 @@ function routerConfig($stateProvider) {
         this.hierarchy = hierarchy;
         this.orgChartCallbacks = {};
         this.hierarchyUpdated = () => this.canSave = true;
-        this.saveUsers = (hierarchy) => {
+        this.save = (hierarchy) => {
           let data = hierarchy.map((obj) => {
             return {
               id: obj.id,
@@ -30,7 +30,7 @@ function routerConfig($stateProvider) {
             };
           });
 
-          Restangular.all("users").customPUT({ data }, "bulk_update").then(() => {
+          Restangular.all("organization_memberships").customPUT({ data }, "bulk_update").then(() => {
             this.orgChartCallbacks.reset();
           }).finally(() => this.canSave = false);
         };
@@ -39,14 +39,14 @@ function routerConfig($stateProvider) {
         hierarchy: function(Restangular) {
           'ngInject';
 
-          return Restangular.all("users").getList().then((users) => {
-            return users.map((user) => {
+          return Restangular.all("organization_memberships").getList().then((data) => {
+            return data.map((member) => {
               // Strip out unnecessary data to avoid bugs
               return {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                reviewer_id: user.reviewer_id
+                id: member.id,
+                name: member.name,
+                email: member.email,
+                reviewer_id: member.reviewer_id
               };
             });
           });

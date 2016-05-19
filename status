@@ -1,0 +1,5 @@
+Org chart pulls from real data. It needs to save that data back up to the server.
+Invite a user and have that user be editable on the team immediately.
+
+Questions:
+* What to do about managing user name / email? Just do it in the org chart for now? What bout other fields?

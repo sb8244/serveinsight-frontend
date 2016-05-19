@@ -15,7 +15,7 @@
         </a>
       </li>
 
-      <li ng-class="{ active: $root.$state.includes('passups') }" ng-if="$root.current_user.hasFeature('pass-ups')">
+      <li ng-class="{ active: $root.$state.includes('passups') }" ng-if="$root.current_organzation_member.hasFeature('pass-ups')">
         <a ui-sref="passups.list">
           <i class="fa fa-level-up icon"></i>
           <span class="text">Pass-ups</span>
@@ -23,7 +23,7 @@
       </li>
     </ul>
 
-    <ul class="list-unstyled nav-list admin-nav-list" ng-if="$root.current_user.admin">
+    <ul class="list-unstyled nav-list admin-nav-list" ng-if="$root.current_organzation_member.admin">
       <li>
         <h4>Admin</h4>
       </li>

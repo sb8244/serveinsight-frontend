@@ -1,12 +1,12 @@
 export class Permissions {
-  constructor(User) {
+  constructor(OrganizationMember) {
     'ngInject';
 
-    this.User = User;
+    this.OrganizationMember = OrganizationMember;
   }
 
   isPassupable(item) {
-    var currentUser = this.User.getCachedUser();
-    return currentUser.id != item.user_id;
+    var current = this.OrganizationMember.getCached();
+    return current.id != item.organzation_member_id;
   }
 }

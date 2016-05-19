@@ -24,7 +24,7 @@ class Passup {
 
 const data = _.map([{
     id: 1,
-    user_id: 2,
+    organzation_member_id: 2,
     user_name: "John Robertson",
     content_created_at: new Date(),
     passed_by_id: 3,
@@ -37,7 +37,7 @@ const data = _.map([{
     }
   }, {
     id: 2,
-    user_id: 3,
+    organzation_member_id: 3,
     user_name: "Emma Stolman",
     content_created_at: new Date(),
     passed_by_id: 2,

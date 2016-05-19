@@ -15,10 +15,10 @@ export function CommentsDirective() {
 }
 
 class CommentsController {
-  constructor(Person, User) {
+  constructor(Person, OrganizationMember) {
     'ngInject';
 
-    User.get().then(user => this.user = user);
+    OrganizationMember.get().then(member => this.member = member);
     Person.getList().then(personList => this.people = personList.people);
   }
 
@@ -26,8 +26,8 @@ class CommentsController {
     this.commentable.comments.push({
       id: null,
       content: this.newContent,
-      author_id: this.user.id,
-      author_name: this.user.name
+      author_id: this.member.id,
+      author_name: this.member.name
     });
 
     delete this.newContent;

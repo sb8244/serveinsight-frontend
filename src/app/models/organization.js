@@ -4,7 +4,7 @@ class Organization {
     this.Restangular = Restangular;
   }
 
-  inviteUser(params) {
+  invite(params) {
     return this.Restangular.all("invites").customPOST(params);
   }
 }

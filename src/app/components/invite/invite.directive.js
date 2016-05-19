@@ -3,8 +3,8 @@ class InviteController {
     this.setBlankParams();
   }
 
-  inviteUser() {
-    this.organization.inviteUser(this.inviteParams).then((invite) => {
+  invite() {
+    this.organization.invite(this.inviteParams).then((invite) => {
       (this.afterInvite || angular.noop)(invite);
       this.setBlankParams();
     });

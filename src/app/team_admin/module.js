@@ -21,6 +21,13 @@ function routerConfig($stateProvider) {
         this.hierarchy = hierarchy;
         this.orgChartCallbacks = {};
         this.hierarchyUpdated = () => this.canSave = true;
+        this.userInvited = () => {
+          getHierarchy(Restangular).then((hierarchy) => {
+            this.hierarchy = hierarchy;
+            this.orgChartCallbacks.updateChart(this.hierarchy);
+          });
+        };
+
         this.save = (hierarchy) => {
           let data = hierarchy.map((obj) => {
             return {
@@ -39,18 +46,22 @@ function routerConfig($stateProvider) {
         hierarchy: function(Restangular) {
           'ngInject';
 
-          return Restangular.all("organization_memberships").getList().then((data) => {
-            return data.map((member) => {
-              // Strip out unnecessary data to avoid bugs
-              return {
-                id: member.id,
-                name: member.name,
-                email: member.email,
-                reviewer_id: member.reviewer_id
-              };
-            });
-          });
+          return getHierarchy(Restangular);
         }
       }
     });
+}
+
+function getHierarchy(Restangular) {
+  return Restangular.all("organization_memberships").getList().then((data) => {
+    return data.map((member) => {
+      // Strip out unnecessary data to avoid bugs
+      return {
+        id: member.id,
+        name: member.name,
+        email: member.email,
+        reviewer_id: member.reviewer_id
+      };
+    });
+  });
 }

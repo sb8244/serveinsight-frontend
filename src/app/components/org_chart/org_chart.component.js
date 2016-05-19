@@ -27,15 +27,20 @@ function chartDataToHierarchy(chartData) {
 @ngInject('notify')
 class OrgChartController {
   constructor() {
-    this.chartData = hierarchyToChartData(this.hierarchy);
-    this.chart = {
-      type: "OrgChart",
-      data: this.chartData
-    };
     this.callbacks.reset = () => {
       this.selectedElementIndex = undefined;
       this.reviewerChangeStarted = false;
     };
+
+    let init = this.callbacks.updateChart = (hierarchy) => {
+      this.chartData = hierarchyToChartData(hierarchy);
+      this.chart = {
+        type: "OrgChart",
+        data: this.chartData
+      };
+    };
+
+    init(this.hierarchy);
   }
 
   updateHierarchy() {

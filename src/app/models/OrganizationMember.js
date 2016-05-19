@@ -22,8 +22,8 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
     getCached: function() {
       return savedOrganizationMember;
     },
-    get: function() {
-      if (savedOrganizationMember) {
+    get: function(forceFresh) {
+      if (!forceFresh && savedOrganizationMember) {
         return $q(resolve => resolve(savedOrganizationMember));
       }
 
@@ -36,7 +36,7 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
       });
     },
     getAndRedirect: function() {
-      this.get().then(organzation_member => {
+      this.get(true).then(organzation_member => {
         $rootScope.current_organzation_member = organzation_member;
         $rootScope.appState = 'main';
 

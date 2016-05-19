@@ -15,7 +15,7 @@
         <div class="form-group">
           <label class="col-lg-4 control-label">Email</label>
           <div class="col-lg-8">
-            <input ng-change="ctrl.updatedInformation()" required="" type="email" class="form-control" ng-model="ctrl.selectedInfo().email" required placeholder="user@mycompany.com">
+            <input ng-change="ctrl.updatedInformation()" readonly required="" type="email" class="form-control" ng-model="ctrl.selectedInfo().email" required placeholder="user@mycompany.com">
           </div>
         </div>
       </form>
@@ -39,5 +39,5 @@
       </span>
     </div>
   </div>
-  <div google-chart chart="ctrl.chart" agc-on-select="ctrl.selected(selectedItem, chart)" />
+  <div google-chart chart="ctrl.chart" agc-on-select="ctrl.selected(selectedItem, chart)" agc-on-ready="ctrl.chartReady(chartWrapper)" />
 </div>

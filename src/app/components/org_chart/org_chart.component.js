@@ -32,6 +32,10 @@ class OrgChartController {
       type: "OrgChart",
       data: this.chartData
     };
+    this.callbacks.reset = () => {
+      this.selectedElementIndex = undefined;
+      this.reviewerChangeStarted = false;
+    };
   }
 
   updateHierarchy() {
@@ -76,6 +80,7 @@ class OrgChartController {
     let element = this.chartData.rows[this.selectedElementIndex];
     element.c[1].v = null;
     element.user_info.reviewer_id = null;
+    this.updateHierarchy();
   }
 
   changeReviewer(childIndex, parentIndex) {
@@ -122,6 +127,7 @@ export const OrgChartComponent = {
   controllerAs: 'ctrl',
   bindings: {
     hierarchy: '=',
-    onChange: '=?'
+    onChange: '=?',
+    callbacks: '=?'
   }
 };

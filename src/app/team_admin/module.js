@@ -16,10 +16,24 @@ function routerConfig($stateProvider) {
       url: '/',
       templateUrl: 'app/team_admin/settings.html',
       controllerAs: 'ctrl',
-      controller: function(hierarchy) {
+      controller: function(hierarchy, Restangular) {
         'ngInject';
         this.hierarchy = hierarchy;
+        this.orgChartCallbacks = {};
         this.hierarchyUpdated = () => this.canSave = true;
+        this.saveUsers = (hierarchy) => {
+          let data = hierarchy.map((obj) => {
+            return {
+              id: obj.id,
+              name: obj.name,
+              reviewer_id: obj.reviewer_id
+            };
+          });
+
+          Restangular.all("users").customPUT({ data }, "bulk_update").then(() => {
+            this.orgChartCallbacks.reset();
+          }).finally(() => this.canSave = false);
+        };
       },
       resolve: {
         hierarchy: function(Restangular) {

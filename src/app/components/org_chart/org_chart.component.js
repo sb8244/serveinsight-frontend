@@ -17,19 +17,27 @@ class OrgChartController {
     });
   }
 
-  onChange(hierarchy) {
+  onChange() {
     this.canSave = true;
   }
 
   updateHierarchy() {
     this.hierarchy = chartDataToHierarchy(this.chartData);
-    this.onChange(this.hierarchy);
+    this.onChange();
+  }
+
+  updateChartData() {
+    this.chartData = hierarchyToChartData(this.hierarchy);
+    this.chart = {
+      type: "OrgChart",
+      data: this.chartData
+    };
   }
 
   updatedInformation() {
     let data = this.chartData.rows[this.selectedElementIndex] || {};
     data.c[0].f = this.selectedInfo().name;
-    this.onChange(this.hierarchy);
+    this.onChange();
   }
 
   selected(item, chart) {
@@ -105,8 +113,10 @@ class OrgChartController {
     return false;
   }
 
-  userInvited() {
-    this.init();
+  userInvited(invite) {
+    let member = objToMember(invite.organization_membership);
+    this.hierarchy.push(member);
+    this.updateChartData();
   }
 
   save() {
@@ -159,12 +169,16 @@ function getHierarchy(Restangular) {
   return Restangular.all("organization_memberships").getList().then((data) => {
     return data.map((member) => {
       // Strip out unnecessary data to avoid bugs
-      return {
-        id: member.id,
-        name: member.name,
-        email: member.email,
-        reviewer_id: member.reviewer_id
-      };
+      return objToMember(member);
     });
   });
+}
+
+function objToMember(member) {
+  return {
+    id: member.id,
+    name: member.name,
+    email: member.email,
+    reviewer_id: member.reviewer_id
+  }
 }

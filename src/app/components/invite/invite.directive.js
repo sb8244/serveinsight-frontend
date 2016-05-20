@@ -5,7 +5,7 @@ class InviteController {
 
   invite() {
     this.organization.invite(this.inviteParams).then((invite) => {
-      (this.afterInvite() || angular.noop)(invite);
+      (this.afterInvite || angular.noop)({ invite: invite.plain() });
       this.setBlankParams();
     });
   }

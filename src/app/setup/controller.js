@@ -9,19 +9,14 @@ export class SetupController {
 
     this.step = "create";
     this.organizationParams = {};
-    this.inviteParams = {};
   }
 
   createOrganization() {
     this.Organization.create(this.organizationParams).then(org => {
       this.createdOrganization = org;
       this.OrganizationMember.getCached().organization = org;
-      this.step = "users";
+      this.step = "finish";
     });
-  }
-
-  goToFinish() {
-    this.step = "finish";
   }
 
   finished() {

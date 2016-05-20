@@ -5,7 +5,7 @@ class InviteController {
 
   invite() {
     this.organization.invite(this.inviteParams).then((invite) => {
-      (this.afterInvite || angular.noop)(invite);
+      (this.afterInvite() || angular.noop)(invite);
       this.setBlankParams();
     });
   }
@@ -25,6 +25,7 @@ export const InviteComponent = {
   controllerAs: 'ctrl',
   bindings: {
     organization: '=',
-    afterInvite: '=?'
+    afterInvite: '&?',
+    onCancel: '&?'
   }
 };

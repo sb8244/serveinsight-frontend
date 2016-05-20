@@ -1,46 +1,24 @@
 import ngInject from '../../decorators/ng_inject';
 
-function hierarchyToChartData(hierarchy) {
-  return {
-    cols: [
-        {"label": "Name", "pattern": "", "type": "string"},
-        {"label": "Reviewer", "pattern": "", "type": "string"}
-    ],
-    rows: hierarchy.map((userInfo) => {
-      return {
-        user_info: userInfo,
-        c: [
-          { v: userInfo.id, f: userInfo.name },
-          { v: userInfo.reviewer_id }
-        ]
-      };
-    })
-  };
-}
-
-function chartDataToHierarchy(chartData) {
-  return chartData.rows.map((row) => {
-    return row.user_info;
-  });
-}
-
-@ngInject('notify')
+@ngInject('notify', 'Restangular')
 class OrgChartController {
   constructor() {
-    this.callbacks.reset = () => {
-      this.selectedElementIndex = undefined;
-      this.reviewerChangeStarted = false;
-    };
+    this.init();
+  }
 
-    let init = this.callbacks.updateChart = (hierarchy) => {
+  init() {
+    getHierarchy(this.Restangular).then((hierarchy) => {
+      this.hierarchy = hierarchy;
       this.chartData = hierarchyToChartData(hierarchy);
       this.chart = {
         type: "OrgChart",
         data: this.chartData
       };
-    };
+    });
+  }
 
-    init(this.hierarchy);
+  onChange(hierarchy) {
+    this.canSave = true;
   }
 
   updateHierarchy() {
@@ -55,6 +33,8 @@ class OrgChartController {
   }
 
   selected(item, chart) {
+    this.showInvite = false;
+
     if (item) {
       if (this.reviewerChangeStarted) {
         this.changeReviewer(this.selectedElementIndex, item.row);
@@ -124,15 +104,67 @@ class OrgChartController {
 
     return false;
   }
+
+  userInvited() {
+    this.init();
+  }
+
+  save() {
+    let data = this.hierarchy.map((obj) => {
+      return {
+        id: obj.id,
+        name: obj.name,
+        reviewer_id: obj.reviewer_id
+      };
+    });
+
+    this.Restangular.all("organization_memberships").customPUT({ data }, "bulk_update").then(() => {
+      this.init();
+    }).finally(() => this.canSave = false);
+  };
 }
 
 export const OrgChartComponent = {
   templateUrl: 'app/components/org_chart/org_chart.html',
   controller: OrgChartController,
   controllerAs: 'ctrl',
-  bindings: {
-    hierarchy: '=',
-    onChange: '=?',
-    callbacks: '=?'
-  }
+  bindings: {}
 };
+
+function hierarchyToChartData(hierarchy) {
+  return {
+    cols: [
+        {"label": "Name", "pattern": "", "type": "string"},
+        {"label": "Reviewer", "pattern": "", "type": "string"}
+    ],
+    rows: hierarchy.map((userInfo) => {
+      return {
+        user_info: userInfo,
+        c: [
+          { v: userInfo.id, f: userInfo.name },
+          { v: userInfo.reviewer_id }
+        ]
+      };
+    })
+  };
+}
+
+function chartDataToHierarchy(chartData) {
+  return chartData.rows.map((row) => {
+    return row.user_info;
+  });
+}
+
+function getHierarchy(Restangular) {
+  return Restangular.all("organization_memberships").getList().then((data) => {
+    return data.map((member) => {
+      // Strip out unnecessary data to avoid bugs
+      return {
+        id: member.id,
+        name: member.name,
+        email: member.email,
+        reviewer_id: member.reviewer_id
+      };
+    });
+  });
+}

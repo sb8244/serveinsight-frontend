@@ -11,12 +11,12 @@
       <input required type="text" class="form-control" ng-model="ctrl.inviteParams.name" placeholder="Pat Smith">
     </div>
   </div>
-  <div class="col-lg-10 col-lg-offset-2">
-    <div class="left">
+  <div class="form-group">
+    <div class="col-xs-9">
       <h4 class="small text-uppercase">Admin?</h4>
       <p>This user can manage your Serve Insight instance.</p>
     </div>
-    <div class="right mt15">
+    <div class="col-xs-3 mt15">
       <div class="ui-toggle ui-toggle-sm ui-toggle-success">
         <label>
           <input type="checkbox" ng-model="ctrl.inviteParams.admin">
@@ -28,5 +28,6 @@
 
   <div class="clearfix">
     <button type="submit" class="btn btn-success right">Invite User</button>
+    <button ng-if="ctrl.onCancel" ng-click="ctrl.onCancel()" type="button" class="btn btn-danger right mr10">Cancel</button>
   </div>
 </form>

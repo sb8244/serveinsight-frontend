@@ -22,6 +22,7 @@ import { AutofocusDirective } from './components/autofocus/directive';
 import { FooterController } from './components/footer/controller';
 import { InviteComponent } from './components/invite/invite.directive';
 import { OrgChartComponent } from './components/org_chart/org_chart.component';
+import { AdminSurveyList } from './components/survey_list/admin_survey_list.component'
 
 angular.module('frontend',
   [
@@ -62,6 +63,7 @@ angular.module('frontend',
   .directive('autofocus', AutofocusDirective)
   .component('inviteForm', InviteComponent)
   .component('orgChart', OrgChartComponent)
+  .component('adminSurveyList', AdminSurveyList)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)
   .value('googleChartApiConfig', googleChartSettings())

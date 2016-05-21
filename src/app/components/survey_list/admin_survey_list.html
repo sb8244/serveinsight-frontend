@@ -3,18 +3,15 @@
     <h3 class="panel-title">Recurring Surveys</h3>
   </div>
   <div class="panel-body">
-    <div class="survey-list--row" ng-repeat="survey in ctrl.surveys">
-      <div class="survey-list--row--top">
-        <h4>{{ survey.name }}</h4>
-        <span class="label label-primary">{{ survey.users_in_scope }} users</span>
-        <span class="label label-primary">{{ survey.responses }} responses</span>
-        <div class="pull-right survey-list--row--actions">
-          <a href="#" class="btn btn-success">Edit</a>
-        </div>
-      </div>
-      <div class="survey-list--row--details">
-        <small>Recurring since {{ survey.created_at | date:'shortDate' }}</small>
-      </div>
-    </div>
+    <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys" />
+  </div>
+</div>
+
+<div class="panel panel-lined passup-list-panel mt30">
+  <div class="panel-heading">
+    <h3 class="panel-title">Single Surveys</h3>
+  </div>
+  <div class="panel-body">
+    <survey-list-row survey="survey" ng-repeat="survey in ctrl.oneTimeSurveys" />
   </div>
 </div>

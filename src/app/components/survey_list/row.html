@@ -1,0 +1,15 @@
+<div class="survey-list--row">
+  <div class="survey-list--row--top">
+    <h5>{{ ctrl.survey.name }}</h5>
+    <span class="label label-primary">{{ ctrl.survey.users_in_scope }} users</span>
+    <span class="label label-primary">{{ ctrl.survey.responses }} responses</span>
+    <small class="label label-danger" ng-hide="ctrl.survey.active">Not accepting responses</small>
+    <div class="pull-right survey-list--row--actions">
+      <a href="#" class="btn btn-success">Edit</a>
+    </div>
+  </div>
+  <div class="survey-list--row--details">
+    <small ng-show="ctrl.survey.recurring && ctrl.survey.active">Recurring since {{ ctrl.survey.created_at | date:'shortDate' }}, created by {{ ctrl.survey.creator }}</small>
+    <small ng-show="!ctrl.survey.recurring || !ctrl.survey.active">Created {{ ctrl.survey.created_at | date:'shortDate' }} by {{ ctrl.survey.creator }}</small>
+  </div>
+</div>

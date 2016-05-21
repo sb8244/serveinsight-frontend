@@ -131,7 +131,7 @@ class OrgChartController {
     this.Restangular.all("organization_memberships").customPUT({ data }, "bulk_update").then(() => {
       this.init();
     }).finally(() => this.canSave = false);
-  };
+  }
 }
 
 export const OrgChartComponent = {

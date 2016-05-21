@@ -17,7 +17,7 @@ function routerConfig($stateProvider) {
       templateUrl: 'app/team_admin/settings.html'
     })
     .state('team_admin.surveys', {
-      url: '/surveys',
+      url: '/insights',
       templateUrl: 'app/team_admin/surveys.html'
     });
 }

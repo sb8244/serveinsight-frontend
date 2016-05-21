@@ -19,5 +19,15 @@ function routerConfig($stateProvider) {
     .state('team_admin.surveys', {
       url: '/insights',
       templateUrl: 'app/team_admin/surveys.html'
+    })
+    .state('team_admin.survey', {
+      url: '/insights/:id',
+      templateUrl: 'app/team_admin/survey.html',
+      controllerAs: 'ctrl',
+      controller: function($stateParams) {
+        'ngInject';
+
+        this.id = $stateParams.id;
+      }
     });
 }

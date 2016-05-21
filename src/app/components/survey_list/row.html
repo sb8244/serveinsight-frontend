@@ -5,7 +5,7 @@
     <span class="label label-primary-hollow">{{ ctrl.survey.responses }} responses</span>
     <small class="label label-danger" ng-hide="ctrl.survey.active">Not accepting responses</small>
     <div class="pull-right survey-list--row--actions">
-      <a href="#" class="btn btn-success">Edit</a>
+      <a ui-sref="team_admin.survey({ id: ctrl.survey.id })" class="btn btn-success">Edit</a>
     </div>
   </div>
   <div class="survey-list--row--details">

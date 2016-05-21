@@ -28,7 +28,7 @@ class Controller {
 
     this.oneTimeSurveys = [
       {
-        id: 1,
+        id: 3,
         name: "End of Project Report",
         users_in_scope: 4,
         responses: 1,
@@ -38,7 +38,7 @@ class Controller {
         creator: "Steve Bussey"
       },
       {
-        id: 2,
+        id: 4,
         name: "Quarterly TPS",
         users_in_scope: 88,
         responses: 67,

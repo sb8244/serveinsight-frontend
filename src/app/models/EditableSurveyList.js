@@ -59,7 +59,7 @@ class EditableSurvey {
   }
 }
 
-export function SurveyListFactory($q) {
+export function EditableSurveyListFactory($q) {
   'ngInject';
 
   return {

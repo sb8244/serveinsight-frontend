@@ -1,9 +1,9 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject('notify', 'SurveyList')
+@ngInject('notify', 'EditableSurveyList')
 class Controller {
   constructor() {
-    this.SurveyList.getList().then((surveyList) => {
+    this.EditableSurveyList.getList().then((surveyList) => {
       this.recurringSurveys = surveyList;
     })
   }

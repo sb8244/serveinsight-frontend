@@ -1,9 +1,9 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject('SurveyList')
+@ngInject('EditableSurveyList')
 class Controller {
   constructor() {
-    this.SurveyList.get(this.id).then((survey) => {
+    this.EditableSurveyList.get(this.id).then((survey) => {
       this.survey = survey;
     });
   }

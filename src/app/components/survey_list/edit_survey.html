@@ -49,9 +49,17 @@
             <i class="fa fa-lg fa-caret-down" ng-hide="$last" ng-click="ctrl.survey.moveQuestion($index, 1)"></i>
           </span>
         </label>
-        <div class="col-md-8">
+        <div class="col-md-7">
           <input required type="text" class="form-control" ng-model="question.question">
         </div>
+        <div class="col-md-1 button--inline-form">
+          <button type="button" class="btn btn-warning btn-xs" ng-click="ctrl.survey.removeQuestion($index)">Remove</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">
+          <button type="button" class="btn btn-primary btn-xs" ng-click="ctrl.survey.addQuestion()">Add Question</button>
+        </label>
       </div>
     </div>
   </form>

@@ -43,8 +43,19 @@ class EditableSurvey {
 
   moveQuestion(index, change) {
     var newIndex = index + change;
-    var question = _.pullAt(this.questions, index)[0];
+    var question = this.removeQuestion(index);
     this.questions.splice(newIndex, 0, question);
+  }
+
+  removeQuestion(index) {
+    return _.pullAt(this.questions, index)[0];
+  }
+
+  addQuestion() {
+    this.questions.push({
+      id: null,
+      question: ""
+    });
   }
 }
 

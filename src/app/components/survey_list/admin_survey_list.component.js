@@ -1,30 +1,11 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject('notify', 'Restangular')
+@ngInject('notify', 'SurveyList')
 class Controller {
   constructor() {
-    this.recurringSurveys = [
-      {
-        id: 1,
-        name: "Weekly Insights Report",
-        users_in_scope: 34,
-        responses: 215,
-        created_at: moment().subtract(5, "months").toJSON(),
-        active: true,
-        recurring: true,
-        creator: "Steve Bussey"
-      },
-      {
-        id: 2,
-        name: "Weekly Insights Report",
-        users_in_scope: 34,
-        responses: 215,
-        created_at: moment().subtract(5, "months").toJSON(),
-        active: false,
-        recurring: true,
-        creator: "Brian Culler"
-      }
-    ];
+    this.SurveyList.getList().then((surveyList) => {
+      this.recurringSurveys = surveyList;
+    })
   }
 }
 

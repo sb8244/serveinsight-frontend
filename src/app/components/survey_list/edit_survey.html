@@ -1,0 +1,56 @@
+<div class="edit-survey--wrapper">
+  <h3 class="mt0">Insight Editor</h3>
+
+  <form class="form-horizontal mt30">
+    <div class="form-group">
+      <label class="col-md-4 control-label">Survey Name</label>
+      <div class="col-md-8">
+        <input required type="text" class="form-control" ng-model="ctrl.survey.name" placeholder="Weekly Insight Survey">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+        Recurring?
+        <p>
+          <small><i>
+            Recurring Insights will occur at a configurable rhythm for the recipients.
+          </i></small>
+        </p>
+      </label>
+      <div class="col-md-8 ui-toggle ui-toggle-primary">
+        <label class="ui-toggle-inline">
+					<input type="checkbox" ng-checked="ctrl.survey.recurring">
+					<span></span>
+				</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+        Show Goals Section?
+        <p>
+          <small><i>
+            The goals section will be displayed at the top of a survey and contains weekly goals.
+          </i></small>
+        </p>
+      </label>
+      <div class="col-md-8 ui-toggle ui-toggle-primary">
+        <label class="ui-toggle-inline">
+          <input type="checkbox" ng-checked="ctrl.survey.goals_section">
+          <span></span>
+        </label>
+      </div>
+    </div>
+    <div class="edit-survey--questions">
+      <div class="form-group" ng-repeat="question in ctrl.survey.questions">
+        <label class="col-md-4 control-label">
+          Question {{ $index + 1 }}
+          <i class="fa fa-caret-up" ng-hide="$first" ng-click="ctrl.survey.moveQuestion($index, -1)"></i>
+          <i class="fa fa-caret-down" ng-hide="$last" ng-click="ctrl.survey.moveQuestion($index, 1)"></i>
+        </label>
+        <div class="col-md-8">
+          <input required type="text" class="form-control" ng-model="question.question">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

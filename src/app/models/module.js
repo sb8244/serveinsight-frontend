@@ -5,6 +5,7 @@ import { OrganizationMemberFactory } from './OrganizationMember';
 import { PassupFactory } from './passup';
 import { FeatureDefinitions } from './feature_definitions';
 import { OrganizationFactory } from './organization';
+import { SurveyListFactory } from './SurveyList';
 
 angular.module("models", [])
   .factory("Survey", SurveyFactory)
@@ -13,5 +14,6 @@ angular.module("models", [])
   .factory("OrganizationMember", OrganizationMemberFactory)
   .factory("Passup", PassupFactory)
   .factory("Organization", OrganizationFactory)
+  .factory("SurveyList", SurveyListFactory)
   .constant("FeatureDefinitions", FeatureDefinitions)
 ;

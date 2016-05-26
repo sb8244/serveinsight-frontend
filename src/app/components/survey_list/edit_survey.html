@@ -44,8 +44,10 @@
       <div class="form-group" ng-repeat="question in ctrl.survey.questions">
         <label class="col-md-4 control-label">
           Question {{ $index + 1 }}
-          <i class="fa fa-caret-up" ng-hide="$first" ng-click="ctrl.survey.moveQuestion($index, -1)"></i>
-          <i class="fa fa-caret-down" ng-hide="$last" ng-click="ctrl.survey.moveQuestion($index, 1)"></i>
+          <span class="edit-survey--arrow-wrapper">
+            <i class="fa fa-lg fa-caret-up" ng-hide="$first" ng-click="ctrl.survey.moveQuestion($index, -1)"></i>
+            <i class="fa fa-lg fa-caret-down" ng-hide="$last" ng-click="ctrl.survey.moveQuestion($index, 1)"></i>
+          </span>
         </label>
         <div class="col-md-8">
           <input required type="text" class="form-control" ng-model="question.question">

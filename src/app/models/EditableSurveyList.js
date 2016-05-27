@@ -42,7 +42,7 @@ class EditableSurvey {
   }
 
   valid() {
-    return this.name && this.questions.length;
+    return this.name && this.questions.length && _.all(this.questions, "question");
   }
 
   moveQuestion(index, change) {

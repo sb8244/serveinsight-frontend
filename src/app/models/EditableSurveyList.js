@@ -41,6 +41,10 @@ class EditableSurvey {
     _.extend(this, data);
   }
 
+  valid() {
+    return this.name && this.questions.length;
+  }
+
   moveQuestion(index, change) {
     var newIndex = index + change;
     var question = this.removeQuestion(index);

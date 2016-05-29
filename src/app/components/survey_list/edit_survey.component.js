@@ -1,10 +1,16 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject('EditableSurveyList')
+@ngInject('notify', 'EditableSurveyList')
 class Controller {
   constructor() {
     this.EditableSurveyList.get(this.id).then((survey) => {
       this.survey = survey;
+    });
+  }
+
+  save() {
+    this.survey.save().then(() => {
+      this.notify("Insight Updated");
     });
   }
 }

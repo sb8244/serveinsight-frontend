@@ -1,81 +1,49 @@
-let data = [
-  {
-    id: 1,
-    creator: "Steve Bussey",
-    name: "Weekly Insights Report",
-    users_in_scope: 34,
-    responses: 215,
-    created_at: moment().subtract(5, "months").toJSON(),
-    active: true,
-    recurring: true,
-    goals_section: true,
-    questions: [
-      {
-        id: 1,
-        question: "Is there anyone this week you'd like to highlight for embodying our core values?",
-      }, {
-        id: 2,
-        question: "What's going well? Any wins ( big or little) this week?",
-      }, {
-        id: 3,
-        question: "What challenges are you facing? Where are you stuck?",
-      }
-    ]
-  },
-  {
-    id: 2,
-    creator: "Brian Culler",
-    name: "Weekly Insights Report",
-    users_in_scope: 34,
-    responses: 215,
-    created_at: moment().subtract(5, "months").toJSON(),
-    active: false,
-    recurring: true,
-    goals_section: false,
-    questions: []
-  }
-];
-
 class EditableSurvey {
-  constructor(data) {
-    _.extend(this, data);
+  constructor(data, Restangular) {
+    this.data = data;
+    this.Restangular = Restangular;
   }
 
   valid() {
-    return this.name && this.questions.length && _.all(this.questions, "question");
+    return this.data.name && this.data.questions.length && _.all(this.data.questions, "question");
   }
 
   moveQuestion(index, change) {
     var newIndex = index + change;
     var question = this.removeQuestion(index);
-    this.questions.splice(newIndex, 0, question);
+    this.data.questions.splice(newIndex, 0, question);
   }
 
   removeQuestion(index) {
-    return _.pullAt(this.questions, index)[0];
+    return _.pullAt(this.data.questions, index)[0];
   }
 
   addQuestion() {
-    this.questions.push({
+    this.data.questions.push({
       id: null,
       question: ""
     });
   }
+
+  save() {
+    return this.Restangular.one("survey_templates", this.data.id).customPUT(this.data);
+  }
 }
 
-export function EditableSurveyListFactory($q) {
+export function EditableSurveyListFactory(Restangular) {
   'ngInject';
 
   return {
     getList: function() {
-      return $q(function(resolve) {
-        resolve(data);
+      return Restangular.all("survey_templates").getList().then(function(templates) {
+        return templates.map(function(data) {
+          return new EditableSurvey(data, Restangular);
+        });
       });
     },
     get: function(id) {
-      return $q(function(resolve) {
-        let survey = _.find(data, { id: parseInt(id) });
-        resolve(new EditableSurvey(survey));
+      return Restangular.one("survey_templates", id).get().then(function(survey) {
+        return new EditableSurvey(survey, Restangular);
       });
     }
   };

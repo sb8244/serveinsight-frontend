@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">Survey Name</label>
       <div class="col-md-8">
-        <input required type="text" class="form-control" ng-model="ctrl.survey.name" placeholder="Weekly Insight Survey">
+        <input required type="text" class="form-control" ng-model="ctrl.survey.data.name" placeholder="Weekly Insight Survey">
       </div>
     </div>
     <div class="form-group">
@@ -19,7 +19,7 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <label class="ui-toggle-inline">
-					<input type="checkbox" ng-checked="ctrl.survey.recurring">
+					<input type="checkbox" ng-checked="ctrl.survey.data.recurring">
 					<span></span>
 				</label>
       </div>
@@ -35,13 +35,13 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <label class="ui-toggle-inline">
-          <input type="checkbox" ng-checked="ctrl.survey.goals_section">
+          <input type="checkbox" ng-checked="ctrl.survey.data.goals_section">
           <span></span>
         </label>
       </div>
     </div>
     <div class="edit-survey--questions">
-      <div class="form-group" ng-repeat="question in ctrl.survey.questions">
+      <div class="form-group" ng-repeat="question in ctrl.survey.data.questions">
         <label class="col-md-4 control-label">
           Question {{ $index + 1 }}
           <span class="edit-survey--arrow-wrapper">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="edit-survey--submit-wrapper">
-      <button class="pull-right btn btn-primary btn-lg" ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
+      <button class="pull-right btn btn-primary btn-lg" ng-click="ctrl.save()" ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
     </div>
   </form>
 </div>

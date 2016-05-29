@@ -20,7 +20,7 @@ function routerConfig($stateProvider) {
       url: '/insights',
       templateUrl: 'app/team_admin/surveys.html'
     })
-    .state('team_admin.new_survey', {
+    .state('team_admin.survey_new', {
       url: '/insights/new',
       templateUrl: 'app/team_admin/new_survey.html'
     })

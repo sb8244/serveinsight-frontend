@@ -1,6 +1,6 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject('notify', 'EditableSurveyList')
+@ngInject('notify', '$state', 'EditableSurveyList')
 class Controller {
   constructor() {
     this.EditableSurveyList.getList().then((surveyList) => {
@@ -9,6 +9,7 @@ class Controller {
   }
 
   newSurvey() {
+    this.$state.go('team_admin.survey_new');
   }
 }
 

@@ -41,6 +41,8 @@ export function EditableSurveyListFactory(Restangular) {
     emptyEditableSurvey: function() {
       return new EditableSurvey({
         name: "Weekly Insight",
+        recurring: true,
+        goals_section: true,
         questions: []
       }, Restangular);
     },

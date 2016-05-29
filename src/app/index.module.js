@@ -25,6 +25,7 @@ import { OrgChartComponent } from './components/org_chart/org_chart.component';
 import { AdminSurveyList } from './components/survey_list/admin_survey_list.component';
 import { EditSurvey } from './components/survey_list/edit_survey.component';
 import { SurveyListRow } from './components/survey_list/row.component';
+import { EmptyState } from './components/empty_state/empty_state.component';
 
 angular.module('frontend',
   [
@@ -68,6 +69,7 @@ angular.module('frontend',
   .component('adminSurveyList', AdminSurveyList)
   .component('editSurvey', EditSurvey)
   .component('surveyListRow', SurveyListRow)
+  .component('emptyState', EmptyState)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)
   .value('googleChartApiConfig', googleChartSettings())

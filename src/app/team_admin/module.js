@@ -20,6 +20,10 @@ function routerConfig($stateProvider) {
       url: '/insights',
       templateUrl: 'app/team_admin/surveys.html'
     })
+    .state('team_admin.new_survey', {
+      url: '/insights/new',
+      templateUrl: 'app/team_admin/new_survey.html'
+    })
     .state('team_admin.survey', {
       url: '/insights/:id',
       templateUrl: 'app/team_admin/survey.html',
@@ -29,5 +33,6 @@ function routerConfig($stateProvider) {
 
         this.id = $stateParams.id;
       }
-    });
+    })
+    ;
 }

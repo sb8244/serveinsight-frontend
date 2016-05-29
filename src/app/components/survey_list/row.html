@@ -1,15 +1,15 @@
 <div class="survey-list--row">
   <div class="survey-list--row--top">
-    <h5>{{ ctrl.survey.name }}</h5>
-    <span class="label label-primary-hollow">{{ ctrl.survey.users_in_scope }} users</span>
-    <span class="label label-primary-hollow">{{ ctrl.survey.responses }} responses</span>
-    <small class="label label-danger" ng-hide="ctrl.survey.active">Not accepting responses</small>
+    <h5>{{ ctrl.survey.data.name }}</h5>
+    <span class="label label-primary-hollow">{{ ctrl.survey.data.users_in_scope }} users</span>
+    <span class="label label-primary-hollow">{{ ctrl.survey.data.response_count }} responses</span>
+    <small class="label label-danger" ng-hide="ctrl.survey.data.active">Not accepting responses</small>
     <div class="pull-right survey-list--row--actions">
-      <a ui-sref="team_admin.survey({ id: ctrl.survey.id })" class="btn btn-success">Edit</a>
+      <a ui-sref="team_admin.survey({ id: ctrl.survey.data.id })" class="btn btn-success">Edit</a>
     </div>
   </div>
   <div class="survey-list--row--details">
-    <small ng-show="ctrl.survey.recurring && ctrl.survey.active">Recurring since {{ ctrl.survey.created_at | date:'shortDate' }}, created by {{ ctrl.survey.creator }}</small>
-    <small ng-show="!ctrl.survey.recurring || !ctrl.survey.active">Created {{ ctrl.survey.created_at | date:'shortDate' }} by {{ ctrl.survey.creator }}</small>
+    <small ng-show="ctrl.survey.data.recurring && ctrl.survey.data.active">Recurring since {{ ctrl.survey.data.created_at | date:'shortDate' }}, created by {{ ctrl.survey.data.creator }}</small>
+    <small ng-show="!ctrl.survey.data.recurring || !ctrl.survey.data.active">Created {{ ctrl.survey.data.created_at | date:'shortDate' }} by {{ ctrl.survey.data.creator }}</small>
   </div>
 </div>

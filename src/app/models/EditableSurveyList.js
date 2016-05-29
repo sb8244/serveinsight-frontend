@@ -26,7 +26,11 @@ class EditableSurvey {
   }
 
   save() {
-    return this.Restangular.one("survey_templates", this.data.id).customPUT(this.data);
+    if (this.data.id) {
+      return this.Restangular.one("survey_templates", this.data.id).customPUT(this.data);
+    } else {
+      return this.Restangular.all("survey_templates").post(this.data);
+    }
   }
 }
 
@@ -34,6 +38,12 @@ export function EditableSurveyListFactory(Restangular) {
   'ngInject';
 
   return {
+    emptyEditableSurvey: function() {
+      return new EditableSurvey({
+        name: "Weekly Insight",
+        questions: []
+      }, Restangular);
+    },
     getList: function() {
       return Restangular.all("survey_templates").getList().then(function(templates) {
         return templates.map(function(data) {

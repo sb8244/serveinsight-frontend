@@ -5,7 +5,10 @@ class Controller {
   constructor() {
     this.EditableSurveyList.getList().then((surveyList) => {
       this.recurringSurveys = surveyList;
-    })
+    });
+  }
+
+  newSurvey() {
   }
 }
 

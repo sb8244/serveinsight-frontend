@@ -19,9 +19,11 @@ class SurveyController {
 
     if (!this.survey.locked) {
       _.each(this.survey.questions, question => question.addBlankAnswer());
-    }
 
-    this.goal_question = this.survey.goals_section;
+      if (this.survey.goal_question) {
+        this.survey.goal_question.addBlankAnswer();
+      }
+    }
   }
 
   submitSurvey() {

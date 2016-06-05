@@ -49,6 +49,13 @@ class Survey {
   constructor(data) {
     _.extend(this, data);
     this.questions = _.map(this.questions, question => new Question(question, this.locked));
+
+    if (data.goals_section) {
+      this.goal_question = new Question({
+        question: "What do you want to accomplish this week?",
+        answers: []
+      }, this.locked);
+    }
   }
 }
 

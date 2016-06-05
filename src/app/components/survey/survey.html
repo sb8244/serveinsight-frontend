@@ -1,12 +1,12 @@
 <form class="survey-wrapper" ng-submit="ctrl.submitSurvey()">
-  <div class="goals-wrapper" ng-if="ctrl.goal_question">
+  <div class="goals-wrapper" ng-if="ctrl.survey.goal_question">
     <div class="question-wrapper">
-      <div class="question">Mark goals from your previous weekly survey completed</div>
-      <survey-goal goal="goal" ng-repeat="goal in ctrl.survey.previousGoals"></survey-goal>
+      <div class="question" ng-if="ctrl.survey.previous_goals.length > 0">Mark goals from your previous weekly survey completed</div>
+      <survey-goal goal="goal" ng-repeat="goal in ctrl.survey.previous_goals"></survey-goal>
 
-      <div class="question mt15">{{ ctrl.goal_question.question }}</div>
+      <div class="question" ng-class="{ mt15: ctrl.survey.previous_goals.length > 0 }">{{ ctrl.survey.goal_question.question }}</div>
       <div class="answers">
-        <survey-answer locked="ctrl.survey.locked" answer="answer" question="ctrl.goal_question" ng-repeat="answer in ctrl.goal_question.answers"></survey-answer>
+        <survey-answer locked="ctrl.survey.locked" answer="answer" question="ctrl.survey.goal_question" ng-repeat="answer in ctrl.survey.goal_question.answers"></survey-answer>
       </div>
     </div>
   </div>

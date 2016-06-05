@@ -139,26 +139,18 @@ const data = _.map([{
   return new Survey(obj);
 });
 
-export function SurveyFactory($q) {
+export function SurveyFactory(Restangular) {
   'ngInject';
 
   return {
     get: (id) => {
-      return $q((resolve) => {
-        resolve(_.find(data, (survey) => {
-          return survey.id == id;
-        }));
-      });
+      return Restangular.one("survey_instances", id).get().then((survey) => new Survey(survey.plain()));
     },
     getMostRecent: () => {
-      return $q((resolve) => {
-        resolve(data[0]);
-      });
+      return Restangular.all("survey_instances").one("top_due").get().then((survey) => new Survey(survey.plain()));
     },
     getList: () => {
-      return $q((resolve) => {
-        resolve(new SurveyList(data));
-      });
+      return Restangular.all("survey_instances").getList({ due: true }).then((surveys) => new SurveyList(surveys.plain()));
     }
   };
 }

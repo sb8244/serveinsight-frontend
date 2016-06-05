@@ -21,8 +21,7 @@ class SurveyController {
       _.each(this.survey.questions, question => question.addBlankAnswer());
     }
 
-    this.goal_question = _.find(this.survey.questions, { goals_section: true });
-    this.questions_section = _.select(this.survey.questions, question => !question.goals_section);
+    this.goal_question = this.survey.goals_section;
   }
 
   submitSurvey() {

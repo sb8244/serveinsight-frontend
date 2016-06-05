@@ -16,7 +16,7 @@
                          search-enabled="true"
                          theme="bootstrap"
                          ng-change="ctrl.surveySelected(ctrl.selectedSurvey)">
-                <ui-select-match placeholder="View Different Survey">{{$select.selected.title}}</ui-select-match>
+                <ui-select-match placeholder="{{ ctrl.surveyList.surveys.length }} Surveys">{{$select.selected.title}}</ui-select-match>
                 <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
                   <div ng-bind-html="survey.title"></div>
                 </ui-select-choices>

@@ -10,18 +10,29 @@
     </div>
     <div class="form-group">
       <label class="col-md-4 control-label">
-        Recurring?
+        Frequency?
+      </label>
+      <div class="col-md-8 ui-toggle ui-toggle-primary">
+        <select class="form-control" ng-model="ctrl.survey.data.weeks_between_due" ng-options="obj.value as obj.label for obj in ctrl.frequencyOptions">
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+        First Insight Due At
         <p>
           <small><i>
-            Recurring Insights will occur at a configurable rhythm for the recipients.
+            Future insights will be due at this day / time, in your current time zone.
           </i></small>
         </p>
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
-        <label class="ui-toggle-inline">
-					<input type="checkbox" ng-checked="ctrl.survey.data.recurring">
-					<span></span>
-				</label>
+        <div class="input-group">
+          <input type="text" class="form-control" ng-change="ctrl.survey.setFirstDueAt(ctrl.due_at_picker.date)" ng-model="ctrl.due_at_picker.date" datetime-picker="MM/dd/yyyy HH:mm" is-open="ctrl.due_at_picker.open" />
+          <span class="input-group-btn">
+						<button type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
+					</span>
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -29,7 +40,7 @@
         Show Goals Section?
         <p>
           <small><i>
-            The goals section will be displayed at the top of a survey and contains weekly goals.
+            The goals section will be displayed at the top of insights and contains weekly goals.
           </i></small>
         </p>
       </label>

@@ -25,6 +25,14 @@ class EditableSurvey {
     });
   }
 
+  setFirstDueAt(time) {
+    if (time) {
+      this.data.first_due_at = moment(time).format("MM/DD/YYYY HH:mm ZZ");
+    } else {
+      this.data.first_due_at = undefined;
+    }
+  }
+
   save() {
     if (this.data.id) {
       return this.Restangular.one("survey_templates", this.data.id).customPUT(this.data);

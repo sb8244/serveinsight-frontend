@@ -1,9 +1,11 @@
 import ngInject from '../../decorators/ng_inject';
+import { frequencyOptions } from './frequencies';
 
 @ngInject('notify', '$state', 'EditableSurveyList')
 class Controller {
   constructor() {
     this.survey = this.EditableSurveyList.emptyEditableSurvey();
+    this.frequencyOptions = frequencyOptions;
   }
 
   save() {

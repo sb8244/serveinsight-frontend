@@ -12,10 +12,10 @@ class QuickNote {
 
 const data = _.map([{
     id: 1,
-    content: "This is a test"
+    content: "The planning meeting went really well this week. Product did a good job preparing."
   }, {
     id: 2,
-    content: "A longer note about something that happened during the week"
+    content: "The major feature release could have gone better."
   }
 ], (data) => {
   return new QuickNote(data);

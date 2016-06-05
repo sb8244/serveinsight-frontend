@@ -57,6 +57,19 @@ class Survey {
       }, this.locked);
     }
   }
+
+  readyToSubmit() {
+    let goalGiven = true;
+    let allQuestionsAnswered = _.all(this.questions, (question) => {
+      return _.some(question.answers, "content");
+    });
+
+    if (this.goal_question) {
+      goalGiven = _.some(this.goal_question.answers, "content");
+    }
+
+    return allQuestionsAnswered && goalGiven;
+  }
 }
 
 const data = _.map([{

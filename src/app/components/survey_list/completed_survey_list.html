@@ -1,0 +1,16 @@
+<div class="completed-surveys--list">
+  <div class="panel panel-lined" ng-repeat="template in ctrl.surveys">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        {{ template.name }}
+      </h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li class="completed-surveys--row" ng-repeat="instance in template.survey_instances">
+          <a ui-sref="surveys.my_show({ id: instance.id })">Submitted {{ instance.completed_at | date:'mediumDate' }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

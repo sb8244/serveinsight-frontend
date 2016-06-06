@@ -26,6 +26,7 @@ import { AdminSurveyList } from './components/survey_list/admin_survey_list.comp
 import { EditSurvey } from './components/survey_list/edit_survey.component';
 import { NewSurvey } from './components/survey_list/new_survey.component';
 import { SurveyListRow } from './components/survey_list/row.component';
+import { CompletedSurveyList } from './components/survey_list/completed_survey_list.component';
 import { EmptyState } from './components/empty_state/empty_state.component';
 
 angular.module('frontend',
@@ -72,6 +73,7 @@ angular.module('frontend',
   .component('editSurvey', EditSurvey)
   .component('newSurvey', NewSurvey)
   .component('surveyListRow', SurveyListRow)
+  .component('completedSurveyList', CompletedSurveyList)
   .component('emptyState', EmptyState)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)

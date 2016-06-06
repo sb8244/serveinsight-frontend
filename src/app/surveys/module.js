@@ -1,10 +1,12 @@
 import {} from '../models/module';
 
 import { MySurveyController } from './my_survey_controller';
+import { CompletedSurveysController } from './completed_surveys_controller';
 
 angular.module("surveys", ["models"])
   .config(routerConfig)
-  .controller("MySurveysController", MySurveyController);
+  .controller("MySurveysController", MySurveyController)
+  .controller("CompletedSurveysController", CompletedSurveysController);
 
 function routerConfig ($stateProvider) {
   'ngInject';
@@ -24,6 +26,18 @@ function routerConfig ($stateProvider) {
         survey: function(Survey) {
           'ngInject';
           return Survey.getMostRecent();
+        }
+      }
+    })
+    .state('surveys.completed', {
+      url: '/completed',
+      templateUrl: 'app/surveys/completed.html',
+      controller: 'CompletedSurveysController',
+      controllerAs: 'ctrl',
+      resolve: {
+        surveys: function(Survey) {
+          'ngInject';
+          return Survey.getCompletedList();
         }
       }
     })

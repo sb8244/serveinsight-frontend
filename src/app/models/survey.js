@@ -46,9 +46,10 @@ class Question {
 }
 
 class Survey {
-  constructor(data) {
+  constructor(data, Restangular) {
     _.extend(this, data);
     this.questions = _.map(this.questions, question => new Question(question, this.locked));
+    this.Restangular = Restangular;
 
     if (data.goals_section) {
       this.goal_question = new Question({
@@ -69,6 +70,38 @@ class Survey {
     }
 
     return allQuestionsAnswered && goalGiven;
+  }
+
+  postData() {
+    let data = {
+      survey_instance_id: this.id,
+      answers: _.map(this.questions, function(question) {
+        return _.map(question.answers, function(answer) {
+          return {
+            content: answer.content,
+            question_id: question.id
+          };
+        })
+      })
+    };
+
+    if (this.goal_question) {
+      data.goals = _.map(this.goal_question.answers, function(answer) {
+        return {
+          content: answer.content
+        };
+      });
+    }
+
+    data.answers = _.flatten(data.answers);
+
+    return data;
+  }
+
+  submit() {
+    if (this.readyToSubmit()) {
+      return this.Restangular.all("completed_surveys").post(this.postData());
+    }
   }
 }
 
@@ -164,10 +197,10 @@ export function SurveyFactory(Restangular) {
 
   return {
     get: (id) => {
-      return Restangular.one("survey_instances", id).get().then((survey) => new Survey(survey.plain()));
+      return Restangular.one("survey_instances", id).get().then((survey) => new Survey(survey.plain(), Restangular));
     },
     getMostRecent: () => {
-      return Restangular.all("survey_instances").one("top_due").get().then((survey) => new Survey(survey.plain()));
+      return Restangular.all("survey_instances").one("top_due").get().then((survey) => new Survey(survey.plain(), Restangular));
     },
     getList: () => {
       return Restangular.all("survey_instances").getList({ due: true }).then((surveys) => new SurveyList(surveys.plain()));

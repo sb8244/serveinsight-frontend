@@ -1,3 +1,5 @@
+import ngInject from '../../decorators/ng_inject'
+
 export function SurveyDirective() {
   'ngInject';
 
@@ -13,6 +15,7 @@ export function SurveyDirective() {
   }
 }
 
+@ngInject("notify")
 class SurveyController {
   constructor() {
     'ngInject';
@@ -27,5 +30,11 @@ class SurveyController {
   }
 
   submitSurvey() {
+    let promise = this.survey.submit();
+    if (promise) {
+      promise.then(() => {
+        this.notify("Thanks! Your Insight has been saved.")
+      });
+    }
   }
 }

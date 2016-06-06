@@ -26,6 +26,6 @@ class SurveyGoalController {
       return;
     }
 
-    this.status = value;
+    this.goal.status = value;
   }
 }

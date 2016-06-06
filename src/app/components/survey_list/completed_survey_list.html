@@ -1,5 +1,5 @@
 <div class="completed-surveys--list">
-  <div class="panel panel-lined" ng-repeat="template in ctrl.surveys">
+  <div class="panel panel-lined" ng-class="{ mt15: !$first }" ng-repeat="template in ctrl.surveys">
     <div class="panel-heading">
       <h3 class="panel-title">
         {{ template.name }}

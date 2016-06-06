@@ -64,12 +64,13 @@ class Survey {
     let allQuestionsAnswered = _.all(this.questions, (question) => {
       return _.some(question.answers, "content");
     });
+    let allPreviousGoalsUpdated = _.all(this.previous_goals, goal => goal.status);
 
     if (this.goal_question) {
       goalGiven = _.some(this.goal_question.answers, "content");
     }
 
-    return allQuestionsAnswered && goalGiven;
+    return allQuestionsAnswered && goalGiven && allPreviousGoalsUpdated;
   }
 
   postData() {
@@ -82,7 +83,10 @@ class Survey {
             question_id: question.id
           };
         })
-      })
+      }),
+      goal_statuses: _.zipObject(_.map(this.previous_goals, function(goal) {
+        return [goal.id, goal.status]
+      }))
     };
 
     if (this.goal_question) {

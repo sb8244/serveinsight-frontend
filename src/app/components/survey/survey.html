@@ -2,7 +2,7 @@
   <div class="goals-wrapper" ng-if="ctrl.survey.goal_question">
     <div class="question-wrapper">
       <div class="question" ng-if="ctrl.survey.previous_goals.length > 0">Mark goals from your previous weekly survey completed</div>
-      <survey-goal goal="goal" ng-repeat="goal in ctrl.survey.previous_goals"></survey-goal>
+      <survey-goal goal="goal" editable="!ctrl.survey.completed" ng-repeat="goal in ctrl.survey.previous_goals"></survey-goal>
 
       <div class="question" ng-class="{ mt15: ctrl.survey.previous_goals.length > 0 }">{{ ctrl.survey.goal_question.question }}</div>
       <div class="answers">

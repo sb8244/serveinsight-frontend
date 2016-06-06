@@ -1,17 +1,27 @@
 <div class="goal">
   <div class="input-group">
     <div>
-      <span ng-if="ctrl.goal.complete">
-      <button ng-click="ctrl.goal.complete = !ctrl.goal.complete"
+      <span ng-if="ctrl.goal.status === 'complete'">
+      <button ng-click="ctrl.updateStatus('miss')"
+              ng-disabled="!ctrl.editable"
               type="button"
               class="btn btn-success fa fa-check btn-icon-circle icon"></button>
       </span>
 
-      <span ng-if="!ctrl.goal.complete">
-      <button ng-click="ctrl.goal.complete = !ctrl.goal.complete"
+      <span ng-if="ctrl.goal.status === 'miss'">
+      <button ng-click="ctrl.updateStatus('complete')"
+              ng-disabled="!ctrl.editable"
               type="button"
               class="btn btn-danger fa fa-times btn-icon-circle icon"></button>
       </span>
+
+      <span ng-if="!ctrl.goal.status">
+      <button ng-click="ctrl.updateStatus('complete')"
+              ng-disabled="!ctrl.editable"
+              type="button"
+              class="btn btn-warning fa fa-hand-pointer-o btn-icon-circle icon"></button>
+      </span>
+
       <span class="ml15">{{ ctrl.goal.content }}</span>
     </div>
 

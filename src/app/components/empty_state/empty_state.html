@@ -1,4 +1,8 @@
-<div class='empty-state--wrapper' ng-click="ctrl.actionable()">
+<div class='empty-state--wrapper' ng-click="ctrl.actionable()" ng-if="ctrl.actionable">
+  <i class="fa empty-state--icon" ng-class="ctrl.icon"></i>
+  <div class="empty-state--text">{{ ctrl.text }}</div>
+</div>
+<div class='empty-state--wrapper' ng-if="!ctrl.actionable">
   <i class="fa empty-state--icon" ng-class="ctrl.icon"></i>
   <div class="empty-state--text">{{ ctrl.text }}</div>
 </div>

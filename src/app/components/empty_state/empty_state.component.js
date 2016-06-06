@@ -4,6 +4,6 @@ export const EmptyState = {
   bindings: {
     icon: "@",
     text: "@",
-    actionable: "&"
+    actionable: "&?"
   }
 };

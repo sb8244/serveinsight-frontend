@@ -25,7 +25,7 @@ function routerConfig ($stateProvider) {
       resolve: {
         survey: function(Survey) {
           'ngInject';
-          return Survey.getMostRecent();
+          return Survey.getMostRecent().catch(() => false);
         }
       }
     })

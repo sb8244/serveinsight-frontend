@@ -1,8 +1,8 @@
 import ngInject from '../decorators/ng_inject';
 
-@ngInject("survey", "Survey", "$state", "QuickNote")
+@ngInject("survey", "Survey", "QuickNote")
 export class MySurveyController {
-  constructor(survey, Survey, $state, QuickNote) {
+  constructor(survey, Survey, QuickNote) {
     Survey.getList().then((surveyList) => {
       this.surveyList = surveyList;
     });
@@ -10,9 +10,5 @@ export class MySurveyController {
     QuickNote.getList().then((noteList) => {
       this.quickNoteList = noteList;
     });
-  }
-
-  surveySelected(survey) {
-    this.$state.go("surveys.my_show", { id: survey.id });
   }
 }

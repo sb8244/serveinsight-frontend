@@ -140,7 +140,7 @@ export function SurveyFactory(Restangular) {
     },
     getReviewableList: () => {
       return Restangular.all("reviewable_surveys").getList().then((surveys) => {
-        var surveys = surveys.plain().map(survey => new ReviewableSurvey(survey, Restangular));
+        surveys = surveys.plain().map(survey => new ReviewableSurvey(survey, Restangular));
         return new SurveyList(surveys);
       });
     }

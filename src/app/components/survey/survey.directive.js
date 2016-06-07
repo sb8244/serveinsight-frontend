@@ -36,7 +36,7 @@ class SurveyController {
       promise.then(() => {
         this.notify("Thanks! Your Insight has been saved.")
         this.HeaderState.updateDueSurveyCount();
-        this.$state.go("surveys.my_recent", {}, { reload: true });
+        this.$state.go("dashboard", {}, { reload: true });
       });
     }
   }

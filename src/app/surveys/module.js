@@ -57,7 +57,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.reports_show', {
       url: "/managed/:id",
-      templateUrl: 'app/surveys/mine.html',
+      templateUrl: 'app/surveys/reports_show.html',
       controller: 'MySurveysController',
       controllerAs: 'ctrl',
       resolve: {

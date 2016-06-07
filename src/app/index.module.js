@@ -14,6 +14,7 @@ import { HeaderDirective } from './components/header/header.directive';
 import { NavDirective } from './components/nav/nav.directive';
 import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
 import { SurveyDirective } from './components/survey/survey.directive';
+import { WrappedSurvey } from './components/survey/wrapped_survey.component';
 import { SurveyAnswerDirective } from './components/survey/answer.directive';
 import { SurveyGoalDirective } from './components/survey/goal.directive';
 import { CommentsDirective } from './components/comments/comments.directive';
@@ -76,6 +77,7 @@ angular.module('frontend',
   .component('surveyListRow', SurveyListRow)
   .component('completedSurveyList', CompletedSurveyList)
   .component('emptyState', EmptyState)
+  .component('wrappedSurvey', WrappedSurvey)
   .service('Permissions', Permissions)
   .controller('FooterController', FooterController)
   .value('googleChartApiConfig', googleChartSettings())

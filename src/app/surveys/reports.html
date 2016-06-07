@@ -11,7 +11,7 @@
       <h3 class="panel-title">Surveys Needing Review</h3>
     </div>
     <div class="panel-body">
-      <empty-state icon="fa-thumbs-up" text="Nice! No surveys to review" ng-if="ctrl.reviewableSurveys.length === 0"></empty-state>
+      <empty-state icon="fa-thumbs-up" text="Nice! No surveys to review" ng-if="ctrl.reviewableSurveys.count() === 0"></empty-state>
       <div ng-repeat="(title, surveys) in ctrl.reviewableSurveys.surveys | groupBy:'title'">
         <h5 class="mt0">{{ title }}</h5>
         <ul>

@@ -8,19 +8,19 @@
 
   <div class="head-wrap clearfix" ng-if="$root.appState === 'main'">
     <ul class="list-unstyled alerts pull-left">
-      <li ng-show="ctrl.dueSurveyCount">
+      <li ng-show="ctrl.HeaderState.dueSurveyCount">
         <a ui-sref="surveys.my_recent">
-          {{ ctrl.dueSurveyCount }} Surveys Due
+          {{ ctrl.HeaderState.dueSurveyCount }} Surveys Due
         </a>
       </li>
-      <li ng-show="ctrl.reviewableCount">
-        <a ui-sref="surveys.my_recent">
-          {{ ctrl.reviewableCount }} Surveys Need Review
+      <li ng-show="ctrl.HeaderState.reviewableCount">
+        <a ui-sref="surveys.reports">
+          {{ ctrl.HeaderState.reviewableCount }} Surveys Need Review
         </a>
       </li>
-      <li ng-show="ctrl.unreadPassupCount">
+      <li ng-show="ctrl.HeaderState.unreadPassupCount">
         <a ui-sref="passups.list">
-          {{ ctrl.unreadPassupCount }} Unread Pass-ups
+          {{ ctrl.HeaderState.unreadPassupCount }} Unread Pass-ups
         </a>
       </li>
     </ul>

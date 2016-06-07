@@ -113,6 +113,12 @@ class Survey {
   }
 }
 
+class ReviewableSurvey extends Survey {
+  markReviewed() {
+    return this.Restangular.one("reviewable_surveys", this.id).customPOST({}, "mark_reviewed");
+  }
+}
+
 export function SurveyFactory(Restangular) {
   'ngInject';
 
@@ -129,8 +135,14 @@ export function SurveyFactory(Restangular) {
     getCompletedList: () => {
       return Restangular.all("completed_surveys").getList().then(surveys => surveys.plain());
     },
+    getReviewable: (id) => {
+      return Restangular.one("survey_instances", id).get().then((survey) => new ReviewableSurvey(survey.plain(), Restangular));
+    },
     getReviewableList: () => {
-      return Restangular.all("reviewable_surveys").getList().then(surveys => new SurveyList(surveys.plain()));
+      return Restangular.all("reviewable_surveys").getList().then((surveys) => {
+        var surveys = surveys.plain().map(survey => new ReviewableSurvey(survey, Restangular));
+        return new SurveyList(surveys);
+      });
     }
   };
 }

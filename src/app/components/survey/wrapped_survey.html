@@ -21,7 +21,7 @@
 
     <div class="row mt15 mb15">
       <div ng-class="{ 'col-sm-9': !ctrl.survey.completed, 'col-sm-10': ctrl.survey.completed }">
-        <survey survey="ctrl.survey"></survey>
+        <survey survey="ctrl.survey" reviewing="ctrl.reviewing"></survey>
       </div>
 
       <div class="col-sm-3" ng-if="!ctrl.survey.completed">

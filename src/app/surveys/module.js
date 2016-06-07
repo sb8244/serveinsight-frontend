@@ -63,7 +63,7 @@ function routerConfig ($stateProvider) {
       resolve: {
         survey: function(Survey, $stateParams) {
           'ngInject';
-          return Survey.get($stateParams.id);
+          return Survey.getReviewable($stateParams.id);
         }
       }
     })

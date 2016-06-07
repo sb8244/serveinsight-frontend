@@ -13,16 +13,8 @@ export function HeaderDirective() {
   };
 }
 
-@ngInject("Passup", "Survey", "$auth", "$window")
+@ngInject("HeaderState", "$auth", "$window")
 class HeaderController {
-  constructor (Passup, Survey) {
-    'ngInject';
-
-    Passup.getList().then(list => this.unreadPassupCount = list.unreadCount());
-    Survey.getList().then(list => this.dueSurveyCount = list.dueCount());
-    Survey.getReviewableList().then(list => this.reviewableCount = list.count());
-  }
-
   logOut() {
     this.$auth.logout();
     this.$window.location.reload();

@@ -25,7 +25,8 @@
     "satellizer": "~0.13.4",
     "angular-google-chart": "^0.1.0",
     "angular-notify": "^2.5.0",
-    "bootstrap-ui-datetime-picker": "^2.4.0"
+    "bootstrap-ui-datetime-picker": "^2.4.0",
+    "angular-filter": "^0.5.8"
   },
   "overrides": {
     "font-awesome": {

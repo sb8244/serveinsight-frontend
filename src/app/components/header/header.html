@@ -10,7 +10,12 @@
     <ul class="list-unstyled alerts pull-left">
       <li ng-show="ctrl.dueSurveyCount">
         <a ui-sref="surveys.my_recent">
-          {{ ctrl.dueSurveyCount }} Surveys Due!
+          {{ ctrl.dueSurveyCount }} Surveys Due
+        </a>
+      </li>
+      <li ng-show="ctrl.reviewableCount">
+        <a ui-sref="surveys.my_recent">
+          {{ ctrl.reviewableCount }} Surveys Need Review
         </a>
       </li>
       <li ng-show="ctrl.unreadPassupCount">

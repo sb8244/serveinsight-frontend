@@ -1,3 +1,4 @@
 export const FeatureDefinitions = {
-  "pass-ups": [ "manager" ]
+  "pass-ups": [ "manager" ],
+  "reviewable-surveys": [ "manager" ]
 };

@@ -7,4 +7,5 @@
   </ol>
 
   <completed-survey-list surveys="ctrl.surveys"></completed-survey-list>
+  <empty-state icon="fa-lemon-o" text="You haven't completed a survey yet" ng-if="ctrl.surveys.length === 0"></empty-state>
 </div>

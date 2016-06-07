@@ -3,6 +3,10 @@ class SurveyList {
     this.surveys = surveys;
   }
 
+  count() {
+    return this.surveys.length;
+  }
+
   dueCount() {
     return _(this.surveys).select({ completed: false }).size();
   }
@@ -124,6 +128,9 @@ export function SurveyFactory(Restangular) {
     },
     getCompletedList: () => {
       return Restangular.all("completed_surveys").getList().then(surveys => surveys.plain());
+    },
+    getReviewableList: () => {
+      return Restangular.all("reviewable_surveys").getList().then(surveys => new SurveyList(surveys.plain()));
     }
   };
 }

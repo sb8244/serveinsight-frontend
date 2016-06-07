@@ -5,7 +5,7 @@
         <a ui-sref="surveys.reports">Your Reports Surveys</a>
       </li>
       <li class="active">
-        <a ui-sref="surveys.reports">{{ ctrl.survey.organization_membership.name }} Survey</a>
+        <a ui-sref="surveys.reports_show({ id: ctrl.survey.id })">{{ ctrl.survey.organization_membership.name }} Survey</a>
       </li>
   </ol>
 

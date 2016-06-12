@@ -115,6 +115,7 @@ class OrgChartController {
 
   userInvited(invite) {
     let member = objToMember(invite.organization_membership);
+    this.notify(invite.organization_membership.email + " Invited");
     this.hierarchy.push(member);
     this.updateChartData();
   }
@@ -130,6 +131,7 @@ class OrgChartController {
 
     this.Restangular.all("organization_memberships").customPUT({ data }, "bulk_update").then(() => {
       this.init();
+      this.notify("Reviewer Structure Updated");
     }).finally(() => this.canSave = false);
   }
 }

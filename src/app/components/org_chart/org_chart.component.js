@@ -131,7 +131,7 @@ class OrgChartController {
 
     this.Restangular.all("organization_memberships").customPUT({ data }, "bulk_update").then(() => {
       this.init();
-      this.notify("Reviewer Structure Updated");
+      this.notify("Settings Updated");
     }).finally(() => this.canSave = false);
   }
 }

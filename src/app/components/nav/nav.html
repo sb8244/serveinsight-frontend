@@ -11,21 +11,21 @@
       <li ng-class="{ active: $root.$state.includes('surveys.my_recent') || $root.$state.includes('surveys.my_show') }">
         <a ui-sref="surveys.my_recent">
           <i class="fa fa-question-circle icon"></i>
-          <span class="text">Due Surveys</span>
+          <span class="text">Due Insights</span>
         </a>
       </li>
 
       <li ng-class="{ active: $root.$state.includes('surveys.completed') }">
         <a ui-sref="surveys.completed">
           <i class="fa fa-question-circle icon"></i>
-          <span class="text">My Completed Surveys</span>
+          <span class="text">Completed Insights</span>
         </a>
       </li>
 
       <li ng-class="{ active: $root.$state.includes('surveys.reports') || $root.$state.includes('surveys.reports_show') }" ng-if="$root.current_organzation_member.hasFeature('reviewable-surveys')">
         <a ui-sref="surveys.reports">
           <i class="fa fa-gavel icon"></i>
-          <span class="text">Your Reports Surveys</span>
+          <span class="text">Direct-Report Insights</span>
         </a>
       </li>
 

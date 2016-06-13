@@ -2,7 +2,7 @@
   <ul class="list-group comments">
     <li class="list-group-item" ng-repeat="comment in ctrl.commentable.comments">
       <strong>{{ comment.author_name }}</strong>
-      <span>{{ comment.content }}</span>
+      <span>{{ comment.comment }}</span>
     </li>
     <li class="list-group-item" ng-if="ctrl.showNew">
       <form ng-submit="ctrl.addComment()">

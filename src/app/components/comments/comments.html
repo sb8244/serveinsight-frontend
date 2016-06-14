@@ -4,6 +4,9 @@
       <strong>{{ comment.author_name }}</strong>
       <span>{{ comment.comment }}</span>
     </li>
+    <div class="comments--respond-link" ng-if="ctrl.commentable.comments.length > 0 && !ctrl.showNew">
+      <a ng-click="ctrl.showNew = true">Respond</a>
+    </div>
     <li class="list-group-item" ng-if="ctrl.showNew">
       <form ng-submit="ctrl.addComment()">
         <div class="row">

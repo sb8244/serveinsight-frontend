@@ -15,22 +15,22 @@ export function CommentsDirective() {
 }
 
 class CommentsController {
-  constructor(Person, OrganizationMember) {
+  constructor(Person, OrganizationMember, Comment) {
     'ngInject';
 
+    this.Comment = Comment;
     OrganizationMember.get().then(member => this.member = member);
     Person.getList().then(personList => this.people = personList.people);
   }
 
   addComment() {
-    this.commentable.comments.push({
-      id: null,
-      content: this.newContent,
-      author_id: this.member.id,
-      author_name: this.member.name
+    this.Comment.create({
+      comment: this.newContent,
+      comment_grant: this.commentable.comment_grant
+    }).then((comment) => {
+      this.commentable.comments.push(comment);
+      delete this.newContent;
+      this.showNew = false;
     });
-
-    delete this.newContent;
-    this.showNew = false;
   }
 }

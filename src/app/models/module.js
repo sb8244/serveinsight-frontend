@@ -6,6 +6,7 @@ import { PassupFactory } from './passup';
 import { FeatureDefinitions } from './feature_definitions';
 import { OrganizationFactory } from './organization';
 import { EditableSurveyListFactory } from './EditableSurveyList';
+import { CommentFactory } from './comment';
 
 angular.module("models", [])
   .factory("Survey", SurveyFactory)
@@ -15,5 +16,6 @@ angular.module("models", [])
   .factory("Passup", PassupFactory)
   .factory("Organization", OrganizationFactory)
   .factory("EditableSurveyList", EditableSurveyListFactory)
+  .factory("Comment", CommentFactory)
   .constant("FeatureDefinitions", FeatureDefinitions)
 ;

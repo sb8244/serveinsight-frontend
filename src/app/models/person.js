@@ -7,30 +7,18 @@ class PersonList {
 class Person {
   constructor(data) {
     _.extend(this, data);
-    this.label = this.name;
+    this.label = this.mention_name;
   }
 }
 
-const data = _.map([{
-    id: 1,
-    name: "Steve",
-    department: "Engineering"
-  }, {
-    id: 2,
-    name: "Rob",
-    department: "Engineering"
-  }
-], (data) => {
-  return new Person(data);
-});
-
-export function PersonFactory($q) {
+export function PersonFactory(Restangular) {
   'ngInject';
 
   return {
     getList: function() {
-      return $q((resolve) => {
-        resolve(new PersonList(data));
+      return Restangular.all("mention_names").getList().then((data) => {
+        let mapped = _.map(data.plain(), person => new Person(person));
+        return new PersonList(mapped);
       });
     }
   };

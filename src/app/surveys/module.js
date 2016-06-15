@@ -43,6 +43,18 @@ function routerConfig ($stateProvider) {
         }
       }
     })
+    .state('surveys.completed_show', {
+      url: "/completed/:id",
+      templateUrl: 'app/surveys/mine_completed.html',
+      controller: 'MySurveysController',
+      controllerAs: 'ctrl',
+      resolve: {
+        survey: function(Survey, $stateParams) {
+          'ngInject';
+          return Survey.get($stateParams.id);
+        }
+      }
+    })
     .state('surveys.reports', {
       url: "/managed",
       templateUrl: 'app/surveys/reports.html',

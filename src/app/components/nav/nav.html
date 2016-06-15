@@ -15,7 +15,7 @@
         </a>
       </li>
 
-      <li ng-class="{ active: $root.$state.includes('surveys.completed') }">
+      <li ng-class="{ active: $root.$state.includes('surveys.completed') || $root.$state.includes('surveys.completed_show') }">
         <a ui-sref="surveys.completed">
           <i class="fa fa-question-circle icon"></i>
           <span class="text">Completed Insights</span>

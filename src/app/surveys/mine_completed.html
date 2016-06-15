@@ -1,0 +1,13 @@
+<div class="survey-page page clearfix">
+  <ol class="breadcrumb breadcrumb-small">
+      <li>Serve Insight</li>
+      <li>
+        <a ui-sref="surveys.completed">My Completed Surveys</a>
+      </li>
+      <li class="active">
+        <a ui-sref="surveys.completed_show({id: ctrl.survey.id})">Survey</a>
+      </li>
+  </ol>
+
+  <wrapped-survey survey="ctrl.survey" survey-list="ctrl.surveyList" quick-note-list="ctrl.quickNoteList"></wrapped-survey>
+</div>

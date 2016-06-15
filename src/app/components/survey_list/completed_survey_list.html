@@ -8,7 +8,7 @@
     <div class="panel-body">
       <ul>
         <li class="completed-surveys--row" ng-repeat="instance in template.survey_instances">
-          <a ui-sref="surveys.my_show({ id: instance.id })">Submitted {{ instance.completed_at | date:'mediumDate' }}</a>
+          <a ui-sref="surveys.completed_show({ id: instance.id })">Submitted {{ instance.completed_at | date:'mediumDate' }}</a>
         </li>
       </ul>
     </div>

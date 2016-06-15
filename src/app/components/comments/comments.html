@@ -2,7 +2,7 @@
   <ul class="list-group comments">
     <li class="list-group-item" ng-repeat="comment in ctrl.commentable.comments">
       <strong>{{ comment.author_name }}</strong>
-      <span>{{ comment.comment }}</span>
+      <span ng-bind-html="comment.comment | mentionHighlight"></span>
     </li>
     <div class="comments--respond-link" ng-if="ctrl.commentable.comments.length > 0 && !ctrl.showNew">
       <a ng-click="ctrl.showNew = true">Respond</a>

@@ -30,6 +30,7 @@ import { NewSurvey } from './components/survey_list/new_survey.component';
 import { SurveyListRow } from './components/survey_list/row.component';
 import { CompletedSurveyList } from './components/survey_list/completed_survey_list.component';
 import { EmptyState } from './components/empty_state/empty_state.component';
+import { MentionHighlight } from './filters/mention_highlight';
 
 angular.module('frontend',
   [
@@ -62,6 +63,7 @@ angular.module('frontend',
   .run(notifyConfig)
   .run(runBlock)
   .run(globalAvailability)
+  .filter('mentionHighlight', MentionHighlight)
   .directive('appHeader', HeaderDirective)
   .directive('appNav', NavDirective)
   .directive('customScrollbar', CustomScrollbarDirective)

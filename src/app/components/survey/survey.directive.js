@@ -42,7 +42,7 @@ class SurveyController {
   }
 
   markReviewed() {
-    this.survey.markReviewed().then(() => {
+    this.survey.markReviewed({ reviewComment: this.survey.reviewComment }).then(() => {
       this.notify("Survey Reviewed!");
       this.HeaderState.updateReviewableCount();
       this.$state.go("surveys.reports");

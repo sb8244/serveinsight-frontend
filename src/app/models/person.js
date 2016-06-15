@@ -11,15 +11,22 @@ class Person {
   }
 }
 
-export function PersonFactory(Restangular) {
+export function PersonFactory(Restangular, $q) {
   'ngInject';
 
   return {
     getList: function() {
-      return Restangular.all("mention_names").getList().then((data) => {
-        let mapped = _.map(data.plain(), person => new Person(person));
-        return new PersonList(mapped);
-      });
+      if (this.savedList) {
+        return $q((resolve) => {
+          resolve(this.savedList);
+        });
+      } else {
+        return Restangular.all("mention_names").getList().then((data) => {
+          let mapped = _.map(data.plain(), person => new Person(person));
+          this.savedList = new PersonList(mapped);
+          return this.savedList;
+        });
+      }
     }
   };
 }

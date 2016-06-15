@@ -6,7 +6,7 @@
 
       <div class="question" ng-class="{ mt15: ctrl.survey.previous_goals.length > 0 }">{{ ctrl.survey.goal_question.question }}</div>
       <div class="answers">
-        <survey-answer locked="ctrl.survey.locked" answer="answer" question="ctrl.survey.goal_question" ng-repeat="answer in ctrl.survey.goal_question.answers"></survey-answer>
+        <survey-answer actionable="ctrl.survey.completed" locked="ctrl.survey.locked" answer="answer" question="ctrl.survey.goal_question" ng-repeat="answer in ctrl.survey.goal_question.answers"></survey-answer>
       </div>
     </div>
   </div>
@@ -26,9 +26,13 @@
     </button>
   </div>
 
-  <div class="text-center" ng-if="ctrl.reviewing">
-    <button type="submit" class="btn btn-lg btn-success btn-rounded" ng-click="ctrl.markReviewed()">
-      Mark Reviewed
-    </button>
+  <div ng-if="ctrl.reviewing">
+    <survey-comment survey="ctrl.survey"></survey-comment>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success btn-rounded" ng-click="ctrl.markReviewed()">
+        Mark Reviewed
+      </button>
+    </div>
   </div>
 </form>

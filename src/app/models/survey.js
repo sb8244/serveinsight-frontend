@@ -114,8 +114,8 @@ class Survey {
 }
 
 class ReviewableSurvey extends Survey {
-  markReviewed() {
-    return this.Restangular.one("reviewable_surveys", this.id).customPOST({}, "mark_reviewed");
+  markReviewed({ reviewComment }) {
+    return this.Restangular.one("reviewable_surveys", this.id).customPOST({ reviewer_comment: reviewComment }, "mark_reviewed");
   }
 }
 

@@ -6,7 +6,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys"></survey-list-row>
+    <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys | orderBy:'updated_at':true"></survey-list-row>
     <empty-state icon="fa-plus-circle" text="Add your first survey!" ng-if="ctrl.recurringSurveys.length === 0" actionable="ctrl.newSurvey()"></empty-state>
   </div>
 </div>

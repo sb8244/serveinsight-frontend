@@ -35,4 +35,14 @@
       </button>
     </div>
   </div>
+
+  <div ng-if="ctrl.survey.completed && ctrl.survey.comments.length > 0">
+    <div class="question-wrapper">
+      <div class="question">Do you have any feedback?</div>
+
+      <div class="answers">
+        <comments commentable="ctrl.survey" show-new="ctrl.showNewComment" />
+      </div>
+    </div>
+  </div>
 </form>

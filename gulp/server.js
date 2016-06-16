@@ -41,6 +41,7 @@ function browserSyncInit(baseDir, browser) {
     browser: browser,
     open: 'external',
     host: 'localhost.serveinsight.com',
+    ghostMode: false
   });
 }
 

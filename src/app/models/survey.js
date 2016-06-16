@@ -135,6 +135,9 @@ export function SurveyFactory(Restangular) {
     getCompletedList: () => {
       return Restangular.all("completed_surveys").getList().then(surveys => surveys.plain());
     },
+    getReportsCompletedList: () => {
+      return Restangular.all("completed_surveys").getList({ all_reports: true }).then(surveys => surveys.plain());
+    },
     getReviewable: (id) => {
       return Restangular.one("survey_instances", id).get().then((survey) => new ReviewableSurvey(survey.plain(), Restangular));
     },

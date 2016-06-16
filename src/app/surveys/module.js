@@ -3,12 +3,11 @@ import {} from '../models/module';
 import { MySurveyController } from './my_survey_controller';
 import { CompletedSurveysController } from './completed_surveys_controller';
 import { ReportsSurveysController } from './reports_surveys_controller';
+import { ReportsCompletedSurveysController } from './reports_completed_surveys_controller';
+import { ReportsCompletedShowController } from './reports_completed_show_controller';
 
 angular.module("surveys", ["models"])
-  .config(routerConfig)
-  .controller("MySurveysController", MySurveyController)
-  .controller("CompletedSurveysController", CompletedSurveysController)
-  .controller("ReportsSurveysController", ReportsSurveysController);
+  .config(routerConfig);
 
 function routerConfig ($stateProvider) {
   'ngInject';
@@ -22,7 +21,7 @@ function routerConfig ($stateProvider) {
     .state('surveys.my_recent', {
       url: "",
       templateUrl: 'app/surveys/mine.html',
-      controller: 'MySurveysController',
+      controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
         survey: function(Survey) {
@@ -34,7 +33,7 @@ function routerConfig ($stateProvider) {
     .state('surveys.completed', {
       url: '/completed',
       templateUrl: 'app/surveys/completed.html',
-      controller: 'CompletedSurveysController',
+      controller: CompletedSurveysController,
       controllerAs: 'ctrl',
       resolve: {
         surveys: function(Survey) {
@@ -46,7 +45,7 @@ function routerConfig ($stateProvider) {
     .state('surveys.completed_show', {
       url: "/completed/:id",
       templateUrl: 'app/surveys/mine_completed.html',
-      controller: 'MySurveysController',
+      controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
         survey: function(Survey, $stateParams) {
@@ -67,10 +66,34 @@ function routerConfig ($stateProvider) {
         }
       }
     })
+    .state('surveys.reports_completed', {
+      url: "/managed/completed",
+      templateUrl: 'app/surveys/reports_completed.html',
+      controller: ReportsCompletedSurveysController,
+      controllerAs: 'ctrl',
+      resolve: {
+        reportsCompletedList: function(Survey) {
+          'ngInject';
+          return Survey.getReportsCompletedList();
+        }
+      }
+    })
+    .state('surveys.reports_completed_show', {
+      url: "/managed/completed/:id",
+      templateUrl: 'app/surveys/reports_completed_show.html',
+      controller: ReportsCompletedShowController,
+      controllerAs: 'ctrl',
+      resolve: {
+        survey: function(Survey, $stateParams) {
+          'ngInject';
+          return Survey.get($stateParams.id);
+        }
+      }
+    })
     .state('surveys.reports_show', {
       url: "/managed/:id",
       templateUrl: 'app/surveys/reports_show.html',
-      controller: 'MySurveysController',
+      controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
         survey: function(Survey, $stateParams) {
@@ -82,7 +105,7 @@ function routerConfig ($stateProvider) {
     .state('surveys.my_show', {
       url: "/:id",
       templateUrl: 'app/surveys/mine.html',
-      controller: 'MySurveysController',
+      controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
         survey: function(Survey, $stateParams) {

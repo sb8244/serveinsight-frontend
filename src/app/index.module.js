@@ -30,6 +30,7 @@ import { EditSurvey } from './components/survey_list/edit_survey.component';
 import { NewSurvey } from './components/survey_list/new_survey.component';
 import { SurveyListRow } from './components/survey_list/row.component';
 import { CompletedSurveyList } from './components/survey_list/completed_survey_list.component';
+import { ReportsCompletedSurveyList } from './components/survey_list/reports_completed_survey_list.component';
 import { EmptyState } from './components/empty_state/empty_state.component';
 import { MentionHighlight } from './filters/mention_highlight';
 
@@ -80,6 +81,7 @@ angular.module('frontend',
   .component('newSurvey', NewSurvey)
   .component('surveyListRow', SurveyListRow)
   .component('completedSurveyList', CompletedSurveyList)
+  .component('reportsCompletedSurveyList', ReportsCompletedSurveyList)
   .component('emptyState', EmptyState)
   .component('wrappedSurvey', WrappedSurvey)
   .component('surveyComment', SurveyComment)

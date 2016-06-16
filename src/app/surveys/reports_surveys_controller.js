@@ -6,5 +6,9 @@ export class ReportsSurveysController {
     this.Survey.getIndirectReviewableList().then((surveys) => {
       this.indirectReviewableSurveys = surveys;
     }).finally(() => this.indirectReviewableSurveysLoaded = true);
+
+    this.Survey.getReportsCompletedList().then((list) => {
+      this.reportsCompletedList = list;
+    }).finally(() => this.completedSurveysLoaded = true);
   }
 }

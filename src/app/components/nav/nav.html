@@ -22,7 +22,13 @@
         </a>
       </li>
 
-      <li ng-class="{ active: $root.$state.includes('surveys.reports') || $root.$state.includes('surveys.reports_show') }" ng-if="$root.current_organzation_member.hasFeature('reviewable-surveys')">
+      <li ng-class="{ active:
+          $root.$state.includes('surveys.reports') ||
+          $root.$state.includes('surveys.reports_completed') ||
+          $root.$state.includes('surveys.reports_show') ||
+          $root.$state.includes('surveys.reports_completed_show')
+        }"
+          ng-if="$root.current_organzation_member.hasFeature('reviewable-surveys')">
         <a ui-sref="surveys.reports">
           <i class="fa fa-gavel icon"></i>
           <span class="text">Direct-Report Insights</span>

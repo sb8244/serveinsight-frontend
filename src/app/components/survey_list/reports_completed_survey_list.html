@@ -1,0 +1,18 @@
+<div class="completed-surveys--list">
+  <div class="panel panel-lined" ng-class="{ mt15: !$first }" ng-repeat="template in ctrl.surveys">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        {{ template.name }}
+      </h3>
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <li class="list-group-item completed-surveys--row" ng-repeat="instance in template.survey_instances | orderBy:['iteration', 'organization_membership.name']:true">
+          <a ui-sref="surveys.reports_completed_show({ id: instance.id })">Due {{ instance.due_at | date:'mediumDate' }}</a>
+          -
+          Submitted {{ instance.completed_at | date:'mediumDate' }} by {{ instance.organization_membership.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

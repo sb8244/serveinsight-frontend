@@ -22,7 +22,7 @@
     "angular-moment": "~0.10.3",
     "ment.io": "~0.9.24",
     "ui-select": "angular-ui-select#~0.17.0",
-    "satellizer": "~0.13.4",
+    "satellizer": "~0.14.1",
     "angular-google-chart": "^0.1.0",
     "angular-notify": "^2.5.0",
     "bootstrap-ui-datetime-picker": "^2.4.0",

@@ -2,10 +2,10 @@
 
 # [Satellizer](https://github.com/sahat/satellizer/)
 
-[![Join the chat at https://gitter.im/sahat/satellizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sahat/satellizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://paypal.me/sahat) [![Join the chat at https://gitter.im/sahat/satellizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sahat/satellizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](http://img.shields.io/travis/sahat/satellizer.svg?style=flat)](https://travis-ci.org/sahat/satellizer)
 [![Test Coverage](http://img.shields.io/codeclimate/coverage/github/sahat/satellizer.svg?style=flat)](https://codeclimate.com/github/sahat/satellizer)
-[![Version](https://img.shields.io/badge/version-0.13.3-brightgreen.svg)](https://www.npmjs.org/package/satellizer)
+[![Version](https://img.shields.io/badge/version-0.14.1-brightgreen.svg)](https://www.npmjs.org/package/satellizer)
 
 **Live Demo:** [https://satellizer.herokuapp.com](https://satellizer.herokuapp.com)
 
@@ -23,6 +23,7 @@ in the app *config* block.
 ## Table of Contents
 
 - [Installation](#installation)
+ - [Requirements for Mobile Apps](#requirements-for-mobile-apps)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Browser Support](#browser-support)
@@ -34,17 +35,17 @@ in the app *config* block.
 - [Obtaining OAuth Keys](#obtaining-oauth-keys)
 - [API Reference](#api-reference)
 - [FAQ](#faq)
- - [How can I send a token in a format other than `Authorization: Bearer <token>?`](#how-can-i-send-a-token-in-a-format-other-than-authorization-bearer-token)
- - [How can I avoid sending Authorization header on all HTTP requests?](#how-can-i-avoid-sending-authorization-header-on-all-http-requests)
- - [Is there a way to dynamically change `localStorage` to `sessionStorage`?](#is-there-a-way-to-dynamically-change-localstorage-to-sessionstorage)
- - [I am having a problem with Ionic authentication on iOS 9.](#i-am-having-a-problem-with-ionic-authentication-on-ios-9)
+ - [Can I change `redirectUri` to something other than base URL?](#question-can-i-change-redirecturi-to-something-other-than-base-url)
+ - [How can I send a token in a format other than `Authorization: Bearer <token>?`](#question-how-can-i-send-a-token-in-a-format-other-than-authorization-bearer-token)
+ - [How can I avoid sending Authorization header on all HTTP requests?](#question-how-can-i-avoid-sending-authorization-header-on-all-http-requests)
+ - [Is there a way to dynamically change `localStorage` to `sessionStorage`?](#question-is-there-a-way-to-dynamically-change-localstorage-to-sessionstorage)
+ - [I am having a problem with Ionic authentication on iOS 9.](#question-i-am-having-a-problem-with-ionic-authentication-on-ios-9)
 - [Credits](#credits)
 - [License](#license)
 
 ## Installation
 
-The easiest way to get **Satellizer** is by running one of the following
-commands:
+The easiest way to get **Satellizer** is by running one of the following commands:
 
 ```bash
 # Bower
@@ -60,11 +61,39 @@ Alternatively, you may [**download**](https://github.com/sahat/satellizer/releas
 <!--[if lte IE 9]>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Base64/0.3.0/base64.min.js"></script>
 <![endif]-->
-<script src="//cdn.jsdelivr.net/satellizer/0.13.3/satellizer.min.js"></script>
+<script src="//cdn.jsdelivr.net/satellizer/0.14.1/satellizer.min.js"></script>
+```
+
+If installed via [Bower](http://bower.io/), include one of the following script tags:
+```html
+<script src="bower_components/satellizer/satellizer.js"></script>
+<!-- or -->
+<script src="bower_components/satellizer/satellizer.min.js"></script>
 ```
 
 **Note:** Sattelizer depends on [`window.atob()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/atob) for decoding JSON Web Tokens. If you need to support *IE9* then use Base64 polyfill above.
 
+
+### Requirements for Mobile Apps
+
+With any Cordova mobile apps or any framework that uses Cordova, such as [Ionic Framework](http://ionicframework.com/), you will need to add [cordova-plugin-inappbrowser](https://cordova.apache.org/docs/en/3.0.0/cordova/inappbrowser/inappbrowser.html) plugin:
+
+```
+$ cordova plugin add cordova-plugin-inappbrowser
+```
+
+Make sure that **inAppBrowser** is listed in your project:
+
+```
+$ cordova plugins
+cordova-plugin-console 1.0.2 "Console"
+cordova-plugin-device 1.1.1 "Device"
+cordova-plugin-inappbrowser 1.3.0 "InAppBrowser"
+cordova-plugin-splashscreen 3.2.0 "Splashscreen"
+cordova-plugin-statusbar 2.1.1 "StatusBar"
+cordova-plugin-whitelist 1.2.1 "Whitelist"
+ionic-plugin-keyboard 1.0.8 "Keyboard"
+```
 
 ## Usage
 
@@ -75,6 +104,12 @@ angular.module('MyApp', ['satellizer'])
 
     $authProvider.facebook({
       clientId: 'Facebook App ID'
+    });
+
+    // Optional: For client-side use (Implicit Grant), set responseType to 'token'
+    $authProvider.facebook({
+      clientId: 'Facebook App ID',
+      responseType: 'token'
     });
 
     $authProvider.google({
@@ -160,7 +195,6 @@ Below is a complete listing of all default configuration options.
 $authProvider.httpInterceptor = function() { return true; },
 $authProvider.withCredentials = true;
 $authProvider.tokenRoot = null;
-$authProvider.cordova = false;
 $authProvider.baseUrl = '/';
 $authProvider.loginUrl = '/auth/login';
 $authProvider.signupUrl = '/auth/signup';
@@ -361,7 +395,7 @@ Satellizer relies on *token-based authentication* using
 [JSON Web Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
 instead of cookies.
 
-Additionally, **authorization** (obtaining user's information with their permission) and **authentication** (app sign-in) requires sever-side implementation. See provided [examples](https://github.com/sahat/satellizer/tree/master/examples/server) implemented in multiple languages for your convenience. In other words, you cannot just launch your AngularJS application and expect everything to work. The only exception is when you use *OAuth 2.0 Implicit Grant* (client-side) authorization by setting `responseType: 'token'` in provider's [configuration](https://github.com/sahat/satellizer#configuration).
+Additionally, **authorization** (obtaining user's information with their permission) and **authentication** (application sign-in) requires sever-side implementation. See provided [examples](https://github.com/sahat/satellizer/tree/master/examples/server) implemented in multiple languages for your convenience. In other words, you cannot just launch your AngularJS application and expect everything to work. The only exception is when you use *OAuth 2.0 Implicit Grant* (client-side) authorization by setting `responseType: 'token'` in provider's [configuration](https://github.com/sahat/satellizer#configuration).
 
 ### <img height="34" align="top" src="http://tech-lives.com/wp-content/uploads/2012/03/Lock-icon.png"> Login with Email and Password
 
@@ -571,7 +605,7 @@ $auth.signup(user)
 
 #### `$auth.authenticate(name, [userData])`
 
-Starts the OAuth 1.0 or the OAuth 2.0 authorization flow by opening a popup window.
+Starts the OAuth 1.0 or the OAuth 2.0 authorization flow by opening a popup window. If used client side, [`responseType: "token"`](#authentication-flow) is required in the provider setup to get the actual access token. 
 
 ##### Parameters
 
@@ -771,11 +805,35 @@ $auth.setStorageType('sessionStorage');
 
 ## FAQ
 
-#### How can I send a token in a format other than `Authorization: Bearer <token>`?
+#### :question: Can I change `redirectUri` to something other than base URL?
+
+By default, `redirectUri` is set to `window.location.origin` (protocol, hostname, port number of a URL) for all OAuth providers. This `redirectUri` must match *exactly* the URL¹ specified in your OAuth app settings.
+
+**Facebook (example)**
+![](http://i.imgur.com/eaykgcZ.png)
+
+
+However, you can set `redirectUri` to any URL *path* you desire. For instance, you may follow the naming convention of [Passport.js](http://passportjs.org/):
+```js
+// Note: Must be absolute path.
+window.location.origin + '/auth/facebook/facebook/callback'
+window.location.origin + '/auth/facebook/google/callback'
+...
+```
+
+Using the example above, a popup window will be redirected to `http://localhost:3000/auth/facebook/callback?code=YOUR_AUTHORIZATION_CODE` after a successful Facebook authorization. To avoid potential 404 errors, create server routes for each `redirectUri` URL that return **200 OK**. Or alternatively, you may render a custom template with a loading spinner. For the moment, a popup will not stay long enough to see that custom template, due to 20ms interval polling, but in the future I may add support for overriding this polling interval value.
+
+As far as Satellizer is concerned, it does not matter what is the value of `redirectUri` as long as it matches URL in your OAuth app settings. Satellizer's primary concern is to read URL query/hash parameters, then close a popup.
+
+¹ **Note:** Depending on the OAuth provider, it may be called *Site URL*, *Callback URL*, *Redirect URL*, and so on.
+
+#### :question: How can I send a token in a format other than `Authorization: Bearer <token>`?
 If you are unable to send a token to your server in the following format - `Authorization: Bearer <token>`, then use
 **`$authProvider.authHeader`** and **`$authProvider.authToken`** config options to change the header format. The default values are `Authorization` and `Bearer`, respectively.
 
-#### How can I avoid sending Authorization header on all HTTP requests?
+For example, if you need to use `Authorization: Basic` header, this is where you change it.
+
+#### :question: How can I avoid sending Authorization header on all HTTP requests?
 By default, once user is authenticated, JWT will be sent on every request. If you would like to prevent that, you could use `skipAuthorization` option in your `$http` request. For example:
 
 ```js
@@ -786,19 +844,18 @@ $http({
 });
 ```
 
-#### Is there a way to dynamically change `localStorage` to `sessionStorage`?
+#### :question: Is there a way to dynamically change `localStorage` to `sessionStorage`?
 Yes, you can toggle between [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionstorage) via the following Satellizer methods:
 - `$auth.setStorageType('sessionStorage');`
 - `$auth.setStorageType('localStorage');`
 
-#### I am having a problem with Ionic authentication on iOS 9.
+#### :question: I am having a problem with Ionic authentication on iOS 9.
 First, check what kind of error you are getting by opening the Web Inspector from **Develop > Simulator > index.html** menu.
 If you have configured everything correctly, chances are you running into the following error:
 
 > Failed to load resource: The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.
 
 Follow instructions on this [StackOverflow post](http://stackoverflow.com/questions/32631184/the-resource-could-not-be-loaded-because-the-app-transport-security-policy-requi) by adding `NSAppTransportSecurity` to *info.plist*. That should fix the problem.
-
 
 ## Credits
 

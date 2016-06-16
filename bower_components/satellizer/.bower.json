@@ -18,14 +18,14 @@
   "dependencies": {
     "angular": ">=1.3.x"
   },
-  "version": "0.13.4",
-  "_release": "0.13.4",
+  "version": "0.14.1",
+  "_release": "0.14.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.13.4",
-    "commit": "cf42ff11775991b572e0f9e94dfc6ccfeb37319c"
+    "tag": "0.14.1",
+    "commit": "dfd873afdb8c84197e13054b20c924df3f3b65ac"
   },
   "_source": "https://github.com/sahat/satellizer.git",
-  "_target": "~0.13.4",
+  "_target": "~0.14.1",
   "_originalSource": "satellizer"
 }

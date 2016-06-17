@@ -46,7 +46,7 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <label class="ui-toggle-inline">
-          <input type="checkbox" ng-checked="ctrl.survey.data.goals_section">
+          <input type="checkbox" ng-model="ctrl.survey.data.goals_section">
           <span></span>
         </label>
       </div>
@@ -60,7 +60,12 @@
             <i class="fa fa-lg fa-caret-down" ng-hide="$last" ng-click="ctrl.survey.moveQuestion($index, 1)"></i>
           </span>
         </label>
-        <div class="col-md-7">
+        <div class="col-md-2">
+          <select class="form-control"
+                  ng-model="question.question_type"
+                  ng-options="obj.value as obj.label for obj in ctrl.questionTypes"></select>
+        </div>
+        <div class="col-md-5">
           <input required type="text" class="form-control" ng-model="question.question">
         </div>
         <div class="col-md-1 button--inline-form">

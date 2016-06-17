@@ -1,5 +1,6 @@
 import ngInject from '../../decorators/ng_inject';
 import { frequencyOptions } from './frequencies';
+import { questionTypes } from './questionTypes';
 
 @ngInject('notify', 'EditableSurveyList')
 class Controller {
@@ -15,6 +16,7 @@ class Controller {
     });
 
     this.frequencyOptions = frequencyOptions;
+    this.questionTypes = questionTypes;
   }
 
   save() {

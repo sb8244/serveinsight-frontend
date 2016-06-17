@@ -64,7 +64,7 @@
           <select class="form-control"
                   ng-model="question.question_type"
                   ng-options="obj.value as obj.label for obj in ctrl.questionTypes"
-                  ng-disabled="ctrl.survey.data.id"></select>
+                  ng-disabled="question.id"></select>
         </div>
         <div class="col-md-5">
           <input required type="text" class="form-control" ng-model="question.question">

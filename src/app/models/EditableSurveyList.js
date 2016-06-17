@@ -21,7 +21,8 @@ class EditableSurvey {
   addQuestion() {
     this.data.questions.push({
       id: null,
-      question: ""
+      question: "",
+      question_type: "string"
     });
   }
 

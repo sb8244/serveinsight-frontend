@@ -9,6 +9,8 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
+var $ = require('gulp-load-plugins')();
+var history = require('connect-history-api-fallback');
 var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
@@ -41,7 +43,8 @@ function browserSyncInit(baseDir, browser) {
     browser: browser,
     open: 'external',
     host: 'localhost.serveinsight.com',
-    ghostMode: false
+    ghostMode: false,
+    notify: false
   });
 }
 
@@ -51,6 +54,20 @@ browserSync.use(browserSyncSpa({
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+});
+
+gulp.task('serve:connect', ['watch'], function() {
+  $.connect.server({
+    root: [path.join(conf.paths.tmp, '/serve'), conf.paths.src],
+    livereload: true,
+    port: 4000,
+    middleware: function(connect) {
+      return [
+        connect().use('/bower_components', connect.static('bower_components')),
+        history()
+      ];
+    }
+  });
 });
 
 gulp.task('serve:dist', ['build'], function () {

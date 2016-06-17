@@ -1,5 +1,5 @@
 <div class="answer">
-  <div ng-class="{ 'input-group': ctrl.actionable }">
+  <div ng-if="ctrl.question.question_type === 'string'" ng-class="{ 'input-group': ctrl.actionable }">
     <input class="form-control"
          type="text"
          placeholder="+ Answer"
@@ -10,6 +10,23 @@
          mentio-template-url="app/components/mentio/person.html"
          mentio-items="ctrl.people"
          ng-readonly="ctrl.locked" />
+    <div class="input-group-btn action-buttons" ng-show="ctrl.actionable">
+      <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(ctrl.answer)"></button>
+      <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
+    </div>
+  </div>
+
+  <div ng-if="ctrl.question.question_type === 'num5'" data-toggle="buttons" class="numbered-question--answer">
+    <label class="btn btn-default btn-circle btn-lg mr10"
+           ng-class="{ 'btn-primary': ctrl.answer.number === ($index+1), 'disabled': ctrl.locked }"
+           ng-repeat="n in [].constructor(5) track by $index">
+      <input type="radio"
+             name="answer"
+             ng-model="ctrl.answer.number"
+             ng-value="{{ $index + 1}}" />
+      {{$index + 1}}
+    </label>
+
     <div class="input-group-btn action-buttons" ng-show="ctrl.actionable">
       <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(ctrl.answer)"></button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>

@@ -6,9 +6,5 @@ export const questionTypes = [
   {
     label: "Number 1-5",
     value: "num5"
-  },
-  {
-    label: "Number 1-10",
-    value: "num10"
   }
 ]

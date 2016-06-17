@@ -66,7 +66,7 @@ class Survey {
   readyToSubmit() {
     let goalGiven = true;
     let allQuestionsAnswered = _.all(this.questions, (question) => {
-      return _.some(question.answers, "content");
+      return _.some(question.answers, "content") || _.some(question.answers, "number");
     });
     let allPreviousGoalsUpdated = _.all(this.previous_goals, goal => goal.status);
 
@@ -84,6 +84,7 @@ class Survey {
         return _.map(question.answers, function(answer) {
           return {
             content: answer.content,
+            number: answer.number,
             question_id: question.id
           };
         })

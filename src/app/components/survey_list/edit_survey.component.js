@@ -2,7 +2,7 @@ import ngInject from '../../decorators/ng_inject';
 import { frequencyOptions } from './frequencies';
 import { questionTypes } from './questionTypes';
 
-@ngInject('notify', 'EditableSurveyList')
+@ngInject('notify', 'EditableSurveyList', '$state')
 class Controller {
   constructor() {
     this.EditableSurveyList.get(this.id).then((survey) => {
@@ -22,6 +22,7 @@ class Controller {
   save() {
     this.survey.save().then(() => {
       this.notify("Insight Updated");
+      this.$state.go('.', {}, { reload: true });
     });
   }
 }

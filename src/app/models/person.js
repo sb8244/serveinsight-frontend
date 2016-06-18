@@ -16,16 +16,22 @@ export function PersonFactory(Restangular, $q) {
 
   return {
     getList: function() {
+      if (this.resolvingGetList) {
+        return this.resolvingGetList;
+      }
+
       if (this.savedList) {
         return $q((resolve) => {
           resolve(this.savedList);
         });
       } else {
-        return Restangular.all("mention_names").getList().then((data) => {
+        this.resolvingGetList = Restangular.all("mention_names").getList().then((data) => {
           let mapped = _.map(data.plain(), person => new Person(person));
           this.savedList = new PersonList(mapped);
           return this.savedList;
-        });
+        }).finally(() => this.resolvingGetList = undefined);
+
+        return this.resolvingGetList;
       }
     }
   };

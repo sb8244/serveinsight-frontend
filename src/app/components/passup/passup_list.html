@@ -1,0 +1,39 @@
+<div class="row" ng-show="ctrl.unreadPassups.length">
+  <div class="col-sm-9">
+    <div class="panel panel-lined passup-list-panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">You have <strong>{{ ctrl.unreadPassups.length }}</strong> unread passups</h3>
+      </div>
+      <div class="panel-body">
+        <div class="passup-wrapper" ng-repeat="passup in ctrl.unreadPassups">
+          <h5 class="title text-bold mt0">
+            {{ passup.user_name }}
+            <span class="small text-muted">
+              at {{ passup.content_created_at | date:'short' }}
+            </span>
+            <span class="small right text-primary mt2">
+              Passed up by <strong>{{ passup.passed_by_name }}</strong> at {{ passup.passed_at | date:'short' }}
+            </span>
+          </h5>
+          <div class="input-group mb-20">
+            {{ passup.item.content }}
+
+            <div class="input-group-btn action-buttons">
+              <passup-button passupable="passup"></passup-button>
+              <button type="button" class="btn btn-primary fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
+              <button type="button" class="btn btn-success" ng-click="ctrl.markRead(passup)">READ</button>
+            </div>
+          </div>
+          <comments commentable="passup.item" show-new="ctrl.showNewComment" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" ng-hide="ctrl.unreadPassups.length">
+  <div class="col-xs-12 text-center">
+    <h2>No unread passups</h2>
+    <i class="fa fa-thumbs-o-up fa-4x" />
+  </div>
+</div>

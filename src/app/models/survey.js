@@ -58,6 +58,7 @@ class Survey {
     if (data.goals_section) {
       this.goal_question = new Question({
         question: "What do you want to accomplish this week?",
+        question_type: "string",
         answers: data.goals
       }, this.locked);
     }

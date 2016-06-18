@@ -11,7 +11,7 @@ export class HeaderState {
   }
 
   updateUnreadPassupCount() {
-    this.Passup.getList().then(list => this.unreadPassupCount = list.unreadCount());
+    this.Passup.getList().then(list => this.unreadPassupCount = list.count());
   }
 
   updateDueSurveyCount() {

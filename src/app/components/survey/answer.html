@@ -18,7 +18,7 @@
 
   <div ng-if="ctrl.question.question_type === 'num5'" data-toggle="buttons" class="numbered-question--answer">
     <label class="btn btn-default btn-circle btn-lg mr10"
-           ng-class="{ 'btn-primary': ctrl.answer.number === ($index+1), 'disabled': ctrl.locked }"
+           ng-class="{ 'btn-primary': ctrl.answer.number == ($index+1), 'disabled': ctrl.locked }"
            ng-repeat="n in [].constructor(5) track by $index">
       <input type="radio"
              name="answer"

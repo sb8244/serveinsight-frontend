@@ -1,37 +1,36 @@
-<div class="row" ng-show="ctrl.unreadPassups.length">
+<div class="row" ng-show="ctrl.passupList.count()">
   <div class="col-sm-9">
-    <div class="panel panel-lined passup-list-panel">
-      <div class="panel-heading">
-        <h3 class="panel-title">You have <strong>{{ ctrl.unreadPassups.length }}</strong> unread passups</h3>
-      </div>
-      <div class="panel-body">
-        <div class="passup-wrapper" ng-repeat="passup in ctrl.unreadPassups">
+    <div class="passup-wrapper" ng-class="{ mt30: !$first }" ng-repeat="passup in ctrl.passupList.passups">
+      <div class="panel panel-lined">
+        <div class="panel-body">
           <h5 class="title text-bold mt0">
-            {{ passup.user_name }}
+            {{ passup.passupable.organization_membership.name }}
             <span class="small text-muted">
-              at {{ passup.content_created_at | date:'short' }}
+              at {{ passup.passupable.created_at | date:'short' }}
             </span>
             <span class="small right text-primary mt2">
-              Passed up by <strong>{{ passup.passed_by_name }}</strong> at {{ passup.passed_at | date:'short' }}
+              Passed up by <strong>{{ passup.passed_up_by.name }}</strong> at {{ passup.created_at | date:'short' }}
             </span>
           </h5>
-          <div class="input-group mb-20">
-            {{ passup.item.content }}
+          <div class="input-group">
+            <div class="question">{{ passup.passupable.question_content }}</div>
+            <survey-answer actionable="false" locked="true" answer="passup.passupable" question="passup.passupable" ></survey-answer>
 
             <div class="input-group-btn action-buttons">
-              <passup-button passupable="passup"></passup-button>
-              <button type="button" class="btn btn-primary fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
+              <passup-button class="btn btn-primary" passupable="passup.passupable"></passup-button>
+              <button type="button" class="btn btn-primary fa fa-comment" ng-click="passup.showNewComment = !passup.showNewComment"></button>
               <button type="button" class="btn btn-success" ng-click="ctrl.markRead(passup)">READ</button>
             </div>
           </div>
-          <comments commentable="passup.item" show-new="ctrl.showNewComment" />
+
+          <comments commentable="passup.passupable" show-new="passup.showNewComment" />
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="row" ng-hide="ctrl.unreadPassups.length">
+<div class="row" ng-hide="ctrl.passupList.count()">
   <div class="col-xs-12 text-center">
     <h2>No unread passups</h2>
     <i class="fa fa-thumbs-o-up fa-4x" />

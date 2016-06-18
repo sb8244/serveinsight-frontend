@@ -21,6 +21,7 @@ import { SurveyAnswerDirective } from './components/survey/answer.directive';
 import { SurveyGoalDirective } from './components/survey/goal.directive';
 import { CommentsDirective } from './components/comments/comments.directive';
 import { Permissions } from './services/permissions';
+import { notifyError } from './services/notifyError';
 import { AutofocusDirective } from './components/autofocus/directive';
 import { FooterController } from './components/footer/controller';
 import { InviteComponent } from './components/invite/invite.directive';
@@ -89,6 +90,7 @@ angular.module('frontend',
   .component('passupButton', PassupButton)
   .service('Permissions', Permissions)
   .service('HeaderState', HeaderState)
+  .service('notifyError', notifyError)
   .controller('FooterController', FooterController)
   .value('googleChartApiConfig', googleChartSettings())
 ;

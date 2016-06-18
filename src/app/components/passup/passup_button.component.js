@@ -1,16 +1,13 @@
 import ngInject from '../../decorators/ng_inject'
 
-@ngInject("Permissions", "Passup", "notify")
+@ngInject("Permissions", "Passup", "notify", "notifyError")
 class PassupButtonController {
   passup() {
     this.Passup.createPassup(this.passupable.passup_grant).then(() => {
       this.notify("Passed up");
     }).catch((err) => {
       if (err.status === 422) {
-        this.notify({
-          message: err.data.errors.join(" - "),
-          classes: "error"
-        });
+        this.notifyError(err);
       }
     });
   }

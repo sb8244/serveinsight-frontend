@@ -1,4 +1,4 @@
-export function CustomScrollbarDirective($interval) {
+export function CustomScrollbarDirective() {
   'ngInject';
 
   return {
@@ -8,10 +8,12 @@ export function CustomScrollbarDirective($interval) {
         suppressScrollX: true
       });
 
-      $interval(function() {
-        if(el[0].scrollHeight >= el[0].clientHeight)
-          el.perfectScrollbar("update");
-      }, 60);
+      // This causes massive digest cycles and may not be needed
+      // $interval(function() {
+      //   if(el[0].scrollHeight >= el[0].clientHeight) {
+      //     el.perfectScrollbar("update");
+      //   }
+      // }, 60);
     }
   };
 }

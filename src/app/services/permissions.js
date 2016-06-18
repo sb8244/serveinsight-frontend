@@ -7,6 +7,6 @@ export class Permissions {
 
   isPassupable(item) {
     var current = this.OrganizationMember.getCached();
-    return current.id != item.organzation_member_id;
+    return current.id != item.organization_membership_id;
   }
 }

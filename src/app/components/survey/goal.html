@@ -26,7 +26,7 @@
     </div>
 
     <div class="input-group-btn action-buttons">
-      <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(ctrl.goal)"></button>
+      <passup-button passupable="ctrl.goal"></passup-button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
     </div>
   </div>

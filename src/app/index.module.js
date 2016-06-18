@@ -33,6 +33,7 @@ import { CompletedSurveyList } from './components/survey_list/completed_survey_l
 import { ReportsCompletedSurveyList } from './components/survey_list/reports_completed_survey_list.component';
 import { EmptyState } from './components/empty_state/empty_state.component';
 import { MentionHighlight } from './filters/mention_highlight';
+import { PassupButton } from './components/passup/passup_button.component';
 
 angular.module('frontend',
   [
@@ -85,6 +86,7 @@ angular.module('frontend',
   .component('emptyState', EmptyState)
   .component('wrappedSurvey', WrappedSurvey)
   .component('surveyComment', SurveyComment)
+  .component('passupButton', PassupButton)
   .service('Permissions', Permissions)
   .service('HeaderState', HeaderState)
   .controller('FooterController', FooterController)

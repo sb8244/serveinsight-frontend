@@ -11,7 +11,7 @@
          mentio-items="ctrl.people"
          ng-readonly="ctrl.locked" />
     <div class="input-group-btn action-buttons" ng-show="ctrl.actionable">
-      <passup-button passupable="ctrl.answer"></passup-button>
+      <passup-button class="btn btn-primary" passupable="ctrl.answer"></passup-button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
     </div>
   </div>
@@ -28,7 +28,7 @@
     </label>
 
     <div class="input-group-btn action-buttons" ng-show="ctrl.actionable">
-      <button type="button" class="btn btn-primary fa fa-level-up" ng-if="$root.Permissions.isPassupable(ctrl.answer)"></button>
+      <passup-button class="btn btn-primary" passupable="ctrl.answer"></passup-button>
       <button type="button" class="btn btn-success fa fa-comment" ng-click="ctrl.showNewComment = !ctrl.showNewComment"></button>
     </div>
   </div>

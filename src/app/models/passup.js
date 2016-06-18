@@ -53,13 +53,18 @@ const data = _.map([{
   return new Passup(data);
 });
 
-export function PassupFactory($q) {
+export function PassupFactory($q, Restangular) {
   'ngInject';
 
   return {
     getList: function() {
       return $q((resolve) => {
         resolve(new PassupList(data));
+      });
+    },
+    createPassup: function(passup_grant) {
+      return Restangular.all("passups").post({ passup_grant }).then((resp) => {
+        return resp.plain();
       });
     }
   };

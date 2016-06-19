@@ -1,9 +1,9 @@
 <span ng-if="ctrl.isPassupable() && !ctrl.passupable.passed_up">
   <button type="button"
           class="fa fa-level-up btn btn-default"
-          ng-class="{'btn-primary': hover}"
-          ng-mouseenter="hover = true"
-          ng-mouseleave="hover = false"
+          ng-class="{'btn-primary': ctrl.hover}"
+          ng-mouseenter="ctrl.hover = true"
+          ng-mouseleave="ctrl.hover = false"
           ng-click="ctrl.passup()"
           uib-tooltip="Pass up this response"
           tooltip-append-to-body="true"></button>

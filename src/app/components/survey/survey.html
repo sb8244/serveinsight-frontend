@@ -1,4 +1,4 @@
-<form class="survey-wrapper" ng-submit="ctrl.submitSurvey()">
+<div class="survey-wrapper">
   <div class="goals-wrapper" ng-if="ctrl.survey.goal_question">
     <div class="question-wrapper">
       <div class="question" ng-if="ctrl.survey.previous_goals.length > 0">Mark goals from your previous weekly survey completed</div>
@@ -20,29 +20,28 @@
   </div>
 
   <div class="text-center" ng-if="!ctrl.survey.completed">
-    <button type="submit" class="btn btn-lg btn-success btn-rounded" ng-disabled="!ctrl.survey.readyToSubmit()">
+    <button type="submit"
+            class="btn btn-lg btn-success btn-rounded"
+            ng-disabled="!ctrl.survey.readyToSubmit()"
+            ng-click="ctrl.submitSurvey()">
       <span ng-if="ctrl.survey.readyToSubmit()">Submit Survey</span>
       <span ng-if="!ctrl.survey.readyToSubmit()">Complete All Questions</span>
     </button>
   </div>
 
-  <div ng-if="ctrl.reviewing">
-    <survey-comment survey="ctrl.survey"></survey-comment>
+  <div class="question-wrapper insight-feedback--wrapper">
+    <div class="question">Do you have any feedback?</div>
 
+    <div class="answers">
+      <comments commentable="ctrl.survey" show-new="true" />
+    </div>
+  </div>
+
+  <div ng-if="ctrl.reviewing">
     <div class="text-center">
       <button type="submit" class="btn btn-lg btn-success btn-rounded" ng-click="ctrl.markReviewed()">
         Mark Reviewed
       </button>
     </div>
   </div>
-
-  <div ng-if="ctrl.survey.completed && ctrl.survey.comments.length > 0">
-    <div class="question-wrapper">
-      <div class="question">Do you have any feedback?</div>
-
-      <div class="answers">
-        <comments commentable="ctrl.survey" show-new="ctrl.showNewComment" />
-      </div>
-    </div>
-  </div>
-</form>
+</div>

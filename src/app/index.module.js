@@ -15,7 +15,6 @@ import { HeaderState } from './components/header/header_state';
 import { NavDirective } from './components/nav/nav.directive';
 import { CustomScrollbarDirective } from './components/custom_scrollbar/directive';
 import { SurveyDirective } from './components/survey/survey.directive';
-import { SurveyComment } from './components/survey/survey-comment.component';
 import { WrappedSurvey } from './components/survey/wrapped_survey.component';
 import { SurveyAnswerDirective } from './components/survey/answer.directive';
 import { SurveyGoalDirective } from './components/survey/goal.directive';
@@ -87,7 +86,6 @@ angular.module('frontend',
   .component('reportsCompletedSurveyList', ReportsCompletedSurveyList)
   .component('emptyState', EmptyState)
   .component('wrappedSurvey', WrappedSurvey)
-  .component('surveyComment', SurveyComment)
   .component('passupButton', PassupButton)
   .component('passupList', PassupList)
   .service('Permissions', Permissions)

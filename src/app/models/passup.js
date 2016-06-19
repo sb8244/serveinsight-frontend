@@ -19,6 +19,11 @@ class PassupList {
 class Passup {
   constructor(data) {
     _.extend(this, data);
+
+    if (data.passupable_type === "Goal") {
+      data.passupable.question_type = "string";
+      data.passupable.question_content = "What do you want to accomplish this week?";
+    }
   }
 }
 

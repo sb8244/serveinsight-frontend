@@ -19,4 +19,8 @@ class HeaderController {
     this.$auth.logout();
     this.$window.location.reload();
   }
+
+  stateLoaded() {
+    return this.HeaderState.isLoaded();
+  }
 }

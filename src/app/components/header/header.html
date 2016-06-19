@@ -7,7 +7,10 @@
   </div>
 
   <div class="head-wrap clearfix" ng-if="$root.appState === 'main'">
-    <ul class="list-unstyled alerts pull-left">
+    <ul class="list-unstyled alerts pull-left" ng-if="ctrl.stateLoaded()">
+      <li ng-show="!ctrl.HeaderState.dueSurveyCount && !ctrl.HeaderState.reviewableCount && !ctrl.HeaderState.unreadPassupCount">
+        <a>Nothing due!</a>
+      </li>
       <li ng-show="ctrl.HeaderState.dueSurveyCount">
         <a ui-sref="surveys.my_recent">
           {{ ctrl.HeaderState.dueSurveyCount }} Surveys Due

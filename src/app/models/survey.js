@@ -1,3 +1,5 @@
+export const goalSurveyQuestion = "What do you want to accomplish this week?";
+
 class SurveyList {
   constructor(surveys) {
     this.surveys = surveys;
@@ -57,7 +59,7 @@ class Survey {
 
     if (data.goals_section) {
       this.goal_question = new Question({
-        question: "What do you want to accomplish this week?",
+        question: goalSurveyQuestion,
         question_type: "string",
         answers: data.goals
       }, this.locked);

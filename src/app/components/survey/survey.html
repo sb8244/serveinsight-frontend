@@ -29,11 +29,11 @@
     </button>
   </div>
 
-  <div class="question-wrapper insight-feedback--wrapper">
+  <div class="question-wrapper insight-feedback--wrapper" ng-if="ctrl.survey.completed">
     <div class="question">Do you have any feedback?</div>
 
     <div class="answers">
-      <comments commentable="ctrl.survey" show-new="true" />
+      <comments commentable="ctrl.survey" show-new="true" skip-autofocus="true" />
     </div>
   </div>
 

@@ -21,7 +21,6 @@ import { SurveyGoalDirective } from './components/survey/goal.directive';
 import { CommentsDirective } from './components/comments/comments.directive';
 import { Permissions } from './services/permissions';
 import { notifyError } from './services/notifyError';
-import { AutofocusDirective } from './components/autofocus/directive';
 import { FooterController } from './components/footer/controller';
 import { InviteComponent } from './components/invite/invite.directive';
 import { OrgChartComponent } from './components/org_chart/org_chart.component';
@@ -38,6 +37,7 @@ import { PassupList } from './components/passup/passup_list.component';
 
 angular.module('frontend',
   [
+    'focus-if',
     'cgNotify',
     'googlechart',
     'ngAnimate',
@@ -75,7 +75,6 @@ angular.module('frontend',
   .directive('surveyAnswer', SurveyAnswerDirective)
   .directive('surveyGoal', SurveyGoalDirective)
   .directive('comments', CommentsDirective)
-  .directive('autofocus', AutofocusDirective)
   .component('inviteForm', InviteComponent)
   .component('orgChart', OrgChartComponent)
   .component('adminSurveyList', AdminSurveyList)

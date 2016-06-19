@@ -1,0 +1,41 @@
+{
+  "name": "ng-focus-if",
+  "homepage": "https://github.com/hiebj/ng-focus-if",
+  "authors": [
+    "Jonathan Hieb"
+  ],
+  "description": "AngularJS directive that will trigger focus on an element under specified conditions",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hiebj/ng-focus-if.git"
+  },
+  "main": "focusIf.js",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "directive",
+    "focus-if",
+    "autofocus",
+    "focus",
+    "delay"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.5",
+  "_release": "1.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.5",
+    "commit": "1ec29c0df6ec86f331bce4caf4eb2793e4e9e3c5"
+  },
+  "_source": "https://github.com/hiebj/ng-focus-if.git",
+  "_target": "^1.0.5",
+  "_originalSource": "ng-focus-if",
+  "_direct": true
+}

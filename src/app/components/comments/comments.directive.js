@@ -6,7 +6,8 @@ export function CommentsDirective() {
     templateUrl: 'app/components/comments/comments.html',
     scope: {
       commentable: '=',
-      showNew: '='
+      showNew: '=',
+      skipAutofocus: '=?'
     },
     controller: CommentsController,
     controllerAs: 'ctrl',

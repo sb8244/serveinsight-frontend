@@ -9,8 +9,9 @@ class PassupList {
   }
 
   complete(passup) {
-    this.Restangular.one("passups", passup.id).customPOST({}, "complete").then(() => {
+    return this.Restangular.one("passups", passup.id).customPOST({}, "complete").then(() => {
       _.remove(this.passups, { id: passup.id });
+      return this;
     });
   }
 }

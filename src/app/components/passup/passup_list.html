@@ -19,7 +19,7 @@
             <div class="input-group-btn action-buttons">
               <passup-button class="btn btn-primary" passupable="passup.passupable"></passup-button>
               <button type="button" class="btn btn-primary fa fa-comment" ng-click="passup.showNewComment = !passup.showNewComment"></button>
-              <button type="button" class="btn btn-success" ng-click="ctrl.markRead(passup)">READ</button>
+              <button type="button" class="btn btn-success" ng-click="ctrl.passupList.complete(passup)">READ</button>
             </div>
           </div>
 
@@ -31,8 +31,5 @@
 </div>
 
 <div class="row" ng-hide="ctrl.passupList.count()">
-  <div class="col-xs-12 text-center">
-    <h2>No unread passups</h2>
-    <i class="fa fa-thumbs-o-up fa-4x" />
-  </div>
+  <empty-state icon="fa-thumbs-o-up" text="No unread passups"></empty-state>
 </div>

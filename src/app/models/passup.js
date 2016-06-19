@@ -1,10 +1,17 @@
 class PassupList {
-  constructor(passups) {
+  constructor(passups, Restangular) {
     this.passups = passups;
+    this.Restangular = Restangular;
   }
 
   count() {
     return this.passups.length;
+  }
+
+  complete(passup) {
+    this.Restangular.one("passups", passup.id).customPOST({}, "complete").then(() => {
+      _.remove(this.passups, { id: passup.id });
+    });
   }
 }
 
@@ -20,7 +27,8 @@ export function PassupFactory(Restangular) {
   return {
     getList: function() {
       return Restangular.all("passups").getList().then((data) => {
-        return new PassupList(data.plain());
+        let passups = _.map(data.plain(), (passup) => new Passup(passup, Restangular));
+        return new PassupList(passups, Restangular);
       })
     },
     createPassup: function(passup_grant) {

@@ -5,6 +5,7 @@ class PassupButtonController {
   passup() {
     this.Passup.createPassup(this.passupable.passup_grant).then(() => {
       this.notify("Passed up");
+      this.passupable.passed_up = true;
     }).catch((err) => {
       if (err.status === 422) {
         this.notifyError(err);
@@ -13,7 +14,8 @@ class PassupButtonController {
   }
 
   isPassupable() {
-    return this.Permissions.isPassupable(this.passupable) && this.passupable.passup_grant;
+    return this.Permissions.isPassupable(this.passupable) &&
+           this.passupable.passup_grant;
   }
 }
 

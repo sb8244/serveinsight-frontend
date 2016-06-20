@@ -11,7 +11,6 @@ class NotificationList {
 class Notification {
   constructor(data) {
     _.assign(this, data);
-    console.log(data);
   }
 }
 

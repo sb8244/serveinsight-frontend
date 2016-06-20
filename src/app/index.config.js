@@ -5,7 +5,7 @@ export function config ($logProvider, $urlRouterProvider, $locationProvider, $au
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
 
-  RestangularProvider.setBaseUrl('http://localhost.serveinsight.com:8000');
+  RestangularProvider.setBaseUrl('http://localhost.serveinsight.com:8000/api');
   RestangularProvider.setRequestSuffix('.json');
 
   $authProvider.baseUrl = 'http://localhost.serveinsight.com:8000/';

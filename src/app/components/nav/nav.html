@@ -2,21 +2,21 @@
   <nav class="site-nav clearfix" role="navigation">
     <ul class="list-unstyled nav-list">
       <li ui-sref-active="active">
-        <a ui-sref="dashboard">
+        <a ui-sref="dashboard" ui-sref-opts="{reload: true}">
           <i class="fa fa-desktop icon"></i>
           <span class="text">Dashboard</span>
         </a>
       </li>
 
       <li ng-class="{ active: $root.$state.includes('surveys.my_recent') || $root.$state.includes('surveys.my_show') }">
-        <a ui-sref="surveys.my_recent">
+        <a ui-sref="surveys.my_recent" ui-sref-opts="{reload: true}">
           <i class="fa fa-question-circle icon"></i>
           <span class="text">Due Insights</span>
         </a>
       </li>
 
       <li ng-class="{ active: $root.$state.includes('surveys.completed') || $root.$state.includes('surveys.completed_show') }">
-        <a ui-sref="surveys.completed">
+        <a ui-sref="surveys.completed" ui-sref-opts="{reload: true}">
           <i class="fa fa-question-circle icon"></i>
           <span class="text">Completed Insights</span>
         </a>
@@ -29,14 +29,14 @@
           $root.$state.includes('surveys.reports_completed_show')
         }"
           ng-if="$root.current_organzation_member.hasFeature('reviewable-surveys')">
-        <a ui-sref="surveys.reports">
+        <a ui-sref="surveys.reports" ui-sref-opts="{reload: true}">
           <i class="fa fa-gavel icon"></i>
           <span class="text">Direct-Report Insights</span>
         </a>
       </li>
 
       <li ng-class="{ active: $root.$state.includes('passups') }" ng-if="$root.current_organzation_member.hasFeature('pass-ups')">
-        <a ui-sref="passups.list">
+        <a ui-sref="passups.list" ui-sref-opts="{reload: true}">
           <i class="fa fa-level-up icon"></i>
           <span class="text">Pass-ups</span>
         </a>
@@ -48,13 +48,13 @@
         <h4>Admin</h4>
       </li>
       <li ng-class="{ active: $root.$state.current.name === 'team_admin.settings' }">
-        <a ui-sref="team_admin.settings">
+        <a ui-sref="team_admin.settings" ui-sref-opts="{reload: true}">
           <i class="fa fa-cogs icon"></i>
           <span class="text">Team Setup</span>
         </a>
       </li>
       <li ng-class="{ active: $root.$state.current.name.indexOf('team_admin.survey') > -1 }">
-        <a ui-sref="team_admin.surveys">
+        <a ui-sref="team_admin.surveys" ui-sref-opts="{reload: true}">
           <i class="fa fa-cogs icon"></i>
           <span class="text">Insights Setup</span>
         </a>

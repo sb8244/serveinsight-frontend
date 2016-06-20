@@ -1,6 +1,6 @@
 <header class="site-head clearfix" id="site-head">
   <div class="nav-head">
-    <a href="#/dashboard-v1" class="site-logo"><span>Serve</span>&nbsp;Insight</a>
+    <a href="/" class="site-logo"><span>Serve</span>&nbsp;Insight</a>
   </div>
 
   <div class="head-wrap" ng-if="$root.appState === 'setup'">
@@ -12,17 +12,17 @@
         <a>Nothing due!</a>
       </li>
       <li ng-show="ctrl.HeaderState.dueSurveyCount">
-        <a ui-sref="surveys.my_recent">
+        <a ui-sref="surveys.my_recent" ui-sref-opts="{reload: true}">
           {{ ctrl.HeaderState.dueSurveyCount }} Surveys Due
         </a>
       </li>
       <li ng-show="ctrl.HeaderState.reviewableCount">
-        <a ui-sref="surveys.reports">
+        <a ui-sref="surveys.reports" ui-sref-opts="{reload: true}">
           {{ ctrl.HeaderState.reviewableCount }} Surveys Need Review
         </a>
       </li>
       <li ng-show="ctrl.HeaderState.unreadPassupCount">
-        <a ui-sref="passups.list">
+        <a ui-sref="passups.list" ui-sref-opts="{reload: true}">
           {{ ctrl.HeaderState.unreadPassupCount }} Unread Pass-ups
         </a>
       </li>

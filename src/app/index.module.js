@@ -37,6 +37,7 @@ import { PassupList } from './components/passup/passup_list.component';
 
 angular.module('frontend',
   [
+    'angularMoment',
     'focus-if',
     'cgNotify',
     'googlechart',

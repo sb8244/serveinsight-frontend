@@ -17,12 +17,12 @@ export class DashboardController {
       {
         created_at: new Date() - 1000000,
         teammate_name: "John Smith",
-        comment: "@Steve really excelled this week at coding."
+        comment: "@Steve got the TPS reports to me in record time!"
       },
       {
         created_at: new Date() - 231231231,
         teammate_name: "Max Patrickson",
-        comment: "@Steve really excelled this week at coding."
+        comment: "Pairing with @Bill and @Steve this week was super productive"
       },
       {
         created_at: new Date() - 1239391828,

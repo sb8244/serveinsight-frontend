@@ -13,8 +13,14 @@ export function HeaderDirective() {
   };
 }
 
-@ngInject("HeaderState", "$auth", "$window")
+@ngInject("HeaderState", "$auth", "$window", "NotificationList")
 class HeaderController {
+  constructor() {
+    this.NotificationList.getList().then((list) => {
+      this.notificationList = list;
+    });
+  }
+
   logOut() {
     this.$auth.logout();
     this.$window.location.reload();

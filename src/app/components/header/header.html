@@ -33,18 +33,18 @@
       <li class="dropdown open" uib-dropdown="">
         <a href="" class="dropdown-toggle notification" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
           <i class="fa fa-bell-o"></i>
-          <span class="badge badge-danger badge-xs circle">3</span>
+          <span class="badge badge-danger badge-xs circle">{{ ctrl.notificationList.count() }}</span>
         </a>
         <div class="panel panel-default dropdown-menu">
           <div class="panel-heading">
-            <p class="panel-title">You have <strong>1</strong> new notifications</p>
+            <p class="panel-title">You have <strong>{{ ctrl.notificationList.count() }}</strong> new notifications</p>
           </div>
           <ul class="list-unstyled noti-drop clearfix ps-container ps-active-y" custom-scrollbar="">
-            <li>
+            <li ng-repeat="notification in ctrl.notificationList.notifications">
               <a href="" class="clearfix">
                 <div class="info left">
-                  <strong>New Weekly Insight Report</strong>
-                  <span class="small time">5 minutes ago</span>
+                  <strong>{{ notification.text }}</strong>
+                  <span class="small time" am-time-ago="notification.created_at"></span>
                 </div>
               </a>
             </li>

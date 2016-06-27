@@ -1,0 +1,16 @@
+<div class="answer-page page clearfix">
+  <ol class="breadcrumb breadcrumb-small">
+      <li>Serve Insight</li>
+      <li class="active">
+        <a ui-sref="answers_show({ id: ctrl.answer.id })">Answer</a>
+      </li>
+  </ol>
+
+  <div class="question-wrapper">
+    <div class="question">{{ ctrl.answer.question_content }}</div>
+
+    <div class="answers">
+      <survey-answer actionable="true" locked="true" answer="ctrl.answer" question="ctrl.answer"></survey-answer>
+    </div>
+  </div>
+</div>

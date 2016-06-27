@@ -8,8 +8,10 @@ import { OrganizationFactory } from './organization';
 import { EditableSurveyListFactory } from './EditableSurveyList';
 import { CommentFactory } from './comment';
 import { NotificationListFactory } from './NotificationList';
+import { AnswerFactory } from './Answer';
 
 angular.module("models", [])
+  .factory("Answer", AnswerFactory)
   .factory("Survey", SurveyFactory)
   .factory("QuickNote", QuickNoteFactory)
   .factory("Person", PersonFactory)

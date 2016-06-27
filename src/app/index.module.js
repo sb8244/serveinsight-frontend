@@ -7,6 +7,7 @@ import {} from './routes/passups/module';
 import {} from './routes/login/module';
 import {} from './routes/setup/module';
 import {} from './routes/team_admin/module';
+import {} from './routes/answers/module';
 
 import { config } from './index.config';
 import { runBlock, notifyConfig } from './index.run';
@@ -57,6 +58,7 @@ angular.module('frontend',
     'satellizer',
     'angular.filter',
     'models',
+    'answers',
     'dashboard',
     'surveys',
     'passups',

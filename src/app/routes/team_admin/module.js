@@ -1,4 +1,4 @@
-import {} from '../models/module';
+import {} from '../../models/module';
 
 angular.module("team_admin", ["models"])
   .config(routerConfig);
@@ -14,19 +14,19 @@ function routerConfig($stateProvider) {
     })
     .state('team_admin.settings', {
       url: '/',
-      templateUrl: 'app/team_admin/settings.html'
+      templateUrl: 'app/routes/team_admin/settings.html'
     })
     .state('team_admin.surveys', {
       url: '/insights',
-      templateUrl: 'app/team_admin/surveys.html'
+      templateUrl: 'app/routes/team_admin/surveys.html'
     })
     .state('team_admin.survey_new', {
       url: '/insights/new',
-      templateUrl: 'app/team_admin/new_survey.html'
+      templateUrl: 'app/routes/team_admin/new_survey.html'
     })
     .state('team_admin.survey', {
       url: '/insights/:id',
-      templateUrl: 'app/team_admin/survey.html',
+      templateUrl: 'app/routes/team_admin/survey.html',
       controllerAs: 'ctrl',
       controller: function($stateParams) {
         'ngInject';

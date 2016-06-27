@@ -1,4 +1,4 @@
-import {} from '../models/module';
+import {} from '../../models/module';
 import { SetupController } from './controller.js';
 
 angular.module("setup", ["models"])
@@ -11,7 +11,7 @@ function routerConfig($stateProvider) {
   $stateProvider
     .state('setup_wizard', {
       url: '/setup',
-      templateUrl: 'app/setup/setup.html',
+      templateUrl: 'app/routes/setup/setup.html',
       controller: 'SetupController',
       controllerAs: 'ctrl'
     });

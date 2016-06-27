@@ -1,12 +1,12 @@
 /* global moment:false */
 
-import {} from './dashboard/module';
-import {} from './surveys/module';
 import {} from './models/module';
-import {} from './passups/module';
-import {} from './login/module';
-import {} from './setup/module';
-import {} from './team_admin/module';
+import {} from './routes/dashboard/module';
+import {} from './routes/surveys/module';
+import {} from './routes/passups/module';
+import {} from './routes/login/module';
+import {} from './routes/setup/module';
+import {} from './routes/team_admin/module';
 
 import { config } from './index.config';
 import { runBlock, notifyConfig } from './index.run';

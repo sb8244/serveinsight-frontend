@@ -10,7 +10,7 @@ function routerConfig ($stateProvider) {
   $stateProvider
     .state('dashboard', {
       url: '/',
-      templateUrl: 'app/dashboard/dashboard.html',
+      templateUrl: 'app/routes/dashboard/dashboard.html',
       controller: 'DashboardController',
       controllerAs: 'ctrl'});
 }

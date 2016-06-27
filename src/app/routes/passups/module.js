@@ -1,4 +1,4 @@
-import {} from '../models/module';
+import {} from '../../models/module';
 
 import { ListController } from './list_controller';
 import { ShowController } from './show_controller';
@@ -17,7 +17,7 @@ function routerConfig ($stateProvider) {
     })
     .state('passups.list', {
       url: "",
-      templateUrl: 'app/passups/list.html',
+      templateUrl: 'app/routes/passups/list.html',
       controller: ListController,
       controllerAs: 'ctrl',
       resolve: {
@@ -29,7 +29,7 @@ function routerConfig ($stateProvider) {
     })
     .state("passups.show", {
       url: "/:id",
-      templateUrl: "app/passups/show.html",
+      templateUrl: "app/routes/passups/show.html",
       controller: ShowController,
       controllerAs: "ctrl",
       resolve: {

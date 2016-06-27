@@ -1,4 +1,4 @@
-import ngInject from '../decorators/ng_inject';
+import ngInject from '../../decorators/ng_inject';
 
 @ngInject("$auth", "OrganizationMember")
 export class LoginController {

@@ -1,4 +1,4 @@
-import {} from '../models/module';
+import {} from '../../models/module';
 
 import { LoginController } from './controller';
 
@@ -12,7 +12,7 @@ function routerConfig ($stateProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
-      templateUrl: "app/login/login.html",
+      templateUrl: "app/routes/login/login.html",
       controller: "LoginController",
       controllerAs: "ctrl"
     });

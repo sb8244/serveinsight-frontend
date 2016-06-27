@@ -1,4 +1,4 @@
-import ngInject from '../decorators/ng_inject';
+import ngInject from '../../decorators/ng_inject';
 
 @ngInject("Organization", "$state", "OrganizationMember")
 export class SetupController {

@@ -1,4 +1,4 @@
-import {} from '../models/module';
+import {} from '../../models/module';
 
 import { MySurveyController } from './my_survey_controller';
 import { CompletedSurveysController } from './completed_surveys_controller';
@@ -20,7 +20,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.my_recent', {
       url: "",
-      templateUrl: 'app/surveys/mine.html',
+      templateUrl: 'app/routes/surveys/mine.html',
       controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
@@ -32,7 +32,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.completed', {
       url: '/completed',
-      templateUrl: 'app/surveys/completed.html',
+      templateUrl: 'app/routes/surveys/completed.html',
       controller: CompletedSurveysController,
       controllerAs: 'ctrl',
       resolve: {
@@ -44,7 +44,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.completed_show', {
       url: "/completed/:id",
-      templateUrl: 'app/surveys/mine_completed.html',
+      templateUrl: 'app/routes/surveys/mine_completed.html',
       controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
@@ -56,7 +56,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.reports', {
       url: "/managed",
-      templateUrl: 'app/surveys/reports.html',
+      templateUrl: 'app/routes/surveys/reports.html',
       controller: ReportsSurveysController,
       controllerAs: 'ctrl',
       resolve: {
@@ -68,7 +68,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.reports_completed', {
       url: "/managed/completed",
-      templateUrl: 'app/surveys/reports_completed.html',
+      templateUrl: 'app/routes/surveys/reports_completed.html',
       controller: ReportsCompletedSurveysController,
       controllerAs: 'ctrl',
       resolve: {
@@ -80,7 +80,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.reports_completed_show', {
       url: "/managed/completed/:id",
-      templateUrl: 'app/surveys/reports_completed_show.html',
+      templateUrl: 'app/routes/surveys/reports_completed_show.html',
       controller: ReportsCompletedShowController,
       controllerAs: 'ctrl',
       resolve: {
@@ -92,7 +92,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.reports_show', {
       url: "/managed/:id",
-      templateUrl: 'app/surveys/reports_show.html',
+      templateUrl: 'app/routes/surveys/reports_show.html',
       controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {
@@ -104,7 +104,7 @@ function routerConfig ($stateProvider) {
     })
     .state('surveys.my_show', {
       url: "/:id",
-      templateUrl: 'app/surveys/mine.html',
+      templateUrl: 'app/routes/surveys/mine.html',
       controller: MySurveyController,
       controllerAs: 'ctrl',
       resolve: {

@@ -6,11 +6,17 @@
       </li>
   </ol>
 
-  <div class="question-wrapper">
-    <div class="question">{{ ctrl.answer.question_content }}</div>
+  <div class="page-wrap mt15">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="question-wrapper">
+          <div class="question">{{ ctrl.answer.question_content }}</div>
 
-    <div class="answers">
-      <survey-answer actionable="true" locked="true" answer="ctrl.answer" question="ctrl.answer"></survey-answer>
+          <div class="answers">
+            <survey-answer actionable="true" locked="true" answer="ctrl.answer" question="ctrl.answer"></survey-answer>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

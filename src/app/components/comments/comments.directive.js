@@ -7,7 +7,8 @@ export function CommentsDirective() {
     scope: {
       commentable: '=',
       showNew: '=',
-      skipAutofocus: '=?'
+      skipAutofocus: '=?',
+      noMention: '@?'
     },
     controller: CommentsController,
     controllerAs: 'ctrl',
@@ -21,7 +22,10 @@ class CommentsController {
 
     this.Comment = Comment;
     OrganizationMember.get().then(member => this.member = member);
-    Person.getList().then(personList => this.people = personList.people);
+
+    if (!this.noMention) {
+      Person.getList().then(personList => this.people = personList.people);
+    }
   }
 
   addComment() {

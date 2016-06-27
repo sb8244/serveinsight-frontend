@@ -8,6 +8,7 @@ import {} from './routes/login/module';
 import {} from './routes/setup/module';
 import {} from './routes/team_admin/module';
 import {} from './routes/answers/module';
+import {} from './routes/goals/module';
 
 import { config } from './index.config';
 import { runBlock, notifyConfig } from './index.run';
@@ -59,6 +60,7 @@ angular.module('frontend',
     'angular.filter',
     'models',
     'answers',
+    'goals',
     'dashboard',
     'surveys',
     'passups',

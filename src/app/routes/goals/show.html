@@ -1,0 +1,22 @@
+<div class="answer-page page clearfix">
+  <ol class="breadcrumb breadcrumb-small">
+      <li>Serve Insight</li>
+      <li class="active">
+        <a ui-sref="goals_show({ id: ctrl.goal.id })">Goal</a>
+      </li>
+  </ol>
+
+  <div class="page-wrap mt15">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="question-wrapper">
+          <div class="question">{{ ctrl.goal.question }}</div>
+
+          <div class="answers">
+            <survey-goal goal="ctrl.goal" editable="false"></survey-goal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

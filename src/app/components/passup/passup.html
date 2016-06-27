@@ -1,0 +1,27 @@
+<div class="passup-wrapper">
+  <div class="panel panel-lined">
+    <div class="panel-body">
+      <h5 class="title text-bold mt0">
+        {{ ctrl.passup.passupable.organization_membership.name }}
+        <span class="small text-muted">
+          at {{ ctrl.passup.passupable.created_at | date:'short' }}
+        </span>
+        <span class="small right text-primary mt2">
+          Passed up by <strong>{{ ctrl.passup.passed_up_by.name }}</strong> at {{ ctrl.passup.created_at | date:'short' }}
+        </span>
+      </h5>
+      <div class="input-group">
+        <div class="question">{{ ctrl.passup.passupable.question_content }}</div>
+        <survey-answer actionable="false" locked="true" answer="ctrl.passup.passupable" question="ctrl.passup.passupable" ></survey-answer>
+
+        <div class="input-group-btn action-buttons">
+          <passup-button passupable="ctrl.passup.passupable"></passup-button>
+          <button type="button" class="btn btn-primary fa fa-comment" ng-click="ctrl.passup.showNewComment = !ctrl.passup.showNewComment"></button>
+          <button ng-if="ctrl.passup.status !== 'complete'" type="button" class="btn btn-success" ng-click="ctrl.complete(ctrl.passup)">READ</button>
+        </div>
+      </div>
+
+      <comments commentable="ctrl.passup.passupable" show-new="ctrl.passup.showNewComment" />
+    </div>
+  </div>
+</div>

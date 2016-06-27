@@ -34,6 +34,7 @@ import { EmptyState } from './components/empty_state/empty_state.component';
 import { MentionHighlight } from './filters/mention_highlight';
 import { PassupButton } from './components/passup/passup_button.component';
 import { PassupList } from './components/passup/passup_list.component';
+import { PassupComponent } from './components/passup/passup.component';
 
 angular.module('frontend',
   [
@@ -88,6 +89,7 @@ angular.module('frontend',
   .component('wrappedSurvey', WrappedSurvey)
   .component('passupButton', PassupButton)
   .component('passupList', PassupList)
+  .component('passup', PassupComponent)
   .service('Permissions', Permissions)
   .service('HeaderState', HeaderState)
   .service('notifyError', notifyError)

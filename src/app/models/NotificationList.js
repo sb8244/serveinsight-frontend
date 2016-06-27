@@ -12,6 +12,12 @@ class Notification {
   constructor(data) {
     _.assign(this, data);
   }
+
+  uiSref() {
+    if (this.notification_type === "passup") {
+      return `passups.show({ id: ${this.notification_details.passup_id} })`;
+    }
+  }
 }
 
 export function NotificationListFactory(Restangular) {

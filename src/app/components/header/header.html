@@ -41,7 +41,7 @@
           </div>
           <ul class="list-unstyled noti-drop clearfix ps-container ps-active-y" custom-scrollbar="">
             <li ng-repeat="notification in ctrl.notificationList.notifications">
-              <a href="" class="clearfix">
+              <a ui-sref="{{notification.uiSref()}}" class="clearfix">
                 <div class="info left">
                   <strong>{{ notification.text }}</strong>
                   <span class="small time" am-time-ago="notification.created_at"></span>

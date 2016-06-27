@@ -1,10 +1,10 @@
 import {} from '../models/module';
 
 import { ListController } from './list_controller';
+import { ShowController } from './show_controller';
 
 angular.module("passups", ["models"])
-  .config(routerConfig)
-  .controller("PassupsListController", ListController);
+  .config(routerConfig);
 
 function routerConfig ($stateProvider) {
   'ngInject';
@@ -18,7 +18,7 @@ function routerConfig ($stateProvider) {
     .state('passups.list', {
       url: "",
       templateUrl: 'app/passups/list.html',
-      controller: 'PassupsListController',
+      controller: ListController,
       controllerAs: 'ctrl',
       resolve: {
         passupList: function(Passup) {
@@ -27,5 +27,16 @@ function routerConfig ($stateProvider) {
         }
       }
     })
-  ;
+    .state("passups.show", {
+      url: "/:id",
+      templateUrl: "app/passups/show.html",
+      controller: ShowController,
+      controllerAs: "ctrl",
+      resolve: {
+        passup: function(Passup, $stateParams) {
+          'ngInject';
+          return Passup.find($stateParams.id);
+        }
+      }
+    });
 }

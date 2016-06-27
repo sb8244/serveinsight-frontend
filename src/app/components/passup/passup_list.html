@@ -1,32 +1,10 @@
 <div class="row" ng-show="ctrl.passupList.count()">
   <div class="col-sm-9">
-    <div class="passup-wrapper" ng-class="{ mt30: !$first }" ng-repeat="passup in ctrl.passupList.passups">
-      <div class="panel panel-lined">
-        <div class="panel-body">
-          <h5 class="title text-bold mt0">
-            {{ passup.passupable.organization_membership.name }}
-            <span class="small text-muted">
-              at {{ passup.passupable.created_at | date:'short' }}
-            </span>
-            <span class="small right text-primary mt2">
-              Passed up by <strong>{{ passup.passed_up_by.name }}</strong> at {{ passup.created_at | date:'short' }}
-            </span>
-          </h5>
-          <div class="input-group">
-            <div class="question">{{ passup.passupable.question_content }}</div>
-            <survey-answer actionable="false" locked="true" answer="passup.passupable" question="passup.passupable" ></survey-answer>
-
-            <div class="input-group-btn action-buttons">
-              <passup-button passupable="passup.passupable"></passup-button>
-              <button type="button" class="btn btn-primary fa fa-comment" ng-click="passup.showNewComment = !passup.showNewComment"></button>
-              <button type="button" class="btn btn-success" ng-click="ctrl.complete(passup)">READ</button>
-            </div>
-          </div>
-
-          <comments commentable="passup.passupable" show-new="passup.showNewComment" />
-        </div>
-      </div>
-    </div>
+    <passup class="block"
+            ng-class="{ mt30: !$first }"
+            passup-list="ctrl.passupList"
+            passup="passup"
+            ng-repeat="passup in ctrl.passupList.passups"></passup>
   </div>
 </div>
 

@@ -28,6 +28,8 @@ class Notification {
       return `answers_show({ id: ${detailId} })`;
     } else if (detailType === "SurveyInstance") {
       return `surveys.completed_show({ id: ${detailId} })`;
+    } else if (detailType === "Goal") {
+      return `goals_show({ id: ${detailId} })`;
     }
 
     return "dashboard";

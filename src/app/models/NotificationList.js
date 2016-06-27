@@ -4,13 +4,23 @@ class NotificationList {
   }
 
   count() {
-    return this.notifications.length;
+    return _.select(this.notifications, { status: "pending" }).length;
   }
 }
 
 class Notification {
-  constructor(data) {
+  constructor(data, Restangular) {
     _.assign(this, data);
+    this.Restangular = Restangular;
+  }
+
+  complete() {
+    if (this.status !== "complete") {
+      return this.Restangular.one("notifications", this.id).customPOST({}, "complete").then(() => {
+        this.status = "complete";
+        return this;
+      });
+    }
   }
 
   /*
@@ -42,7 +52,7 @@ export function NotificationListFactory(Restangular) {
   return {
     getList: function() {
       return Restangular.all("notifications").getList().then((data) => {
-        let notifications = _.map(data.plain(), (n) => new Notification(n));
+        let notifications = _.map(data.plain(), (n) => new Notification(n, Restangular));
         return new NotificationList(notifications);
       });
     }

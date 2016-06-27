@@ -41,10 +41,11 @@
           </div>
           <ul class="list-unstyled noti-drop clearfix ps-container ps-active-y" custom-scrollbar="">
             <li ng-repeat="notification in ctrl.notificationList.notifications">
-              <a ui-sref="{{notification.uiSref()}}" class="clearfix">
+              <a ui-sref="{{notification.uiSref()}}" class="clearfix" ng-click="notification.complete()">
                 <div class="info left">
                   <strong>{{ notification.text }}</strong>
                   <span class="small time" am-time-ago="notification.created_at"></span>
+                  <span class="small" ng-if="notification.status === 'pending'"> | unread</span>
                 </div>
               </a>
             </li>

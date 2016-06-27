@@ -29,4 +29,8 @@ class HeaderController {
   stateLoaded() {
     return this.HeaderState.isLoaded();
   }
+
+  markAllRead() {
+    this.NotificationList.markAllRead().then(() => this.notificationList.setAllCompleted());
+  }
 }

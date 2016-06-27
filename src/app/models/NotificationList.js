@@ -6,6 +6,12 @@ class NotificationList {
   count() {
     return _.select(this.notifications, { status: "pending" }).length;
   }
+
+  setAllCompleted() {
+    _.each(this.notifications, (notification) => {
+      notification.status = "complete";
+    });
+  }
 }
 
 class Notification {
@@ -55,6 +61,9 @@ export function NotificationListFactory(Restangular) {
         let notifications = _.map(data.plain(), (n) => new Notification(n, Restangular));
         return new NotificationList(notifications);
       });
+    },
+    markAllRead: function() {
+      return Restangular.all("notifications").customPOST({}, "complete_all");
     }
   }
 }

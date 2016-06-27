@@ -16,7 +16,11 @@ class Notification {
   uiSref() {
     if (this.notification_type === "passup") {
       return `passups.show({ id: ${this.notification_details.passup_id} })`;
+    } else if (this.notification_type === "review") {
+      return `surveys.reports_show({ id: ${this.notification_details.survey_instance_id} })`;
     }
+
+    return "dashboard";
   }
 }
 

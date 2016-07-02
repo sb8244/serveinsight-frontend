@@ -9,7 +9,7 @@ function routerConfig ($stateProvider) {
   'ngInject';
 
   $stateProvider
-    .state('notifications_list', {
+    .state('notification_list', {
       url: '/notifications',
       templateUrl: "app/routes/notifications/list.html",
       controllerAs: "ctrl",

@@ -52,7 +52,7 @@
           </ul>
           <div class="panel-footer clearfix">
             <p class="read-all mb0 small pull-left">
-              <a href="#na">View all notifications</a>
+              <a ui-sref="notification_list" ui-sref-opts="{reload:true}">View all notifications</a>
             </p>
             <p class="complete-all mb0 small pull-right">
               <a ng-click="ctrl.markAllRead()">Mark all as read</a>

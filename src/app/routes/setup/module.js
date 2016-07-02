@@ -1,7 +1,7 @@
 import {} from '../../models/module';
 import { SetupController } from './controller.js';
 
-angular.module("setup", ["models"])
+angular.module("setup", [])
   .config(routerConfig)
   .controller("SetupController", SetupController);
 

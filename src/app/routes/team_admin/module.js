@@ -1,6 +1,6 @@
 import {} from '../../models/module';
 
-angular.module("team_admin", ["models"])
+angular.module("team_admin", [])
   .config(routerConfig);
 
 function routerConfig($stateProvider) {

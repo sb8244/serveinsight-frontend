@@ -2,7 +2,7 @@ import {} from '../../models/module';
 
 import { AnswerShowController } from './show.controller';
 
-angular.module("answers", ["models"])
+angular.module("answers", [])
   .config(routerConfig);
 
 function routerConfig($stateProvider) {

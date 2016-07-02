@@ -6,7 +6,7 @@ import { ReportsSurveysController } from './reports_surveys_controller';
 import { ReportsCompletedSurveysController } from './reports_completed_surveys_controller';
 import { ReportsCompletedShowController } from './reports_completed_show_controller';
 
-angular.module("surveys", ["models"])
+angular.module("surveys", [])
   .config(routerConfig);
 
 function routerConfig ($stateProvider) {

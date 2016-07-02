@@ -2,7 +2,7 @@ import {} from '../../models/module';
 
 import { ShowController } from './show.controller';
 
-angular.module("goals", ["models"])
+angular.module("goals", [])
   .config(routerConfig);
 
 function routerConfig($stateProvider) {

@@ -3,7 +3,7 @@ import {} from '../../models/module';
 import { ListController } from './list_controller';
 import { ShowController } from './show_controller';
 
-angular.module("passups", ["models"])
+angular.module("passups", [])
   .config(routerConfig);
 
 function routerConfig ($stateProvider) {

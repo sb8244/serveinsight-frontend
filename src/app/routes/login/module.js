@@ -2,7 +2,7 @@ import {} from '../../models/module';
 
 import { LoginController } from './controller';
 
-angular.module("login", ["models"])
+angular.module("login", [])
   .config(routerConfig)
   .controller("LoginController", LoginController);
 

@@ -11,7 +11,7 @@ import { NotificationListFactory } from './NotificationList';
 import { AnswerFactory } from './Answer';
 import { GoalFactory } from './Goal';
 
-angular.module("models", [])
+angular.module("frontend.models", [])
   .factory("Answer", AnswerFactory)
   .factory("Goal", GoalFactory)
   .factory("Survey", SurveyFactory)

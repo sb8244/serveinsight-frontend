@@ -1,6 +1,11 @@
+const PAGE_SIZE = 20;
+
 class NotificationList {
-  constructor(notifications) {
+  constructor(notifications, Restangular) {
     this.notifications = notifications;
+    this.page = 1;
+    this.Restangular = Restangular;
+    this.canLoadMore = notifications.length === PAGE_SIZE;
   }
 
   count() {
@@ -11,6 +16,20 @@ class NotificationList {
     _.each(this.notifications, (notification) => {
       notification.status = "complete";
     });
+  }
+
+  loadMore() {
+    this.page += 1;
+    this.loading = true;
+
+    this.Restangular.all("notifications").getList({ page: this.page, page_size: PAGE_SIZE }).then((data) => {
+      this.canLoadMore = data.length === PAGE_SIZE;
+
+      _.each(data.plain(), (n) => {
+        let notification = new Notification(n, this.Restangular);
+        this.notifications.push(notification);
+      });
+    }).finally(() => this.loading = false);
   }
 }
 
@@ -57,9 +76,9 @@ export function NotificationListFactory(Restangular) {
 
   return {
     getList: function() {
-      return Restangular.all("notifications").getList().then((data) => {
+      return Restangular.all("notifications").getList({ page: 1, page_size: PAGE_SIZE }).then((data) => {
         let notifications = _.map(data.plain(), (n) => new Notification(n, Restangular));
-        return new NotificationList(notifications);
+        return new NotificationList(notifications, Restangular);
       });
     },
     markAllRead: function() {

@@ -20,6 +20,7 @@ import { EmptyState } from './empty_state/empty_state.component';
 import { PassupButton } from './passup/passup_button.component';
 import { PassupList } from './passup/passup_list.component';
 import { PassupComponent } from './passup/passup.component';
+import { NotificationList } from './notifications/notification_list.component';
 
 angular.module("frontend.components", [])
   .service('HeaderState', HeaderState)
@@ -43,4 +44,5 @@ angular.module("frontend.components", [])
   .component('wrappedSurvey', WrappedSurvey)
   .component('passupButton', PassupButton)
   .component('passupList', PassupList)
-  .component('passup', PassupComponent);
+  .component('passup', PassupComponent)
+  .component('notificationList', NotificationList);

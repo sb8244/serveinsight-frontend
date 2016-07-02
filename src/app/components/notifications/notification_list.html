@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <ul class="list-unstyled">
+    <li class="notification--row" ng-repeat="notification in ctrl.notificationList.notifications">
+      <a ui-sref="{{notification.uiSref()}}" class="clearfix" ng-click="notification.complete()">
+        <div class="info left">
+          <strong>{{ notification.text }}</strong>
+          <span class="small time" am-time-ago="notification.created_at"></span>
+          <span class="small" ng-if="notification.status === 'pending'"> | unread</span>
+        </div>
+      </a>
+    </li>
+    <li class="notification--row text-center btn btn-block" ng-click="ctrl.notificationList.loadMore()" ng-if="ctrl.notificationList.canLoadMore">
+      Load More...
+    </li>
+  </ul>
+</div>

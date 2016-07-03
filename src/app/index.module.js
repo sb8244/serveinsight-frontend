@@ -5,7 +5,7 @@ import {} from './routes/module';
 import {} from './components/module';
 
 import { config } from './index.config';
-import { runBlock, notifyConfig } from './index.run';
+import { runBlock, notifyConfig, inviteRunBlock } from './index.run';
 
 import { Permissions } from './services/permissions';
 import { notifyError } from './services/notifyError';
@@ -40,6 +40,7 @@ angular.module('frontend',
   .config(config)
   .run(notifyConfig)
   .run(runBlock)
+  .run(inviteRunBlock)
   .run(globalAvailability)
   .filter('mentionHighlight', MentionHighlight)
   .service('Permissions', Permissions)

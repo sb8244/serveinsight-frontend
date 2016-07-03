@@ -27,7 +27,8 @@
     "angular-notify": "^2.5.0",
     "bootstrap-ui-datetime-picker": "^2.4.0",
     "angular-filter": "^0.5.8",
-    "ng-focus-if": "^1.0.5"
+    "ng-focus-if": "^1.0.5",
+    "ngstorage": "^0.3.10"
   },
   "overrides": {
     "font-awesome": {

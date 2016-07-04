@@ -13,7 +13,7 @@
           <i class="fa fa-question-circle icon"></i>
           <span class="text">
             Available Insights
-            <span ng-if="ctrl.HeaderState.isLoaded()">({{ ctrl.HeaderState.surveyCount }})</span>
+            <span ng-if="ctrl.HeaderState.isLoaded() && ctrl.HeaderState.surveyCount > 0">({{ ctrl.HeaderState.surveyCount }})</span>
           </span>
         </a>
       </li>

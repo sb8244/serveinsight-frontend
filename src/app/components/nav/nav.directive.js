@@ -1,3 +1,5 @@
+import ngInject from '../../decorators/ng_inject';
+
 export function NavDirective() {
   'ngInject';
 
@@ -11,6 +13,6 @@ export function NavDirective() {
   }
 }
 
+@ngInject("HeaderState")
 class NavController {
-
 }

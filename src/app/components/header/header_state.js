@@ -4,20 +4,24 @@ export class HeaderState {
 
     this.Passup = Passup;
     this.Survey = Survey;
-    this.loadedCount = 0;
+    this.loaded = {
+      unreadPassupCount: false,
+      dueSurveyCount: false,
+      reviewableCount: false
+    };
     this.updateUnreadPassupCount();
     this.updateDueSurveyCount();
     this.updateReviewableCount();
   }
 
   isLoaded() {
-    return this.loadedCount === 3;
+    return _.all(this.loaded);
   }
 
   updateUnreadPassupCount() {
     this.Passup.getList().
       then(list => this.unreadPassupCount = list.count()).
-      finally(() => this.loadedCount += 1);
+      finally(() => this.loaded.unreadPassupCount = true);
   }
 
   updateDueSurveyCount() {
@@ -26,12 +30,12 @@ export class HeaderState {
         this.dueSurveyCount = list.dueCount({ daysUntilDue: 2 });
         this.surveyCount = list.count();
       }).
-      finally(() => this.loadedCount += 1);
+      finally(() => this.loaded.dueSurveyCount = true);
   }
 
   updateReviewableCount() {
     this.Survey.getReviewableList().
       then(list => this.reviewableCount = list.count()).
-      finally(() => this.loadedCount += 1);
+      finally(() => this.loaded.reviewableCount = true);
   }
 }

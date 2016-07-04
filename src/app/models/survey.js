@@ -9,8 +9,13 @@ class SurveyList {
     return this.surveys.length;
   }
 
-  dueCount() {
-    return _(this.surveys).select({ completed: false }).size();
+  dueCount({ daysUntilDue=2 }) {
+    var now = moment();
+    return _(this.surveys).select(function(survey) {
+      var dueAt = moment(survey.due_at);
+      var days = dueAt.diff(now, 'days');
+      return days <= daysUntilDue;
+    }).size();
   }
 }
 

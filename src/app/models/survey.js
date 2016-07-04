@@ -9,12 +9,9 @@ class SurveyList {
     return this.surveys.length;
   }
 
-  dueCount({ daysUntilDue=2 }) {
-    var now = moment();
+  dueCount({ daysUntilDue }) {
     return _(this.surveys).select(function(survey) {
-      var dueAt = moment(survey.due_at);
-      var days = dueAt.diff(now, 'days');
-      return days <= daysUntilDue;
+      return survey.isDue({ daysUntilDue });
     }).size();
   }
 }
@@ -69,6 +66,13 @@ class Survey {
         answers: data.goals
       }, this.locked);
     }
+  }
+
+  isDue({ daysUntilDue }) {
+    var now = moment();
+    var dueAt = moment(this.due_at);
+    var days = dueAt.diff(now, 'days');
+    return days <= daysUntilDue;
   }
 
   readyToSubmit() {
@@ -139,7 +143,10 @@ export function SurveyFactory(Restangular) {
       return Restangular.all("survey_instances").one("top_due").get().then((survey) => new Survey(survey.plain(), Restangular));
     },
     getList: () => {
-      return Restangular.all("survey_instances").getList({ due: true }).then((surveys) => new SurveyList(surveys.plain()));
+      return Restangular.all("survey_instances").getList({ due: true }).then((surveyData) => {
+        let surveys = _.map(surveyData.plain(), data => new Survey(data, Restangular));
+        return new SurveyList(surveys);
+      });
     },
     getCompletedList: () => {
       return Restangular.all("completed_surveys").getList().then(surveys => surveys.plain());

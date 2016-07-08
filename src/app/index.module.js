@@ -3,6 +3,7 @@
 import {} from './models/module';
 import {} from './routes/module';
 import {} from './components/module';
+import {} from './vendor/bugsnag';
 
 import { config } from './index.config';
 import { runBlock, notifyConfig, inviteRunBlock } from './index.run';
@@ -13,6 +14,7 @@ import { MentionHighlight } from './filters/mention_highlight';
 
 angular.module('frontend',
   [
+    'bugsnag',
     'angularMoment',
     'focus-if',
     'cgNotify',

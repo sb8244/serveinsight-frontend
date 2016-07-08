@@ -15,6 +15,7 @@
     "module": true,
     "inject": true,
     "moment": true,
-    "_": true
+    "_": true,
+    "Bugsnag": true
   }
 }

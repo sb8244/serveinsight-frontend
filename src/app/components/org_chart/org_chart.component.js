@@ -23,6 +23,7 @@ class OrgChartController {
 
   updateHierarchy() {
     this.hierarchy = chartDataToHierarchy(this.chartData);
+    this.updateChartData();
     this.onChange();
   }
 
@@ -81,16 +82,27 @@ class OrgChartController {
     let childNode = this.chartData.rows[childIndex];
     let movingAChildNode = this.isChildNode(childNode, parentNode);
 
-    if (!movingAChildNode) {
+    if (!movingAChildNode) { // Everything is okay
       childNode.c[1].v = parentNode.c[0].v;
       childNode.user_info.reviewer_id = parentNode.c[0].v;
-    } else {
+    } else if (this.isRootNode(childNode)) { // Root node is a special case where circular is okay
+      if (parentNode.c[1].v === childNode.c[0].v) { // The proposed child must be a parent and a root
+        childNode.c[1].v = parentNode.c[0].v;
+        childNode.user_info.reviewer_id = parentNode.c[0].v;
+      } else {
+        this.notify("Circular reviewing must happen only between direct reports and their manager.");
+      }
+    } else if (childNode.c[1].v !== parentNode.c[0].v) { // The child's reviewer is already the new parent
       this.notify('Cannot change this reviewer without causing review loop. First, remove a lower reviewer to separate the org chart.');
     }
 
     this.reviewerChangeStarted = false;
     this.selectedElementIndex = undefined;
     this.updateHierarchy();
+  }
+
+  isRootNode(node) {
+    return node.c[1].v === null;
   }
 
   isChildNode(parentNode, childNode) {
@@ -150,10 +162,19 @@ function hierarchyToChartData(hierarchy) {
         {"label": "Reviewer", "pattern": "", "type": "string"}
     ],
     rows: hierarchy.map((userInfo) => {
+      let title = userInfo.name;
+
+      if (userInfo.reviewer_id) {
+        let reviewer = _.select(hierarchy, { id: userInfo.reviewer_id })[0];
+        if (reviewer.reviewer_id === userInfo.id) {
+          title += "*";
+        }
+      }
+
       return {
         user_info: userInfo,
         c: [
-          { v: userInfo.id, f: userInfo.name },
+          { v: userInfo.id, f: title },
           { v: userInfo.reviewer_id }
         ]
       };

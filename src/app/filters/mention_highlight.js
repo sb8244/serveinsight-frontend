@@ -6,6 +6,6 @@ export function MentionHighlight($sce, $sanitize) {
 
     return $sce.trustAsHtml(clean.replace(/@[^\W]*/gi), function(match) {
         return '<span class="mention-highlight">' + match + '</span>';
-    }));
+    });
   };
 }

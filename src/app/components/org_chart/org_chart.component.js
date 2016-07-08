@@ -62,6 +62,17 @@ class OrgChartController {
     return data.user_info;
   }
 
+  selectedInfoReviewer() {
+    let data = this.selectedInfo();
+
+    if (data.reviewer_id) {
+      let reviewer = _.select(this.hierarchy, { id: data.reviewer_id })[0];
+      return reviewer.name;
+    } else {
+      return "No reviewer";
+    }
+  }
+
   startReviewerChange() {
     this.reviewerChangeStarted = true;
   }

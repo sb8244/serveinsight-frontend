@@ -33,6 +33,12 @@
               <input ng-change="ctrl.updatedInformation()" readonly required="" type="email" class="form-control" ng-model="ctrl.selectedInfo().email" required placeholder="user@mycompany.com">
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-lg-4 control-label">Reviewer</label>
+            <div class="col-lg-8">
+              <input class="form-control" ng-model="ctrl.selectedInfoReviewer()" readonly />
+            </div>
+          </div>
         </form>
 
         <span ng-if="!ctrl.reviewerChangeStarted">

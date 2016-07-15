@@ -1,13 +1,16 @@
 import ngInject from '../../decorators/ng_inject';
 import { frequencyOptions } from './frequencies';
 import { questionTypes } from './questionTypes';
+import { dateTimePickerWatch } from '../../services/dateTimePickerWatch';
 
-@ngInject('notify', '$state', 'EditableSurveyList')
+@ngInject('$scope', 'EditableSurveyList', 'notify', '$state')
 class Controller {
-  constructor() {
-    this.survey = this.EditableSurveyList.emptyEditableSurvey();
+  constructor($scope, EditableSurveyList) {
+    this.survey = EditableSurveyList.emptyEditableSurvey();
     this.frequencyOptions = frequencyOptions;
     this.questionTypes = questionTypes;
+
+    dateTimePickerWatch(this, $scope, "ctrl.due_at_picker.date");
   }
 
   save() {

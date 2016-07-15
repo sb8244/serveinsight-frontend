@@ -1,11 +1,12 @@
 import ngInject from '../../decorators/ng_inject';
 import { frequencyOptions } from './frequencies';
 import { questionTypes } from './questionTypes';
+import { dateTimePickerWatch } from '../../services/dateTimePickerWatch';
 
-@ngInject('notify', 'EditableSurveyList', '$state')
+@ngInject('$scope', 'EditableSurveyList', 'notify', '$state')
 class Controller {
-  constructor() {
-    this.EditableSurveyList.get(this.id).then((survey) => {
+  constructor($scope, EditableSurveyList) {
+    EditableSurveyList.get(this.id).then((survey) => {
       this.survey = survey;
 
       if (survey.data.next_due_at) {
@@ -17,6 +18,8 @@ class Controller {
 
     this.frequencyOptions = frequencyOptions;
     this.questionTypes = questionTypes;
+
+    dateTimePickerWatch(this, $scope, "ctrl.due_at_picker.date");
   }
 
   save() {

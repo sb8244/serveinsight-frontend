@@ -28,10 +28,10 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <div class="input-group">
-          <input type="text" class="form-control" ng-change="ctrl.survey.setFirstDueAt(ctrl.due_at_picker.date)" ng-model="ctrl.due_at_picker.date" datetime-picker="MM/dd/yyyy HH:mm" is-open="ctrl.due_at_picker.open" />
+          <input type="text" class="form-control" ng-change="ctrl.survey.setFirstDueAt(ctrl.due_at_picker.date)" ng-model="ctrl.due_at_picker.date" datetime-picker="MM/dd/yyyy h:mm a" is-open="ctrl.due_at_picker.open" />
           <span class="input-group-btn">
-						<button type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
-					</span>
+            <button type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
+          </span>
         </div>
       </div>
     </div>

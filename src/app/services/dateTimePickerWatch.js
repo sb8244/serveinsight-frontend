@@ -6,6 +6,7 @@ export function dateTimePickerWatch(binding, scope, name) {
       date.setMinutes(0);
       date.setSeconds(0);
       binding.due_at_picker.date = date;
+      binding.survey.setFirstDueAt(date);
     }
   });
 }

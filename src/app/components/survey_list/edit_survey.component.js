@@ -10,8 +10,10 @@ class Controller {
       this.survey = survey;
 
       if (survey.data.next_due_at) {
+        let date = moment(survey.data.next_due_at).toDate();
         this.due_at_picker = {
-          date: moment(survey.data.next_due_at).toDate()
+          date: date,
+          original: date
         };
       }
     });

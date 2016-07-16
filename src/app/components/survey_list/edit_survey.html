@@ -33,6 +33,9 @@
             <button type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
           </span>
         </div>
+        <small ng-if="ctrl.due_at_picker.original && ctrl.due_at_picker.original.toString() !== ctrl.due_at_picker.date.toString()">
+          <i>Due Insights will be updated to be due at this time.</i>
+        </small>
       </div>
     </div>
     <div class="form-group">

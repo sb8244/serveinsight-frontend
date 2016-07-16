@@ -11,7 +11,7 @@ class Controller {
     this.questionTypes = questionTypes;
 
     this.due_at_picker = {
-      date: moment().day(5).hour(12+5).minute(0).second(0).toDate()
+      date: moment().day(7+5).hour(12+5).minute(0).second(0).toDate()
     };
     this.survey.setFirstDueAt(this.due_at_picker.date);
 

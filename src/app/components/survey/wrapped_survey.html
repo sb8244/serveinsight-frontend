@@ -17,6 +17,11 @@
             </ui-select>
           </div>
         </h3>
+        <div ng-if="!ctrl.survey.isDue({ daysUntilDue: 2 })">
+          <i>
+            Insight is not due until {{ ctrl.survey.due_at | date:'shortDate' }}.
+          </i>
+        </div>
       </div>
     </div>
 

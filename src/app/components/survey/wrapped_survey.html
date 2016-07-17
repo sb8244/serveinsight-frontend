@@ -2,25 +2,31 @@
   <div class="page-wrap mt15" ng-if="ctrl.survey">
     <div class="row">
       <div class="col-sm-12">
-        <h3 class="survey-title mt0 mb0">
-          <span class="title">{{ ctrl.survey.title }}</span>
-          <div class="select-wrapper" ng-if="ctrl.surveyList.surveys.length > 0">
-            <ui-select ng-model="ctrl.selectedSurvey"
-                       search-enabled="true"
-                       theme="bootstrap"
-                       ng-change="ctrl.surveySelected(ctrl.selectedSurvey)">
-              <ui-select-match placeholder="{{ ctrl.surveyList.count() }} surveys available">{{$select.selected.title}}</ui-select-match>
-              <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
-                <span ng-bind-html="survey.title"></span>
-                <span class="label label-primary label-xs" ng-if="survey.isDue({ daysUntilDue: 2 })">due</span>
-              </ui-select-choices>
-            </ui-select>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="survey-title mt0 mb0">
+              <span class="title">{{ ctrl.survey.title }}</span>
+              <div class="select-wrapper" ng-if="ctrl.surveyList.surveys.length > 0">
+                <ui-select ng-model="ctrl.selectedSurvey"
+                           search-enabled="true"
+                           theme="bootstrap"
+                           ng-change="ctrl.surveySelected(ctrl.selectedSurvey)">
+                  <ui-select-match placeholder="{{ ctrl.surveyList.count() }} surveys available">{{$select.selected.title}}</ui-select-match>
+                  <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
+                    <span ng-bind-html="survey.title"></span>
+                    <span class="label label-primary label-xs" ng-if="survey.isDue({ daysUntilDue: 2 })">due</span>
+                  </ui-select-choices>
+                </ui-select>
+              </div>
+            </h3>
           </div>
-        </h3>
-        <div ng-if="!ctrl.survey.isDue({ daysUntilDue: 2 })">
-          <i>
-            Insight is not due until {{ ctrl.survey.due_at | date:'shortDate' }}.
-          </i>
+        </div>
+        <div class="row mt10" ng-if="!ctrl.survey.isDue({ daysUntilDue: 2 })">
+          <div class="col-xs-12">
+            <i>
+              Insight is not due until {{ ctrl.survey.due_at | date:'shortDate' }}
+            </i>
+          </div>
         </div>
       </div>
     </div>

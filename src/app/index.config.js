@@ -1,6 +1,6 @@
 import { apiBase, authBase, googleClientID } from './constants';
 
-export function config ($logProvider, $urlRouterProvider, $locationProvider, $authProvider, RestangularProvider) {
+export function config ($logProvider, $urlRouterProvider, $locationProvider, $authProvider, RestangularProvider, cfpLoadingBarProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -15,4 +15,6 @@ export function config ($logProvider, $urlRouterProvider, $locationProvider, $au
     url: '/auth/google_oauth2/callback',
     clientId: googleClientID
   });
+
+  cfpLoadingBarProvider.includeSpinner = false;
 }

@@ -14,6 +14,7 @@ import { MentionHighlight } from './filters/mention_highlight';
 
 angular.module('frontend',
   [
+    'angular-loading-bar',
     'bugsnag',
     'angularMoment',
     'focus-if',

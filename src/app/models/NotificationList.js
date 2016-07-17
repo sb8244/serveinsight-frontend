@@ -59,6 +59,8 @@ class Notification {
       return `passups.show({ id: ${this.notification_details.passup_id} })`;
     } else if (this.notification_type === "review") {
       return `surveys.reports_show({ id: ${this.notification_details.survey_instance_id} })`;
+    } else if (this.notification_type === "insight.reviewed") {
+      return `surveys.completed_show({ id: ${this.notification_details.survey_instance_id} })`;
     } else if (detailType === "Answer") {
       return `answers_show({ id: ${detailId} })`;
     } else if (detailType === "SurveyInstance") {

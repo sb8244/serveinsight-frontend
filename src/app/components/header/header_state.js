@@ -25,7 +25,7 @@ export class HeaderState {
   }
 
   updateDueSurveyCount() {
-    this.Survey.getList().
+    this.Survey.getList({}).
       then(list => {
         this.dueSurveyCount = list.dueCount({ daysUntilDue: 2 });
         this.surveyCount = list.count();

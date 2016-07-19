@@ -8,9 +8,15 @@
     <div class="panel-body">
       <ul class="list-group">
         <li class="list-group-item completed-surveys--row" ng-repeat="instance in template.survey_instances | orderBy:['iteration', 'organization_membership.name']:true">
-          <a ui-sref="surveys.reports_completed_show({ id: instance.id })">Due {{ instance.due_at | date:'mediumDate' }}</a>
+          <a ui-sref="surveys.reports_completed_show({ id: instance.id })" ng-if="instance.reviewed_at">
+            Due {{ instance.due_at | date:'mediumDate' }}
+          </a>
+          <a ui-sref="surveys.reports_show({ id: instance.id })" ng-if="!instance.reviewed_at">
+            Due {{ instance.due_at | date:'mediumDate' }}
+          </a>
           -
           Submitted {{ instance.completed_at | date:'mediumDate' }} by {{ instance.organization_membership.name }}
+          <span class="label label-xs label-primary" ng-if="!instance.reviewed_at">needs review</span>
         </li>
       </ul>
     </div>

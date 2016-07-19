@@ -28,6 +28,13 @@
             </i>
           </div>
         </div>
+        <div class="row mt10" ng-if="ctrl.survey.missed">
+          <div class="col-xs-12">
+            <i>
+              Oops! This Insight is overdue; it was due on {{ ctrl.survey.due_at | date:'shortDate' }}
+            </i>
+          </div>
+        </div>
       </div>
     </div>
 

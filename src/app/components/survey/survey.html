@@ -38,9 +38,14 @@
   </div>
 
   <div ng-if="ctrl.reviewing">
-    <div class="text-center">
+    <div class="text-center" ng-if="!ctrl.survey.reviewed_at">
       <button type="submit" class="btn btn-lg btn-success btn-rounded" ng-click="ctrl.markReviewed()">
         Mark Reviewed
+      </button>
+    </div>
+    <div class="text-center" ng-if="!!ctrl.survey.reviewed_at">
+      <button type="submit" disabled class="btn btn-lg btn-success btn-rounded">
+        Already Reviewed
       </button>
     </div>
   </div>

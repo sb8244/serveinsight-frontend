@@ -13,8 +13,8 @@
                            ng-change="ctrl.surveySelected(ctrl.selectedSurvey)">
                   <ui-select-match placeholder="{{ ctrl.surveyList.count() }} surveys available">{{$select.selected.title}}</ui-select-match>
                   <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
-                    <span ng-bind-html="survey.title"></span>
                     <span class="label label-primary label-xs" ng-if="survey.isDue({ daysUntilDue: 2 })">due</span>
+                    <span ng-bind-html="survey.title"></span>
                   </ui-select-choices>
                 </ui-select>
               </div>

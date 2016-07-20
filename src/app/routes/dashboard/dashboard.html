@@ -73,13 +73,13 @@
             <textarea rows="3"
                       class="form-control resize-v post-area"
                       placeholder="I really like when @steve did..."
-                      ng-model="tempShoutout"
+                      ng-model="ctrl.tempShoutout"
                       mentio
                       mentio-template-url="app/components/mentio/person.html"
                       mentio-items="ctrl.people"></textarea>
             <ul class="post-tools list-unstyled clearfix">
-              <li class="right" uib-tooltip="Coming Soon!" tooltip-append-to-body="true">
-                <button class="btn btn-primary" disabled>Shout Out!</button>
+              <li class="right">
+                <button class="btn btn-primary" ng-disabled="!ctrl.tempShoutout" ng-click="ctrl.createShoutout()">Shout Out!</button>
               </li>
             </ul>
           </div>

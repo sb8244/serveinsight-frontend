@@ -1,6 +1,6 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject("Person")
+@ngInject("Person", "Shoutout", "notifyError", "notify")
 export class DashboardController {
   constructor(Person) {
     this.stats = {
@@ -30,5 +30,16 @@ export class DashboardController {
         comment: "@Steve really excelled this week at coding."
       }
     ];
+  }
+
+  createShoutout() {
+    this.Shoutout.createShoutout(this.tempShoutout).then(() => {
+      this.tempShoutout = "";
+      this.notify("Thanks for sharing!");
+    }).catch((err) => {
+      if (err.status === 422) {
+        this.notifyError(err);
+      }
+    });
   }
 }

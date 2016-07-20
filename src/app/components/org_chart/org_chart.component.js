@@ -67,9 +67,9 @@ class OrgChartController {
 
     if (data.reviewer_id) {
       let reviewer = _.select(this.hierarchy, { id: data.reviewer_id })[0];
-      return reviewer.name;
+      return { name: reviewer.name };
     } else {
-      return "No reviewer";
+      return { name : "No reviewer" };
     }
   }
 

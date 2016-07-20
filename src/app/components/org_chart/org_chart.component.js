@@ -148,7 +148,8 @@ class OrgChartController {
       return {
         id: obj.id,
         name: obj.name,
-        reviewer_id: obj.reviewer_id
+        reviewer_id: obj.reviewer_id,
+        admin: obj.admin
       };
     });
 
@@ -213,6 +214,7 @@ function objToMember(member) {
     id: member.id,
     name: member.name,
     email: member.email,
-    reviewer_id: member.reviewer_id
+    reviewer_id: member.reviewer_id,
+    admin: member.admin
   }
 }

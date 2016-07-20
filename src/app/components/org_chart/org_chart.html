@@ -39,6 +39,15 @@
               <input class="form-control" ng-model="ctrl.selectedInfoReviewer()" readonly />
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-lg-4 control-label">Admin?</label>
+            <div class="col-lg-8 ui-toggle ui-toggle-primary">
+              <label class="ui-toggle-inline">
+                <input type="checkbox" ng-model="ctrl.selectedInfo().admin" ng-change="ctrl.updatedInformation()">
+                <span></span>
+              </label>
+            </div>
+          </div>
         </form>
 
         <span ng-if="!ctrl.reviewerChangeStarted">

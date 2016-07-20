@@ -14,6 +14,7 @@ export class DashboardController {
     });
 
     Shoutout.getList({}).then(shoutoutList => {
+      shoutoutList.limitedTo = 5;
       this.shoutoutList = shoutoutList;
     });
 

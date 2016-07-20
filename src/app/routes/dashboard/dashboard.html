@@ -116,7 +116,7 @@
         <div class="panel primary">
           <div class="panel-heading clearfix">
             <div class="pull-left">
-              your <strong>recent shout-outs ({{ ctrl.shoutoutList.count({ max: 5 }) }})</strong> <i class="fa fa-bullhorn" />
+              your <strong>shout-outs</strong> <i class="fa fa-bullhorn" />
             </div>
           </div>
           <div class="panel-body">
@@ -129,10 +129,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="shoutout in ctrl.shoutoutList.shoutouts | limitTo: 5">
+                <tr ng-repeat="shoutout in ctrl.shoutoutList.shoutouts | limitTo:(ctrl.shoutoutList.limitedTo)">
                   <td>{{ shoutout.shouted_by.name }}</td>
                   <td am-time-ago="shoutout.created_at"></td>
                   <td>{{ shoutout.content }}</td>
+                </tr>
+                <tr ng-if="ctrl.shoutoutList.canLoadMore()">
+                  <td colspan="3">
+                    <button ng-disabled="ctrl.shoutoutList.loading"
+                            ng-click="ctrl.shoutoutList.loadMore()"
+                            type="button"
+                            class="btn btn-primary btn-xs">Load more...</button>
+                  </td>
                 </tr>
               </tbody>
             </table>

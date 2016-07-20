@@ -116,7 +116,7 @@
         <div class="panel primary">
           <div class="panel-heading clearfix">
             <div class="pull-left">
-              your <strong>recent shout-outs ({{ ctrl.recent_shoutouts.length }})</strong> <i class="fa fa-bullhorn" />
+              your <strong>recent shout-outs ({{ ctrl.shoutoutList.count({ max: 5 }) }})</strong> <i class="fa fa-bullhorn" />
             </div>
           </div>
           <div class="panel-body">
@@ -129,10 +129,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="shoutout in ctrl.recent_shoutouts">
-                  <td>{{ shoutout.teammate_name }}</td>
+                <tr ng-repeat="shoutout in ctrl.shoutoutList.shoutouts | limitTo: 5">
+                  <td>{{ shoutout.shouted_by.name }}</td>
                   <td am-time-ago="shoutout.created_at"></td>
-                  <td>{{ shoutout.comment }}</td>
+                  <td>{{ shoutout.content }}</td>
                 </tr>
               </tbody>
             </table>

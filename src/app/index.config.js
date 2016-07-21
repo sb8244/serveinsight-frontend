@@ -1,4 +1,8 @@
-import { apiBase, authBase, googleClientID } from './constants';
+import { apiBase, authBase, googleClientID, bugsnagEnabled } from './constants';
+
+if (window.Bugsnag) {
+  Bugsnag.beforeNotify = () => bugsnagEnabled;
+}
 
 export function config ($logProvider, $urlRouterProvider, $locationProvider, $authProvider, RestangularProvider, cfpLoadingBarProvider) {
   'ngInject';

@@ -1,6 +1,6 @@
 import { apiBase, authBase, googleClientID, bugsnagEnabled } from './constants';
 
-if (window.Bugsnag) {
+if (window.Bugsnag) { // eslint-disable-line
   Bugsnag.beforeNotify = () => bugsnagEnabled;
 }
 

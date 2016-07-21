@@ -21,6 +21,7 @@ import { PassupButton } from './passup/passup_button.component';
 import { PassupList } from './passup/passup_list.component';
 import { PassupComponent } from './passup/passup.component';
 import { NotificationList } from './notifications/notification_list.component';
+import { SingleShoutoutComponent } from './shoutout/single_shoutout.component';
 
 angular.module("frontend.components", [])
   .service('HeaderState', HeaderState)
@@ -45,4 +46,5 @@ angular.module("frontend.components", [])
   .component('passupButton', PassupButton)
   .component('passupList', PassupList)
   .component('passup', PassupComponent)
-  .component('notificationList', NotificationList);
+  .component('notificationList', NotificationList)
+  .component('singleShoutout', SingleShoutoutComponent);

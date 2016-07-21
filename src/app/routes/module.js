@@ -7,6 +7,7 @@ import {} from './passups/module';
 import {} from './setup/module';
 import {} from './surveys/module';
 import {} from './team_admin/module';
+import {} from './shoutouts/module';
 
 angular.module("frontend.routes", [
   'answers',
@@ -17,5 +18,6 @@ angular.module("frontend.routes", [
   'passups',
   'setup',
   'surveys',
-  'team_admin'
+  'team_admin',
+  'shoutouts'
 ]);

@@ -6,13 +6,19 @@
         <span class="small text-muted">
           at {{ ctrl.passup.passupable.created_at | date:'short' }}
         </span>
+        <span class="small text-muted" ng-if="ctrl.passup.passupable_type === 'Shoutout'"> | Shoutout</span>
         <span class="small right text-primary mt2">
           Passed up by <strong>{{ ctrl.passup.passed_up_by.name }}</strong> at {{ ctrl.passup.created_at | date:'short' }}
         </span>
       </h5>
       <div class="input-group">
-        <div class="question">{{ ctrl.passup.passupable.question_content }}</div>
-        <survey-answer actionable="false" locked="true" answer="ctrl.passup.passupable" question="ctrl.passup.passupable" ></survey-answer>
+        <span ng-if="ctrl.passup.passupable_type === 'Shoutout'">
+          <div class="shoutout--content">{{ ctrl.passup.passupable.content }}</div>
+        </span>
+        <span ng-if="ctrl.passup.passupable_type === 'Answer' || ctrl.passup.passupable_type === 'Goal'">
+          <div class="question">{{ ctrl.passup.passupable.question_content }}</div>
+          <survey-answer actionable="false" locked="true" answer="ctrl.passup.passupable" question="ctrl.passup.passupable" ></survey-answer>
+        </span>
 
         <div class="input-group-btn action-buttons">
           <passup-button passupable="ctrl.passup.passupable"></passup-button>

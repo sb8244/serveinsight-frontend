@@ -1,0 +1,23 @@
+<div class="shoutout--wrapper">
+  <div class="panel panel-lined">
+    <div class="panel-body">
+      <h5 class="title text-bold mt0">
+        {{ ctrl.shoutout.organization_membership.name }}
+        <span class="small text-muted">
+          at {{ ctrl.shoutout.created_at | date:'short' }}
+        </span>
+        <span class="small text-muted"> | Shoutout</span>
+      </h5>
+      <div class="input-group">
+        <div class="shoutout--content">{{ ctrl.shoutout.content }}</div>
+
+        <div class="input-group-btn action-buttons">
+          <passup-button passupable="ctrl.shoutout"></passup-button>
+          <button type="button" class="btn btn-primary fa fa-comment" ng-click="ctrl.shoutout.showNewComment = !ctrl.shoutout.showNewComment"></button>
+        </div>
+      </div>
+
+      <comments commentable="ctrl.shoutout" show-new="ctrl.shoutout.showNewComment" />
+    </div>
+  </div>
+</div>

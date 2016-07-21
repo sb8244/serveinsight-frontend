@@ -53,6 +53,11 @@ export function ShoutoutFactory(Restangular) {
         let shoutouts = _.map(resp.plain(), (data) => new Shoutout(data));
         return new ShoutoutList(shoutouts, { page, Restangular });
       });
+    },
+    get: function(id) {
+      return Restangular.one("shoutouts", id).get().then((resp) => {
+        return new Shoutout(resp.plain());
+      });
     }
   };
 }

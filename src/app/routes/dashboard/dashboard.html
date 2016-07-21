@@ -130,9 +130,9 @@
               </thead>
               <tbody>
                 <tr ng-repeat="shoutout in ctrl.shoutoutList.shoutouts | limitTo:(ctrl.shoutoutList.limitedTo)">
-                  <td>{{ shoutout.shouted_by.name }}</td>
+                  <td>{{ shoutout.organization_membership.name }}</td>
                   <td am-time-ago="shoutout.created_at"></td>
-                  <td>{{ shoutout.content }}</td>
+                  <td><a ui-sref="shoutouts.show({id: shoutout.id})">{{ shoutout.content }}</a></td>
                 </tr>
                 <tr ng-if="ctrl.shoutoutList.canLoadMore()">
                   <td colspan="3">

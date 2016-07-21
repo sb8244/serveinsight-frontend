@@ -14,6 +14,10 @@ class ShoutoutList {
     this.limitedTo = null;
   }
 
+  empty() {
+    return this.count() === 0;
+  }
+
   count() {
     return this.shoutouts.length;
   }

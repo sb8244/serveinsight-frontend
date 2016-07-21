@@ -63,6 +63,8 @@ class Notification {
       return `surveys.completed_show({ id: ${this.notification_details.survey_instance_id} })`;
     } else if (this.notification_type === "insight.missed") {
       return `surveys.my_show({ id: ${this.notification_details.survey_instance_id} })`;
+    } else if (this.notification_type === "shoutout") {
+      return `shoutouts.show({ id: ${this.notification_details.shoutout_id} })`;
     } else if (detailType === "Answer") {
       return `answers_show({ id: ${detailId} })`;
     } else if (detailType === "SurveyInstance") {

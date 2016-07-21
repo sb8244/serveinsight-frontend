@@ -10,6 +10,7 @@ import { CommentFactory } from './comment';
 import { NotificationListFactory } from './NotificationList';
 import { AnswerFactory } from './Answer';
 import { GoalFactory } from './Goal';
+import { ShoutoutFactory } from './Shoutout';
 
 angular.module("frontend.models", [])
   .factory("Answer", AnswerFactory)
@@ -23,5 +24,6 @@ angular.module("frontend.models", [])
   .factory("EditableSurveyList", EditableSurveyListFactory)
   .factory("Comment", CommentFactory)
   .factory("NotificationList", NotificationListFactory)
+  .factory("Shoutout", ShoutoutFactory)
   .constant("FeatureDefinitions", FeatureDefinitions)
 ;

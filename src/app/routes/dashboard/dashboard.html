@@ -73,13 +73,13 @@
             <textarea rows="3"
                       class="form-control resize-v post-area"
                       placeholder="I really like when @steve did..."
-                      ng-model="tempShoutout"
+                      ng-model="ctrl.tempShoutout"
                       mentio
                       mentio-template-url="app/components/mentio/person.html"
                       mentio-items="ctrl.people"></textarea>
             <ul class="post-tools list-unstyled clearfix">
-              <li class="right" uib-tooltip="Coming Soon!" tooltip-append-to-body="true">
-                <button class="btn btn-primary" disabled>Shout Out!</button>
+              <li class="right">
+                <button class="btn btn-primary" ng-disabled="!ctrl.tempShoutout" ng-click="ctrl.createShoutout()">Shout Out!</button>
               </li>
             </ul>
           </div>
@@ -116,7 +116,7 @@
         <div class="panel primary">
           <div class="panel-heading clearfix">
             <div class="pull-left">
-              your <strong>recent shout-outs ({{ ctrl.recent_shoutouts.length }})</strong> <i class="fa fa-bullhorn" />
+              your <strong>shout-outs</strong> <i class="fa fa-bullhorn" />
             </div>
           </div>
           <div class="panel-body">
@@ -129,10 +129,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="shoutout in ctrl.recent_shoutouts">
-                  <td>{{ shoutout.teammate_name }}</td>
+                <tr ng-repeat="shoutout in ctrl.shoutoutList.shoutouts | limitTo:(ctrl.shoutoutList.limitedTo)">
+                  <td>{{ shoutout.organization_membership.name }}</td>
                   <td am-time-ago="shoutout.created_at"></td>
-                  <td>{{ shoutout.comment }}</td>
+                  <td><a ui-sref="shoutouts.show({id: shoutout.id})">{{ shoutout.content }}</a></td>
+                </tr>
+                <tr ng-if="ctrl.shoutoutList.canLoadMore()">
+                  <td colspan="3">
+                    <button ng-disabled="ctrl.shoutoutList.loading"
+                            ng-click="ctrl.shoutoutList.loadMore()"
+                            type="button"
+                            class="btn btn-primary btn-xs">Load more...</button>
+                  </td>
                 </tr>
               </tbody>
             </table>

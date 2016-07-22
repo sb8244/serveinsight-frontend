@@ -1,8 +1,8 @@
 <div class="survey-list--row">
   <div class="survey-list--row--top">
     <h5 ui-sref="team_admin.survey({ id: ctrl.survey.data.id })">{{ ctrl.survey.data.name }}</h5>
-    <span class="label label-primary-hollow">{{ ctrl.survey.data.users_in_scope }} users</span>
-    <span class="label label-primary-hollow">{{ ctrl.survey.data.response_count }} responses</span>
+    <span class="label label-info-hollow">{{ ctrl.survey.data.users_in_scope }} users</span>
+    <span class="label label-info-hollow">{{ ctrl.survey.data.response_count }} responses</span>
     <small class="label label-danger" ng-hide="ctrl.survey.data.active">Not accepting responses</small>
     <div class="pull-right survey-list--row--actions">
       <a ui-sref="team_admin.survey({ id: ctrl.survey.data.id })" class="btn btn-success">Edit</a>

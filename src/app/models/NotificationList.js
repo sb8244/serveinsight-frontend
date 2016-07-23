@@ -71,6 +71,8 @@ class Notification {
       return `surveys.completed_show({ id: ${detailId} })`;
     } else if (detailType === "Goal") {
       return `goals_show({ id: ${detailId} })`;
+    } else if (detailType === "Shoutout") {
+      return `shoutouts.show({ id: ${detailId} })`;
     }
 
     return "dashboard";

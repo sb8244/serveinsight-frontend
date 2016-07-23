@@ -142,8 +142,8 @@ export function SurveyFactory(Restangular) {
     getMostRecent: () => {
       return Restangular.all("survey_instances").one("top_due").get().then((survey) => new Survey(survey.plain(), Restangular));
     },
-    getList: ({ missed=false }) => {
-      return Restangular.all("survey_instances").getList({ due: true, missed }).then((surveyData) => {
+    getList: ({}) => {
+      return Restangular.all("survey_instances").getList({ due: true }).then((surveyData) => {
         let surveys = _.map(surveyData.plain(), data => new Survey(data, Restangular));
         return new SurveyList(surveys);
       });

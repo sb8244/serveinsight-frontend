@@ -15,7 +15,7 @@
                   <ui-select-choices repeat="survey in ctrl.surveyList.surveys | filter: $select.search track by survey.id">
                     <span class="label label-primary label-xs"
                           ng-class="{ 'label-danger': survey.missed }"
-                          ng-if="survey.isDue({ daysUntilDue: 2 })">{{ survey.missed ? 'miss' : 'due'}}</span>
+                          ng-if="survey.isDue({ daysUntilDue: 2 })">{{ survey.missed ? 'overdue' : 'due'}}</span>
                     <span ng-bind-html="survey.title"></span>
                   </ui-select-choices>
                 </ui-select>

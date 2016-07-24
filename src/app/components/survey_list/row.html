@@ -10,6 +10,6 @@
   </div>
   <div class="survey-list--row--details">
     <small ng-show="ctrl.survey.data.recurring && ctrl.survey.data.active">Recurring since {{ ctrl.survey.data.created_at | date:'shortDate' }}, created by {{ ctrl.survey.data.creator }}</small>
-    <small ng-show="!ctrl.survey.data.recurring || !ctrl.survey.data.active">Created {{ ctrl.survey.data.created_at | date:'shortDate' }} by {{ ctrl.survey.data.creator }}</small>
+    <small ng-show="!ctrl.survey.data.recurring || !ctrl.survey.data.active">One-off created {{ ctrl.survey.data.created_at | date:'shortDate' }} by {{ ctrl.survey.data.creator }}</small>
   </div>
 </div>

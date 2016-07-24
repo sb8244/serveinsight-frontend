@@ -1,0 +1,14 @@
+<div class="panel panel-default" ng-if="ctrl.loaded && !ctrl.hidden">
+  <div class="panel-heading">
+    <i>
+      Related Insights
+    </i>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="survey in ctrl.surveyList.surveys">
+      <a ui-sref="surveys.completed_show({ id: survey.id })">{{ survey.due_at | date:'mediumDate' }}</a>
+      <span class="label label-xs label-danger" ng-if="survey.missed && !survey.completed_at">overdue</span>
+    </li>
+  </ul>
+</div>

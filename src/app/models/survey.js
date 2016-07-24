@@ -168,6 +168,12 @@ export function SurveyFactory(Restangular) {
         surveys = surveys.plain().map(survey => new ReviewableSurvey(survey, Restangular));
         return new SurveyList(surveys);
       });
+    },
+    getRelatedInsights: (insight) => {
+      return Restangular.one("previous_insights", insight.id).customGETLIST().then((surveyData) => {
+        let surveys = _.map(surveyData.plain(), data => new Survey(data, null));
+        return new SurveyList(surveys);
+      });
     }
   };
 }

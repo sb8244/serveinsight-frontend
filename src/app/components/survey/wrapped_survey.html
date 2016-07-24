@@ -41,24 +41,12 @@
     </div>
 
     <div class="row mt15 mb15">
-      <div ng-class="{ 'col-sm-9': !ctrl.survey.completed, 'col-sm-10': ctrl.survey.completed }">
+      <div class='col-sm-9'>
         <survey survey="ctrl.survey" reviewing="ctrl.reviewing"></survey>
       </div>
 
-      <div class="hidden todo col-sm-3" ng-if="!ctrl.survey.completed">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <i>
-              Quick Notes
-            </i>
-          </div>
-
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="note in ctrl.quickNoteList.notes">
-              {{ note.content }}
-            </li>
-          </ul>
-        </div>
+      <div class="col-sm-3">
+        <related-insights survey="ctrl.survey"></previous-insights>
       </div>
     </div>
   </div>

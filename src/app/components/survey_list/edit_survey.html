@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">Survey Name</label>
       <div class="col-md-8">
-        <input required type="text" class="form-control" ng-model="ctrl.survey.data.name" placeholder="Weekly Insight">
+        <input ng-readonly="!ctrl.survey.isEditable()" required type="text" class="form-control" ng-model="ctrl.survey.data.name" placeholder="Weekly Insight">
       </div>
     </div>
     <div class="form-group">
@@ -13,7 +13,7 @@
         Frequency?
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
-        <select class="form-control" ng-model="ctrl.survey.data.weeks_between_due" ng-options="obj.value as obj.label for obj in ctrl.frequencyOptions">
+        <select ng-readonly="!ctrl.survey.isEditable()" class="form-control" ng-model="ctrl.survey.data.weeks_between_due" ng-options="obj.value as obj.label for obj in ctrl.frequencyOptions">
         </select>
       </div>
     </div>
@@ -28,9 +28,9 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <div class="input-group">
-          <input type="text" class="form-control" ng-change="ctrl.survey.setFirstDueAt(ctrl.due_at_picker.date)" ng-model="ctrl.due_at_picker.date" datetime-picker="MM/dd/yyyy h:mm a" is-open="ctrl.due_at_picker.open" />
+          <input ng-readonly="!ctrl.survey.isEditable()" type="text" class="form-control" ng-change="ctrl.survey.setFirstDueAt(ctrl.due_at_picker.date)" ng-model="ctrl.due_at_picker.date" datetime-picker="MM/dd/yyyy h:mm a" is-open="ctrl.due_at_picker.open" />
           <span class="input-group-btn">
-            <button type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
+            <button ng-disabled="!ctrl.survey.isEditable()" type="button" class="btn btn-default fa fa-calendar" ng-click="ctrl.due_at_picker.open = !ctrl.due_at_picker.open"></button>
           </span>
         </div>
         <small ng-if="ctrl.due_at_picker.original && ctrl.due_at_picker.original.toString() !== ctrl.due_at_picker.date.toString()">
@@ -49,7 +49,7 @@
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
         <label class="ui-toggle-inline">
-          <input type="checkbox" ng-model="ctrl.survey.data.goals_section">
+          <input ng-disabled="!ctrl.survey.isEditable()" type="checkbox" ng-model="ctrl.survey.data.goals_section">
           <span></span>
         </label>
       </div>
@@ -70,20 +70,20 @@
                   ng-disabled="question.id"></select>
         </div>
         <div class="col-md-5">
-          <input required type="text" class="form-control" ng-model="question.question">
+          <input ng-readonly="!ctrl.survey.isEditable()" required type="text" class="form-control" ng-model="question.question">
         </div>
-        <div class="col-md-1 button--inline-form">
+        <div class="col-md-1 button--inline-form" ng-if="ctrl.survey.isEditable()">
           <button type="button" class="btn btn-warning btn-xs" ng-click="ctrl.survey.removeQuestion($index)">Remove</button>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-if="ctrl.survey.isEditable()">
         <label class="col-md-4 control-label">
           <button type="button" class="btn btn-primary btn-xs" ng-click="ctrl.survey.addQuestion()">Add Question</button>
         </label>
       </div>
     </div>
 
-    <div class="edit-survey--submit-wrapper">
+    <div class="edit-survey--submit-wrapper" ng-if="ctrl.survey.isEditable()">
       <button class="pull-right btn btn-primary btn-lg" ng-click="ctrl.save()" ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
     </div>
   </form>

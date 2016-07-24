@@ -4,6 +4,10 @@ class EditableSurvey {
     this.Restangular = Restangular;
   }
 
+  isEditable() {
+    return !this.data.completed_at;
+  }
+
   valid() {
     return this.data.name && this.data.questions.length && _.all(this.data.questions, "question");
   }

@@ -4,7 +4,8 @@ import ngInject from '../../decorators/ng_inject';
 class Controller {
   constructor() {
     this.EditableSurveyList.getList().then((surveyList) => {
-      this.recurringSurveys = surveyList;
+      this.recurringSurveys = surveyList.activeList();
+      this.completedSurveys = surveyList.completedList();
     });
   }
 

@@ -1,12 +1,24 @@
 <div class="panel panel-lined passup-list-panel">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Recurring Insights
+      Your Team's Insight Templates
       <a class="btn btn-xs btn-default" ui-sref="team_admin.survey_new">Create New</a>
     </h3>
   </div>
   <div class="panel-body">
-    <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys | orderBy:'updated_at':true"></survey-list-row>
-    <empty-state icon="fa-plus-circle" text="Add your first survey!" ng-if="ctrl.recurringSurveys.length === 0" actionable="ctrl.newSurvey()"></empty-state>
+    <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys.surveys | orderBy:'updated_at':true"></survey-list-row>
+    <empty-state icon="fa-plus-circle" text="Add your first survey!" ng-if="ctrl.recurringSurveys.empty()" actionable="ctrl.newSurvey()"></empty-state>
+  </div>
+</div>
+
+<div class="panel panel-lined passup-list-panel mt30">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Completed Insight Templates
+    </h3>
+  </div>
+  <div class="panel-body">
+    <survey-list-row survey="survey" ng-repeat="survey in ctrl.completedSurveys.surveys | orderBy:'updated_at':true"></survey-list-row>
+    <empty-state text="Insight Templates will appear here once no longer active" ng-if="ctrl.completedSurveys.empty()"></empty-state>
   </div>
 </div>

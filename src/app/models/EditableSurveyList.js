@@ -4,6 +4,10 @@ class EditableSurvey {
     this.Restangular = Restangular;
   }
 
+  isEditable() {
+    return !this.data.completed_at;
+  }
+
   valid() {
     return this.data.name && this.data.questions.length && _.all(this.data.questions, "question");
   }
@@ -43,6 +47,26 @@ class EditableSurvey {
   }
 }
 
+class EditableSurveyList {
+  constructor(surveys) {
+    this.surveys = surveys;
+  }
+
+  empty() {
+    return this.surveys.length === 0;
+  }
+
+  completedList() {
+    let surveys = _.filter(this.surveys, (survey) => survey.data.completed_at);
+    return new EditableSurveyList(surveys);
+  }
+
+  activeList() {
+    let surveys = _.filter(this.surveys, (survey) => !survey.data.completed_at);
+    return new EditableSurveyList(surveys);
+  }
+}
+
 export function EditableSurveyListFactory(Restangular) {
   'ngInject';
 
@@ -57,9 +81,10 @@ export function EditableSurveyListFactory(Restangular) {
     },
     getList: function() {
       return Restangular.all("survey_templates").getList().then(function(templates) {
-        return templates.map(function(data) {
+        let surveys = templates.map(function(data) {
           return new EditableSurvey(data, Restangular);
         });
+        return new EditableSurveyList(surveys);
       });
     },
     get: function(id) {

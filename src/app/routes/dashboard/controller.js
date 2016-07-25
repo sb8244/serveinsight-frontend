@@ -1,8 +1,8 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject("Person", "Shoutout", "notifyError", "notify")
+@ngInject("Person", "Shoutout", "Survey", "notifyError", "notify")
 export class DashboardController {
-  constructor(Person, Shoutout) {
+  constructor(Person, Shoutout, Survey) {
     this.stats = {
       due_surveys: 1,
       pending_pass_ups: 3,
@@ -18,23 +18,9 @@ export class DashboardController {
       this.shoutoutList = shoutoutList;
     });
 
-    this.recent_shoutouts = [
-      {
-        created_at: new Date() - 1000000,
-        teammate_name: "John Smith",
-        comment: "@Steve got the TPS reports to me in record time!"
-      },
-      {
-        created_at: new Date() - 231231231,
-        teammate_name: "Max Patrickson",
-        comment: "Pairing with @Bill and @Steve this week was super productive"
-      },
-      {
-        created_at: new Date() - 1239391828,
-        teammate_name: "Claire Beaumont",
-        comment: "@Steve really excelled this week at coding."
-      }
-    ];
+    Survey.getList({}).then(surveyList => {
+      this.surveyList = surveyList.upcomingDueSurveyList();
+    });
   }
 
   createShoutout() {

@@ -7,56 +7,6 @@
   </ol>
 
   <div class="page-wrap mt15">
-    <!--<div class="row stats">
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-default mb30 mini-boxes danger">
-          <div class="panel-body">
-            <div class="clearfix">
-              <div class="left-side left">
-                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.due_surveys }}</h2>
-                <p class="small text-muted">Due Surveys</p>
-              </div>
-              <div class="right-side right">
-                <i class="fa fa-exclamation-circle icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-default mb30 mini-boxes info">
-          <div class="panel-body">
-            <div class="clearfix">
-              <div class="left-side left">
-                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.pending_pass_ups }}</h2>
-                <p class="small text-muted">Pending Pass-ups</p>
-              </div>
-              <div class="right-side right">
-                <i class="fa fa-level-up icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-default mb30 mini-boxes success">
-          <div class="panel-body">
-            <div class="clearfix">
-              <div class="left-side left">
-                <h2 class="title mt0 mb5 text-normal">{{ ctrl.stats.shout_outs }}</h2>
-                <p class="small text-muted">Shout-outs</p>
-              </div>
-              <div class="right-side right">
-                <i class="fa fa-bullhorn icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-
     <div class="row actions">
       <div class="col-md-6 col-sm-12">
         <div class="panel panel-lined mb30 quick-action success">
@@ -69,7 +19,7 @@
               <i>highlight a coworker</i>
             </div>
           </div>
-          <div class="panel-body">
+          <div class="panel-body dashboard-shoutout-writer">
             <textarea rows="3"
                       class="form-control resize-v post-area"
                       placeholder="I really like when @steve did..."
@@ -87,25 +37,25 @@
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <div class="panel panel-lined mb30 quick-action success">
+        <div class="panel panel-lined mb30 success">
           <div class="panel-heading clearfix">
             <div class="pull-left">
-              quick <strong>note</strong>
-            </div>
-
-            <div class="pull-right">
-              <i>reminder for your next report</i>
+              your <strong>due insights</strong>
+              <span ng-if="ctrl.surveyList.count() > 0">({{ ctrl.surveyList.count() }})</span>
             </div>
           </div>
-          <div class="panel-body">
-            <textarea rows="3"
-                      class="form-control resize-v post-area"
-                      placeholder="Jot down your thoughts for your next report; this only will be visible to you..."></textarea>
-            <ul class="post-tools list-unstyled clearfix">
-              <li class="right" uib-tooltip="Coming Soon!" tooltip-append-to-body="true">
-                <button class="btn btn-primary" disabled>Remind Me</button>
-              </li>
-            </ul>
+          <div class="panel-body" ng-if="ctrl.surveyList.empty()">
+            <empty-state text="No Insights at this time"></empty-state>
+          </div>
+
+          <ul class="list-group dashboard-survey-list" ng-if="!ctrl.surveyList.empty()">
+            <li class="list-group-item" ng-repeat="survey in ctrl.surveyList.surveys">
+              <a ui-sref="surveys.my_show({ id: survey.id })">{{survey.title}}</a>
+              <span>
+                - Due <span am-time-ago="survey.due_at"></span>
+              </span>
+            </li>
+          </ul>
           </div>
         </div>
       </div>

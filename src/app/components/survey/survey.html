@@ -27,6 +27,11 @@
       <span ng-if="ctrl.survey.readyToSubmit()">Submit Survey</span>
       <span ng-if="!ctrl.survey.readyToSubmit()">Complete All Questions</span>
     </button>
+    <span class="survey--button--not-due" ng-if="!ctrl.survey.isDue({ daysUntilDue: 2 })">
+      <i>
+        Insight is not due until {{ ctrl.survey.due_at | date:'shortDate' }}
+      </i>
+    </span>
   </div>
 
   <div class="question-wrapper insight-feedback--wrapper" ng-if="ctrl.survey.completed">

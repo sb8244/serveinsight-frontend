@@ -6,7 +6,7 @@
       <button class="btn btn-primary btn-xs" ng-click="ctrl.save(ctrl.hierarchy)">Save Changes</button>
     </span>
   </div>
-  <div class="panel-body overflow-scroll" ng-if="ctrl.chartData">
+  <div class="panel-body overflow-auto" ng-if="ctrl.chartData">
     <div class="col-md-4 col-xs-12 org-chart--options">
       <div ng-if="!ctrl.showInvite && !ctrl.selectedInfo()">
         <div>Select a person for options</div>

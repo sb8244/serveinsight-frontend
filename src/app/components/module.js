@@ -23,6 +23,7 @@ import { PassupComponent } from './passup/passup.component';
 import { NotificationList } from './notifications/notification_list.component';
 import { SingleShoutoutComponent } from './shoutout/single_shoutout.component';
 import { RelatedInsightsComponent } from './survey/related_insights.component';
+import { confirmationNeeded } from './confirm_click';
 
 angular.module("frontend.components", [])
   .service('HeaderState', HeaderState)
@@ -34,6 +35,7 @@ angular.module("frontend.components", [])
   .directive('surveyAnswer', SurveyAnswerDirective)
   .directive('surveyGoal', SurveyGoalDirective)
   .directive('comments', CommentsDirective)
+  .directive('confirmationNeeded', confirmationNeeded)
   .component('inviteForm', InviteComponent)
   .component('orgChart', OrgChartComponent)
   .component('adminSurveyList', AdminSurveyList)

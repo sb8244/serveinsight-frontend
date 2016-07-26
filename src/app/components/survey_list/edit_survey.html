@@ -84,10 +84,15 @@
     </div>
 
     <div class="edit-survey--submit-wrapper" ng-if="ctrl.survey.isEditable()">
-      <button class="pull-right btn btn-primary btn-lg" ng-click="ctrl.save()" ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
+      <button class="pull-right btn btn-primary btn-lg"
+              ng-click="ctrl.save()"
+              ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
     </div>
     <div class="complete-survey--submit-wrapper" ng-if="ctrl.survey.isCompleteable()">
-      <button class="pull-right btn btn-default btn-xs mr30" ng-click="ctrl.markCompleted()" ng-disabled="!ctrl.survey.valid()">Archive Insight Template</button>
+      <button class="pull-right btn btn-default btn-xs mr30"
+              confirm-click="ctrl.markCompleted()"
+              confirmation-needed="This will immediately archive the Insight Template and remove all incomplete Insights. Are you sure?"
+              ng-disabled="!ctrl.survey.valid()">Archive Insight Template</button>
     </div>
   </form>
 </div>

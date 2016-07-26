@@ -30,6 +30,13 @@ class Controller {
       this.$state.go('.', {}, { reload: true });
     });
   }
+
+  markCompleted() {
+    this.survey.markCompleted().then(() => {
+      this.notify("Insight Archived");
+      this.$state.go('.', {}, { reload: true });
+    });
+  }
 }
 
 export const EditSurvey = {

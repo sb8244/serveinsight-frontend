@@ -86,5 +86,8 @@
     <div class="edit-survey--submit-wrapper" ng-if="ctrl.survey.isEditable()">
       <button class="pull-right btn btn-primary btn-lg" ng-click="ctrl.save()" ng-disabled="!ctrl.survey.valid()">Save Insight Template</button>
     </div>
+    <div class="complete-survey--submit-wrapper" ng-if="ctrl.survey.isCompleteable()">
+      <button class="pull-right btn btn-default btn-xs mr30" ng-click="ctrl.markCompleted()" ng-disabled="!ctrl.survey.valid()">Archive Insight Template</button>
+    </div>
   </form>
 </div>

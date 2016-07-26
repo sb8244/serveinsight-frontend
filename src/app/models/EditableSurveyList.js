@@ -8,6 +8,10 @@ class EditableSurvey {
     return !this.data.completed_at;
   }
 
+  isCompleteable() {
+    return !this.data.completed_at;
+  }
+
   valid() {
     return this.data.name && this.data.questions.length && _.all(this.data.questions, "question");
   }
@@ -43,6 +47,12 @@ class EditableSurvey {
       return this.Restangular.one("survey_templates", this.data.id).customPUT(this.data);
     } else {
       return this.Restangular.all("survey_templates").post(this.data);
+    }
+  }
+
+  markCompleted() {
+    if (this.data.id) {
+      return this.Restangular.one("survey_templates", this.data.id).customPUT({ completed: true });
     }
   }
 }

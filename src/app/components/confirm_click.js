@@ -1,4 +1,4 @@
-export function confirmationNeeded() {
+export function confirmationNeeded($window) {
   'ngInject';
 
   return {
@@ -11,10 +11,10 @@ export function confirmationNeeded() {
         e.stopImmediatePropagation();
         e.preventDefault();
 
-        if (window.confirm(msg)) {
+        if ($window.confirm(msg)) {
           scope.$eval(clickAction);
         }
       });
     }
   };
-};
+}

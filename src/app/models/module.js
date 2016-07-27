@@ -1,5 +1,4 @@
 import { SurveyFactory } from './survey';
-import { QuickNoteFactory } from './quick_note';
 import { PersonFactory } from './person';
 import { OrganizationMemberFactory } from './OrganizationMember';
 import { PassupFactory } from './passup';
@@ -16,7 +15,6 @@ angular.module("frontend.models", [])
   .factory("Answer", AnswerFactory)
   .factory("Goal", GoalFactory)
   .factory("Survey", SurveyFactory)
-  .factory("QuickNote", QuickNoteFactory)
   .factory("Person", PersonFactory)
   .factory("OrganizationMember", OrganizationMemberFactory)
   .factory("Passup", PassupFactory)

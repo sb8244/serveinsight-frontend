@@ -1,14 +1,10 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject("survey", "Survey", "QuickNote")
+@ngInject("survey", "Survey")
 export class MySurveyController {
-  constructor(survey, Survey, QuickNote) {
+  constructor(survey, Survey) {
     Survey.getList({}).then((surveyList) => {
       this.surveyList = surveyList;
-    });
-
-    QuickNote.getList().then((noteList) => {
-      this.quickNoteList = noteList;
     });
   }
 }

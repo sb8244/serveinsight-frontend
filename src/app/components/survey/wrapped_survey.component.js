@@ -14,7 +14,6 @@ export const WrappedSurvey = {
   bindings: {
     survey: '=',
     surveyList: '=?',
-    quickNoteList: '=?',
     reviewing: '@?'
   }
 };

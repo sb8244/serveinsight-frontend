@@ -1,0 +1,39 @@
+<div class="page">
+  <ol class="breadcrumb breadcrumb-small">
+    <li>Serve Insight</li>
+    <li class="active">
+      <a ui-sref="user.settings">Your Settings</a>
+    </li>
+  </ol>
+
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="panel panel-default">
+        <div class="panel-heading"><i>Update Your Information</i></div>
+        <div class="panel-body">
+          <form ng-submit="ctrl.save()">
+            <div class="form-group">
+              <label class="text-uppercase small text-bold">Your Name:</label>
+              <input type="text" class="form-control" ng-model="ctrl.member.name" placeholder="Jane Doe" />
+            </div>
+            <div class="form-group">
+              <label class="text-uppercase small text-bold">Your Mention Name:</label>
+              <input type="text" class="form-control" ng-model="ctrl.member.mention_name" readonly />
+            </div>
+            <div class="form-group">
+              <label class="text-uppercase small text-bold">Email:</label>
+              <input type="text" class="form-control" ng-model="ctrl.member.email" placeholder="Jane Doe" />
+            </div>
+            <div class="form-group">
+              <label class="text-uppercase small text-bold">Login Email:</label>
+              <input type="text" class="form-control" ng-model="ctrl.member.user.email" readonly />
+            </div>
+            <div class="text-center">
+              <button class="btn btn-lg btn-success" type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

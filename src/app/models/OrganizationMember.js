@@ -1,7 +1,8 @@
 class OrganizationMember {
-  constructor(data, featureDefinitions) {
+  constructor(data, featureDefinitions, Restangular) {
     _.extend(this, data);
     this.featureDefinitions = featureDefinitions;
+    this.Restangular = Restangular;
   }
 
   present() {
@@ -10,6 +11,15 @@ class OrganizationMember {
 
   hasFeature(feature) {
     return this.featureDefinitions[feature].indexOf(this.role) >= 0;
+  }
+
+  save() {
+    let data = {
+      name: this.name,
+      email: this.email
+    };
+
+    return this.Restangular.one("organization_membership").put(data);
   }
 }
 
@@ -28,7 +38,16 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
       }
 
       return Restangular.one("user").get().then(function(data) {
-        savedOrganizationMember = new OrganizationMember(data.organization_membership, FeatureDefinitions);
+        savedOrganizationMember = new OrganizationMember(data.organization_membership, FeatureDefinitions, null);
+        savedOrganizationMember.organization = Organization.load(data.organization);
+        savedOrganizationMember.user = _.omit(data.plain(), 'organization_membership', 'organization');
+
+        return savedOrganizationMember;
+      });
+    },
+    getClean: function() {
+      return Restangular.one("user").get().then(function(data) {
+        let savedOrganizationMember = new OrganizationMember(data.organization_membership, FeatureDefinitions, Restangular);
         savedOrganizationMember.organization = Organization.load(data.organization);
         savedOrganizationMember.user = _.omit(data.plain(), 'organization_membership', 'organization');
 

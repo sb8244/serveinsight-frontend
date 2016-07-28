@@ -7,7 +7,7 @@
   </div>
   <div class="panel-body">
     <survey-list-row survey="survey" ng-repeat="survey in ctrl.recurringSurveys.surveys | orderBy:'updated_at':true"></survey-list-row>
-    <empty-state icon="fa-plus-circle" text="Add your first survey!" ng-if="ctrl.recurringSurveys.empty()" actionable="ctrl.newSurvey()"></empty-state>
+    <empty-state icon="fa-plus-circle" text="Add your first Insight Template!" ng-if="ctrl.recurringSurveys.empty()" actionable="ctrl.newSurvey()"></empty-state>
   </div>
 </div>
 

@@ -1,8 +1,11 @@
 <div class="page page-auth clearfix">
   <div class="auth-container">
     <h1 class="site-logo h2 mb15"><a href="/"><span>Serve</span>&nbsp;Insight</a></h1>
-    <h3 class="text-normal h4 text-center">
+    <h3 class="text-normal h4 text-center" ng-if="ctrl.allowed()">
       <a ng-click="ctrl.google()">Sign in via Google</a>
+    </h3>
+    <h3 class="text-normal h4 text-center" ng-if="!ctrl.allowed()">
+      Coming Soon.
     </h3>
   </div>
 </div>

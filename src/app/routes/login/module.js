@@ -11,7 +11,7 @@ function routerConfig ($stateProvider) {
 
   $stateProvider
     .state('login', {
-      url: '/login',
+      url: '/login?inviteOnly',
       templateUrl: "app/routes/login/login.html",
       controller: "LoginController",
       controllerAs: "ctrl"

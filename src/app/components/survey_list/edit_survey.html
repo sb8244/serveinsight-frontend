@@ -13,7 +13,7 @@
         Frequency?
       </label>
       <div class="col-md-8 ui-toggle ui-toggle-primary">
-        <select ng-readonly="!ctrl.survey.isEditable()" class="form-control" ng-model="ctrl.survey.data.weeks_between_due" ng-options="obj.value as obj.label for obj in ctrl.frequencyOptions">
+        <select ng-readonly="!ctrl.survey.isEditable()" class="form-control" ng-model="ctrl.survey.data.days_between_due" ng-options="obj.value as obj.label for obj in ctrl.frequencyOptions">
         </select>
       </div>
     </div>

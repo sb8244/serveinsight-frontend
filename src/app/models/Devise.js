@@ -1,4 +1,4 @@
-export function DeviseFactory(Restangular, $auth) {
+export function DeviseFactory(Restangular, $auth, $sessionStorage) {
   'ngInject';
 
   return {
@@ -10,6 +10,8 @@ export function DeviseFactory(Restangular, $auth) {
       });
     },
     register: function(credentials) {
+      credentials.invite_code = $sessionStorage.inviteCode;
+
       return Restangular.all("auth/users").customPOST({ user: credentials }).then((resp) => {
         if (resp.token) {
           $auth.setToken(resp.token);

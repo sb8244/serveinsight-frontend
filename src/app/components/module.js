@@ -24,6 +24,7 @@ import { NotificationList } from './notifications/notification_list.component';
 import { SingleShoutoutComponent } from './shoutout/single_shoutout.component';
 import { RelatedInsightsComponent } from './survey/related_insights.component';
 import { confirmationNeeded } from './confirm_click';
+import { LoginFormComponent } from './auth/login_form.component';
 
 angular.module("frontend.components", [])
   .service('HeaderState', HeaderState)
@@ -51,4 +52,5 @@ angular.module("frontend.components", [])
   .component('passup', PassupComponent)
   .component('notificationList', NotificationList)
   .component('singleShoutout', SingleShoutoutComponent)
-  .component('relatedInsights', RelatedInsightsComponent);
+  .component('relatedInsights', RelatedInsightsComponent)
+  .component('loginForm', LoginFormComponent);

@@ -10,6 +10,7 @@ import { runBlock, notifyConfig, inviteRunBlock } from './index.run';
 
 import { Permissions } from './services/permissions';
 import { notifyError } from './services/notifyError';
+import { unprocessableEntityText } from './services/unprocessableText';
 import { MentionHighlight } from './filters/mention_highlight';
 
 angular.module('frontend',
@@ -48,6 +49,7 @@ angular.module('frontend',
   .filter('mentionHighlight', MentionHighlight)
   .service('Permissions', Permissions)
   .service('notifyError', notifyError)
+  .service('unprocessableEntityText', unprocessableEntityText)
 ;
 
 function globalAvailability ($rootScope, Permissions) {

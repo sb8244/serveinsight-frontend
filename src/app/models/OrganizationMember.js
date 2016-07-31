@@ -59,17 +59,35 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
         $rootScope.current_organzation_member = organzation_member;
         $rootScope.appState = 'main';
 
-        if (organzation_member.organization && ($state.current.name === 'login' || $state.current.name === 'setup')) {
+        if (organzation_member.organization && ($state.current.login_route || $state.current.confirm_route || $state.current.name === 'setup')) {
           $state.go('dashboard');
         } else if (!organzation_member.organization) {
           $rootScope.appState = 'setup';
           $state.go('setup_wizard');
         }
-      }).catch(function() {
-        $rootScope.current_organzation_member = null;
-        savedOrganizationMember = null;
-        $rootScope.appState = 'login';
-        $state.go('login');
+      }).catch(function(err) {
+        if (err.status === 401) {
+          $rootScope.appState = 'login';
+          savedOrganizationMember = null;
+
+          if ($state.current.name === "confirm_token") {
+            return;
+          } else if (err.data.error === "logged_out") {
+            $rootScope.current_organzation_member = null;
+
+            if (!$state.current.login_route) {
+              $state.go('login');
+            }
+          } else if (err.data.error === "email_not_confirmed") {
+            $rootScope.current_organzation_member = {
+              email: err.data.email
+            };
+
+            if (!$state.current.confirm_route) {
+              $state.go('confirm_email');
+            }
+          }
+        }
       });
     }
   };

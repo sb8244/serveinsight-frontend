@@ -10,6 +10,7 @@ import { NotificationListFactory } from './NotificationList';
 import { AnswerFactory } from './Answer';
 import { GoalFactory } from './Goal';
 import { ShoutoutFactory } from './Shoutout';
+import { DeviseFactory } from './Devise';
 
 angular.module("frontend.models", [])
   .factory("Answer", AnswerFactory)
@@ -23,5 +24,6 @@ angular.module("frontend.models", [])
   .factory("Comment", CommentFactory)
   .factory("NotificationList", NotificationListFactory)
   .factory("Shoutout", ShoutoutFactory)
+  .factory("Devise", DeviseFactory)
   .constant("FeatureDefinitions", FeatureDefinitions)
 ;

@@ -1,0 +1,34 @@
+<form class="form-horizontal" ng-submit="ctrl.submit()">
+  <div ng-if="ctrl.errors" class="alert alert-danger">
+    <div ng-repeat="error in ctrl.errors">{{ error }}</div>
+  </div>
+
+  <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.email" required type="email" placeholder="you@example.com" />
+  </div>
+
+  <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.name" required type="name" placeholder="Your Name" />
+  </div>
+
+  <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.password" required type="password" placeholder="Password" />
+  </div>
+
+  <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.password_confirmation" required type="password" placeholder="Confirm Password" />
+  </div>
+
+  <div class="clearfix mb15">
+    <button type="submit"
+            class="btn btn-lg btn-block btn-primary text-uppercase">
+      Sign Up
+    </button>
+  </div>
+
+  <div class="clearfix text-center">
+    <a ui-sref="login">
+      Already have an account?
+    </a>
+  </div>
+</form>

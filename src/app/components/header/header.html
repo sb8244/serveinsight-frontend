@@ -4,6 +4,11 @@
   </div>
 
   <div class="head-wrap" ng-if="$root.appState === 'setup'">
+    <ul class="list-unstyled navbar-right alerts">
+      <li>
+        <a ng-click="ctrl.logOut()" >Log out</a>
+      </li>
+    </ul>
   </div>
 
   <div class="head-wrap clearfix" ng-if="$root.appState === 'main'">

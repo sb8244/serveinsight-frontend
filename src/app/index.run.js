@@ -1,10 +1,16 @@
 /* eslint-disable */
-export function runBlock ($log, $rootScope, $stateParams, $state, OrganizationMember) {
+export function runBlock ($log, $rootScope, $stateParams, $state, OrganizationMember, $location) {
   'ngInject';
   $rootScope.$stateParams = $stateParams;
   $rootScope.$state = $state;
 
-  OrganizationMember.getAndRedirect();
+
+  var onAuth = $location.search()["state"] && $location.search()["code"];
+
+  if (!onAuth) {
+    OrganizationMember.getAndRedirect();
+  }
+
   $log.debug('runBlock end');
 }
 

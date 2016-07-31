@@ -59,7 +59,7 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
         $rootScope.current_organzation_member = organzation_member;
         $rootScope.appState = 'main';
 
-        if (organzation_member.organization && ($state.current.name === 'login' || $state.current.name === 'setup')) {
+        if (organzation_member.organization && ($state.current.login_route || $state.current.confirm_route || $state.current.name === 'setup')) {
           $state.go('dashboard');
         } else if (!organzation_member.organization) {
           $rootScope.appState = 'setup';

@@ -2,13 +2,6 @@ import ngInject from '../../decorators/ng_inject';
 
 @ngInject("Devise", "OrganizationMember", "unprocessableEntityText")
 class LoginFormController {
-  constructor() {
-    this.credentials = {
-      email: "test@test.com2",
-      password: "testtest"
-    };
-  }
-
   submit() {
     delete this.errors;
     this.Devise.verifyCredentials(this.credentials).then(() => {

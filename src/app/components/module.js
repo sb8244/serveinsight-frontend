@@ -27,6 +27,7 @@ import { confirmationNeeded } from './confirm_click';
 import { LoginFormComponent } from './auth/login_form.component';
 import { ForgotPasswordFormComponent } from './auth/forgot_password_form.component';
 import { RegisterFormComponent } from './auth/register_form.component';
+import { ConfirmEmailFormComponent } from './auth/confirm_email_form.component';
 
 angular.module("frontend.components", [])
   .service('HeaderState', HeaderState)
@@ -57,4 +58,5 @@ angular.module("frontend.components", [])
   .component('relatedInsights', RelatedInsightsComponent)
   .component('loginForm', LoginFormComponent)
   .component('forgotPasswordForm', ForgotPasswordFormComponent)
-  .component('registerForm', RegisterFormComponent);
+  .component('registerForm', RegisterFormComponent)
+  .component('confirmEmailForm', ConfirmEmailFormComponent);

@@ -10,7 +10,14 @@ export function DeviseFactory(Restangular, $auth) {
       });
     },
     register: function(credentials) {
-      return Restangular.all("auth/users").customPOST({ user: credentials });
+      return Restangular.all("auth/users").customPOST({ user: credentials }).then((resp) => {
+        if (resp.token) {
+          $auth.setToken(resp.token);
+        }
+      });
+    },
+    resendConfirmation: function() {
+      return Restangular.all("auth/users/confirmation/resend").customPOST({});
     }
   };
 }

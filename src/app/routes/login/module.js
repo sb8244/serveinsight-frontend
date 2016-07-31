@@ -25,5 +25,9 @@ function routerConfig ($stateProvider) {
       url: '/forgot_password',
       templateUrl: "app/routes/login/forgot_password.html",
       login_route: true
+    })
+    .state('confirm_email', {
+      url: '/confirm_email',
+      templateUrl: "app/routes/login/confirm_email.html"
     });
 }

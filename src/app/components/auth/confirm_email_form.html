@@ -1,0 +1,23 @@
+<form class="text-center" ng-submit="ctrl.submit()">
+  <div ng-if="ctrl.result" class="alert alert-success">
+    {{ ctrl.result }}
+  </div>
+
+  <p>
+    Your email <strong>{{ $root.current_organzation_member.email }}</strong> is still awaiting confirmation. You
+    can resend the confirmation if you haven't received it yet.
+  </p>
+
+  <div class="clearfix mb15">
+    <button type="submit"
+            class="btn btn-lg btn-primary text-uppercase">
+      Resend Confirmation Email
+    </button>
+
+    <div class="right">
+      <a ng-click="ctrl.logOut()">
+        Logout
+      </a>
+    </div>
+  </div>
+</form>

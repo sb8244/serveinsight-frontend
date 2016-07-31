@@ -10,11 +10,12 @@ class LoginFormController {
   }
 
   submit() {
+    delete this.errors;
     this.Devise.verifyCredentials(this.credentials).then(() => {
       this.OrganizationMember.getAndRedirect();
     }).catch((err) => {
       if (err.status === 422) {
-        this.error = this.unprocessableEntityText(err);
+        this.errors = this.unprocessableEntityText(err);
       }
     });
   }

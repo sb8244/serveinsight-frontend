@@ -1,16 +1,12 @@
-export function unprocessableEntityText() {
+export function unprocessableEntityText($filter) {
   'ngInject';
 
+  var humanizeConstant = $filter("humanizeConstant");
+
   return function(err) {
-    var resp = "";
+    var resp = [];
     _.each(err.data.errors, function(texts, type) {
-      if (resp !== "") {
-        resp += ", ";
-      }
-
-      type = type[0].toUpperCase() + type.slice(1);
-
-      resp += type + " " + texts.join(" ");
+      resp.push(humanizeConstant(type) + " " + texts.join(" "));
     });
     return resp;
   };

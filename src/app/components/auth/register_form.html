@@ -8,23 +8,27 @@
   </div>
 
   <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.name" required type="name" placeholder="Your Name" />
+  </div>
+
+  <div class="form-group form-group-lg">
     <input class="form-control" ng-model="ctrl.credentials.password" required type="password" placeholder="Password" />
   </div>
 
-  <div class="clearfix right">
-    <a ui-sref="forgot_password" class="small">
-      Forget your password?
-    </a>
+  <div class="form-group form-group-lg">
+    <input class="form-control" ng-model="ctrl.credentials.password_confirmation" required type="password" placeholder="Confirm Password" />
   </div>
 
   <div class="clearfix mb15">
     <button type="submit"
             class="btn btn-lg btn-w120 btn-primary text-uppercase">
-      Sign In
+      Sign Up
     </button>
-  </div>
 
-  <div class="clearfix text-center">
-    <p>Don't have an account? <a ui-sref="register">Register Now</a></p>
+    <div class="right">
+      <a ui-sref="login">
+        Already have an account?
+      </a>
+    </div>
   </div>
 </form>

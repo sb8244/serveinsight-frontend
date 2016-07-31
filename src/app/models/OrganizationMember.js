@@ -69,7 +69,10 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
         $rootScope.current_organzation_member = null;
         savedOrganizationMember = null;
         $rootScope.appState = 'login';
-        $state.go('login');
+
+        if (!$state.current.login_route) {
+          $state.go('login');
+        }
       });
     }
   };

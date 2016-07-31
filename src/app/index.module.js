@@ -12,6 +12,7 @@ import { Permissions } from './services/permissions';
 import { notifyError } from './services/notifyError';
 import { unprocessableEntityText } from './services/unprocessableText';
 import { MentionHighlight } from './filters/mention_highlight';
+import { humanizeConstant } from './filters/humanizeConstant';
 
 angular.module('frontend',
   [
@@ -47,6 +48,7 @@ angular.module('frontend',
   .run(inviteRunBlock)
   .run(globalAvailability)
   .filter('mentionHighlight', MentionHighlight)
+  .filter('humanizeConstant', humanizeConstant)
   .service('Permissions', Permissions)
   .service('notifyError', notifyError)
   .service('unprocessableEntityText', unprocessableEntityText)

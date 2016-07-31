@@ -8,6 +8,9 @@ export function DeviseFactory(Restangular, $auth) {
           $auth.setToken(resp.token);
         }
       });
+    },
+    register: function(credentials) {
+      return Restangular.all("auth/users").customPOST({ user: credentials });
     }
   };
 }

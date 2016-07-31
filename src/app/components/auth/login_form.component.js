@@ -1,6 +1,6 @@
 import ngInject from '../../decorators/ng_inject';
 
-@ngInject("Devise", "OrganizationMember", "unprocessableEntityText")
+@ngInject("Devise", "OrganizationMember", "unprocessableEntityText", "$auth", "$sessionStorage")
 class LoginFormController {
   submit() {
     delete this.errors;
@@ -10,6 +10,13 @@ class LoginFormController {
       if (err.status === 422) {
         this.errors = this.unprocessableEntityText(err);
       }
+    });
+  }
+
+  google() {
+    this.$auth.authenticate('google', { invite_code: this.$sessionStorage.inviteCode }).then(() => {
+      delete this.$sessionStorage.inviteCode;
+      this.OrganizationMember.getAndRedirect();
     });
   }
 }

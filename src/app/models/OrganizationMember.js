@@ -67,10 +67,13 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
         }
       }).catch(function(err) {
         if (err.status === 401) {
-          if (err.data.error === "logged_out") {
+          $rootScope.appState = 'login';
+          savedOrganizationMember = null;
+
+          if ($state.current.name === "confirm_token") {
+            return;
+          } else if (err.data.error === "logged_out") {
             $rootScope.current_organzation_member = null;
-            savedOrganizationMember = null;
-            $rootScope.appState = 'login';
 
             if (!$state.current.login_route) {
               $state.go('login');
@@ -79,8 +82,10 @@ export function OrganizationMemberFactory($q, FeatureDefinitions, Restangular, $
             $rootScope.current_organzation_member = {
               email: err.data.email
             };
-            $rootScope.appState = 'login';
-            $state.go('confirm_email');
+
+            if (!$state.current.confirm_route) {
+              $state.go('confirm_email');
+            }
           }
         }
       });

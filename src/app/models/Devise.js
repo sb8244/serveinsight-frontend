@@ -18,6 +18,13 @@ export function DeviseFactory(Restangular, $auth) {
     },
     resendConfirmation: function() {
       return Restangular.all("auth/users/confirmation/resend").customPOST({});
+    },
+    confirmToken: function(token) {
+      return Restangular.all("auth/users").customGET("confirmation", { confirmation_token: token }).then((resp) => {
+        if (resp.token) {
+          $auth.setToken(resp.token);
+        }
+      });
     }
   };
 }

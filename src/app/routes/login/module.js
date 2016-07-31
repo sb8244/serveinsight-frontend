@@ -1,6 +1,7 @@
 import {} from '../../models/module';
 
 import { LoginController } from './login.controller';
+import { ConfirmTokenController } from './confirm_token.controller';
 
 angular.module("login", [])
   .config(routerConfig);
@@ -28,6 +29,13 @@ function routerConfig ($stateProvider) {
     })
     .state('confirm_email', {
       url: '/confirm_email',
-      templateUrl: "app/routes/login/confirm_email.html"
+      templateUrl: "app/routes/login/confirm_email.html",
+      confirm_route: true
+    })
+    .state('confirm_token', {
+      url: '/confirm/token?confirmation_token',
+      controller: ConfirmTokenController,
+      controllerAs: "ctrl",
+      confirm_route: true
     });
 }

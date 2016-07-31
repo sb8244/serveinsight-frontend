@@ -27,6 +27,11 @@ function routerConfig ($stateProvider) {
       templateUrl: "app/routes/login/forgot_password.html",
       login_route: true
     })
+    .state('reset_password', {
+      url: '/reset_password?reset_password_token',
+      templateUrl: "app/routes/login/reset_password.html",
+      login_route: true
+    })
     .state('confirm_email', {
       url: '/confirm_email',
       templateUrl: "app/routes/login/confirm_email.html",

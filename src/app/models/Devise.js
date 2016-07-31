@@ -27,6 +27,13 @@ export function DeviseFactory(Restangular, $auth, $sessionStorage) {
           $auth.setToken(resp.token);
         }
       });
+    },
+    requestNewPassword: function(email) {
+      return Restangular.all("auth/users").customPOST({ user: { email } }, "password");
+    },
+    resetPassword: function(credentials, token) {
+      credentials.reset_password_token = token;
+      return Restangular.all("auth/users").customPUT({ user: credentials }, "password");
     }
   };
 }
